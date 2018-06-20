@@ -1,0 +1,46 @@
+{
+  "name": "challonge-ts",
+  "version": "0.0.1",
+  "description": "Challonge API interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest tests"
+  },
+  "keywords": [
+    "challonge",
+    "typescript"
+  ],
+  "author": "EdwardJFox",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "gulp": "^3.9.1",
+    "gulp-typedoc": "^2.2.0",
+    "gulp-typescript": "^4.0.2",
+    "jest": "^23.1.0",
+    "ts-jest": "^22.4.6",
+    "typedoc": "^0.11.1",
+    "typescript": "^2.9.2"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.ts$": "<rootDir>/preprocessor.js"
+    },
+    "testPathIgnorePatterns": [
+      "/node_modules/",
+      "/docs/",
+      "/build/"
+    ],
+    "testMatch": [
+      "**/tests/**/*.test.ts"
+    ],
+    "moduleFileExtensions": [
+      "ts",
+      "js"
+    ]
+  }
+}
