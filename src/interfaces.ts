@@ -53,6 +53,14 @@ export interface updateTournament {
   tournament: tournamentParameters
 }
 
+/** Interface for the Process check-in endpoint  */
+export interface processCheckIns {
+  /** Include an array of associated participant records in the response. Either 0 or 1 */
+  include_participants: 0 | 1
+  /** Include an array of associated match records in the response. Either 0 or 1 */
+  include_matches: 0 | 1
+}
+
 /** Parameters for creating a tournament */
 export interface tournamentParameters {
   /** Your event's name/title (Max: 60 characters) */

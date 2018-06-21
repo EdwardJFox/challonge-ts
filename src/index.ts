@@ -54,7 +54,12 @@ export default class Challonge {
   }
 
   public processTournamentCheckIn(tournament_url: string) {
-    
+    return new Promise((resolve, reject) => {
+      this.postRequest(`tournaments/${this.tournamentUrl(tournament_url)}/process_check_ins`).then(res => {
+        let { data: { tournament } , status } = res;
+        resolve({ tournament, status });
+      }).catch(err => reject(err.response));
+    });
   }
 
   public abortTournamentCheckIn(tournament_url: string) {

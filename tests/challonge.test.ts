@@ -1,4 +1,4 @@
-import { Challonge } from '../src';
+import Challonge from '../src';
 import * as challongeInterfaces from '../src/interfaces';
 
 let challonge;
@@ -7,7 +7,6 @@ let mainUrl = Math.random().toString(36).substring(7);
 const challonge_api_key = 'i_am_an_api_key';
 
 describe('Challonge', () => {
-
 	beforeAll(async () => {
 		challonge = new Challonge(challonge_api_key);
 		await challonge.createTournament({
