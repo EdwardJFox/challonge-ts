@@ -22,7 +22,7 @@ gulp.task("typedoc", function(){
             target: "es2017",
             includeDeclarations: true,
             out: "docs/",
-            name: "Smash Commander Server",
+            name: "Challonge-ts",
             ignoreCompilerErrors: false,
             version: true,
             externalPattern: "**/node_modules/**",
