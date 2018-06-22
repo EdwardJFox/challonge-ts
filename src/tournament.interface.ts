@@ -1,8 +1,3 @@
-/** Base interface for post requests to the Challonge API */
-export interface challongeBase {
-  api_key: string
-}
-
 /** Tournament Interfaces */
 
 /** Enum for the options for tournament_type */
