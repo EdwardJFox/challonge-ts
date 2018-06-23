@@ -1,5 +1,5 @@
 import ChallongeBase from './base';
-import * as matchInterfaces from './match.interface';
+import * as matchInterfaces from './interfaces/match.interface';
 
 export default class Match extends ChallongeBase {
   constructor(public api_key: string, public tournament: string, public match_id: number) {

@@ -1,5 +1,5 @@
 import ChallongeBase from './base';
-import * as participantInterfaces from './participant.interface';
+import * as participantInterfaces from './interfaces/participant.interface';
 
 export default class Participant extends ChallongeBase {
   constructor(public api_key: string, public tournament: string, public id: number, public group?: string) {

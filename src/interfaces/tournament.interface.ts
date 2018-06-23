@@ -1,5 +1,8 @@
+import { baseRequest }  from './base.interface';
+
 /** Tournament Interfaces */
 
+/** Enums */
 /** Enum for the options for tournament_type */
 export enum tournamentTypeEnum {
   /** Single elimination */
@@ -10,6 +13,18 @@ export enum tournamentTypeEnum {
   ROUND_ROBIN = 'round robin',
   /** Swiss */
   SWISS = 'swiss'
+}
+
+/** Enum for tournaments state */
+export enum tournamentStateEnum {
+  /** All tournaments */
+  ALL = 'all',
+  /** Only pending tournaments */
+  PENDING = 'pending',
+  /** Only in progress tournaments */
+  IN_PROGRESS = 'in_progress',
+  /** Only ended tournaments */
+  ENDED = 'ended'
 }
 
 /** Enum for the options for ranked_by */
@@ -34,6 +49,23 @@ export enum tournamentGrandFinalsModifierEnum {
   SINGLE_MATCH = 'single match',
   /** Don't create a finals match between winners and losers bracket finalists */
   SKIP = 'skip'
+}
+
+/** API request interfaces */
+/** List tournaments (index) interface */
+export interface indexTournaments extends baseRequest {
+  /** What state of tournaments to index */
+  state?: tournamentStateEnum
+  /** Type of tournament to index */
+  type?: tournamentTypeEnum
+  /** Tournaments created after date; format YYYY-MM-DD */
+  created_after?: string
+  /** Tournaments created before date; format YYYY-MM-DD */
+  created_before?: string
+  /** A Challonge subdomain you've published tournaments to. NOTE: Until v2 of 
+   * our API, the subdomain parameter is required to retrieve a list of your 
+   * organization-hosted tournaments. */
+  subdomain?: string
 }
 
 /** Interface for the Create Tournament endpoint */
@@ -129,7 +161,91 @@ export interface tournamentAction {
 /** Tournament responses */
 
 /** Response expected from getTournament */
-export interface getTournamentsResponse {
+export interface indexTournamentsResponse {
   tournaments: Array<tournamentParameters>;
   status: number;
 }
+
+export interface createTournamentResponse {
+  tournament: tournamentParameters;
+}
+
+/** Tournament response object */
+export interface tournamentResponseObject {
+  accept_attachments: boolean,
+  allow_participant_match_reporting: boolean,
+  anonymous_voting: boolean,
+  category: null,
+  check_in_duration: null,
+  completed_at: null,
+  created_at: Date,
+  created_by_api: boolean,
+  credit_capped: boolean,
+  description: "",
+  game_id: number,
+  group_stages_enabled: boolean,
+  hide_forum: boolean,
+  hide_seeds: boolean,
+  hold_third_place_match: boolean,
+  id: number,
+  max_predictions_per_user: number,
+  name: string,
+  notify_users_when_matches_open: boolean,
+  notify_users_when_the_tournament_ends: boolean,
+  open_signup: boolean,
+  participants_count: number,
+  prediction_method: number,
+  predictions_opened_at: null,
+  private: boolean,
+  progress_meter: number,
+  /** Number between 0 and 1 */
+  pts_for_bye: number,
+  /** Number between 0 and 1 */
+  pts_for_game_tie: number,
+  /** Number between 0 and 1 */
+  pts_for_game_win: number,
+  /** Number between 0 and 1 */
+  pts_for_match_tie: number,
+  /** Number between 0 and 1 */
+  pts_for_match_win: number,
+  quick_advance: boolean,
+  ranked_by: tournamentRankedByType,
+  require_score_agreement: boolean,
+  /** Number between 0 and 1 */
+  rr_pts_for_game_tie: number,
+  /** Number between 0 and 1 */
+  rr_pts_for_game_win: number,
+  /** Number between 0 and 1 */
+  rr_pts_for_match_tie: number,
+  /** Number between 0 and 1 */
+  rr_pts_for_match_win: number,
+  sequential_pairings: boolean,
+  show_rounds: boolean,
+  signup_cap: null,
+  start_at: null,
+  started_at: Date,
+  started_checking_in_at: null,
+  state: string,
+  swiss_rounds: number,
+  teams: boolean,
+  tie_breaks: Array<tournamentTieBreakType>,
+  tournament_type: tournamentTypeType,
+  updated_at: Date,
+  url: string,
+  description_source: string,
+  subdomain: null,
+  full_challonge_url: string,
+  live_image_url: string,
+  sign_up_url: null,
+  review_before_finalizing: boolean,
+  accepting_predictions: boolean,
+  participants_locked: boolean,
+  game_name: string,
+  participants_swappable: boolean,
+  team_convertable: boolean,
+  group_stages_were_started: boolean
+}
+
+export type tournamentRankedByType = 'match wins' | 'game wins' | 'game win percentage' | 'points scored' | 'points difference' | 'custom';
+export type tournamentTypeType = 'single elimination' | 'double elimination' | 'round robin';
+export type tournamentTieBreakType = 'match wins vs tied' | 'game wins' | 'points scored';

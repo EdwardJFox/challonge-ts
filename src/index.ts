@@ -1,4 +1,4 @@
-import { tournamentParameters } from './tournament.interface';
+import { tournamentParameters } from './interfaces/tournament.interface';
 import ChallongeBase from './base';
 
 /** Wrapper class for the account based Challonge actions, such as list all

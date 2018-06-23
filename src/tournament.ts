@@ -1,12 +1,10 @@
 import ChallongeBase from './base';
-import * as tournamentInterfaces from './tournament.interface';
+import * as tournamentInterfaces from './interfaces/tournament.interface';
 
-export default class Tournament extends ChallongeBase {
+export default class Tournament {
   baseUrl: string;
 
   constructor(public api_key: string, tournament: string, group?: string) {
-    super(api_key);
-
     this.baseUrl = this.url(tournament, group);
   }
 
