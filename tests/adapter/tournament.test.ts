@@ -1,44 +1,47 @@
 import * as tournamentAdapter from '../../src/adapter/tournaments';
 import * as challongeInterfaces from '../../src/interfaces/tournament.interface';
+
 var fs = require('fs');
-var axiosVCR = require('axios-vcr');
+import { setupRecorder } from "jest-nock-record";
 
 let mainName = Math.random().toString(36).substring(7);
 let mainUrl = Math.random().toString(36).substring(7);
+
 const challonge_api_key = fs.readFileSync('./tests/api_key.txt', 'utf8');
+const record = setupRecorder();
 
 describe('Challonge Adapter - Tournaments', () => {
   describe('index function', () => {
     it('Retrieves an array of all tournaments', async () => {
-      axiosVCR.mountCassette('./tests/fixtures/tournaments/index_200.json');
+      const { completeRecording } = await record("tournaments/index_200.json");
 
-      const tournaments = await tournamentAdapter.index(challonge_api_key, {
+      const data = await tournamentAdapter.index(challonge_api_key, {
         state: challongeInterfaces.tournamentStateEnum.ALL
       });
-      
-      expect(tournaments.status).toBe(200);
-      expect(tournaments.tournaments).toHaveLength(2);
+    
+      completeRecording();
 
-      axiosVCR.ejectCassette('./tests/fixtures/tournaments/index_200.json');
+      expect(data.status).toBe(200);
+      expect(data.tournaments).toHaveLength(2);
     });
   });
 
   describe('create function', () => {
-    it('Retrieves an array of all tournaments', async () => {
-      axiosVCR.mountCassette('./tests/fixtures/tournaments/create_200.json');
+    it('Creates a tournament', async () => {
+      const { completeRecording } = await record("tournaments/create_200.json");
 
-      const tournaments = await tournamentAdapter.create(challonge_api_key, {
+      const data = await tournamentAdapter.create(challonge_api_key, {
         tournament: {
           name: mainName,
           url: mainUrl
         }
       });
-      
-      expect(tournaments.status).toBe(200);
-      expect(tournaments.tournament.name).toBe(mainName);
-      expect(tournaments.tournament.url).toBe(mainUrl);
 
-      axiosVCR.ejectCassette('./tests/fixtures/tournaments/create_200.json');
+      completeRecording();
+
+      expect(data.status).toBe(200);
+      expect(data.tournament.name).toBe(mainName);
+      expect(data.tournament.url).toBe(mainUrl);
     });
   });
 });

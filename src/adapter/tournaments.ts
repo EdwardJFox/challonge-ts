@@ -17,6 +17,7 @@ export function create(api_key: string, params: tournamentInterfaces.createTourn
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
+      
       resolve({ tournament, status });
     }).catch(err => reject(err.response));
   });
