@@ -90,6 +90,11 @@ export interface updateTournament extends tournamentParameters {
 export interface processCheckIns extends tournamentAction {
 }
 
+/** Parameter interface for the abort check-in endpoint  */
+export interface abortCheckIns extends tournamentAction {
+}
+
+
 /** Parameters for creating a tournament */
 export interface tournamentParameters {
   /** Your event's name/title (Max: 60 characters) */
@@ -198,8 +203,13 @@ export interface updateTournamentResponse extends tournamentsResponseBase {
 export interface destroyTournamentResponse extends tournamentsResponseBase {
 }
 
-/** Response expected from destroy tournament */
+/** Response expected when processing check ins for tournament */
 export interface processCheckInsTournamentResponse extends tournamentsResponseBase {
+  tournament: tournamentResponseObject;
+}
+
+/** Response expected when aborting check ins for tournament */
+export interface abortCheckInsTournamentResponse extends tournamentsResponseBase {
   tournament: tournamentResponseObject;
 }
 

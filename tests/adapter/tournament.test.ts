@@ -99,4 +99,17 @@ describe('Challonge Adapter - Tournaments', () => {
       expect(data.tournament.state).toBe('checked_in');
     });
   });
+
+  describe('abortheckIns function', () => {
+    it('Changes a tournaments state to checked_in', async () => {
+      const { completeRecording } = await record("tournaments/abortCheckIns_200");
+
+      const data = await tournamentAdapter.abortCheckIns(challonge_api_key, url(mainUrl));
+
+      completeRecording();
+
+      expect(data.status).toBe(200);
+      expect(data.tournament.state).toBe('pending');
+    });
+  });
 });

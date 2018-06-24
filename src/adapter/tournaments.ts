@@ -64,9 +64,9 @@ export function destroy(api_key: string, tournament_url: string): Promise<tourna
  * NOTE: Checked in participants on the waiting list will be promoted if slots
  *  become available.
  */
-export function processCheckIns(api_key: string, tournament_url: string): Promise<tournamentInterfaces.processCheckInsTournamentResponse> {
+export function processCheckIns(api_key: string, tournament_url: string, params?: tournamentInterfaces.processCheckIns): Promise<tournamentInterfaces.processCheckInsTournamentResponse> {
   return new Promise((resolve, reject) => {
-    ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/process_check_ins`, api_key).then(res => {
+    ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/process_check_ins`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
     }).catch(err => reject(err));
@@ -82,9 +82,9 @@ export function processCheckIns(api_key: string, tournament_url: string): Promis
  * 2. Transitions the tournament state from 'checking_in' or 'checked_in' to 
  * 'pending'
  */
-export function abortTournamentCheckIn(tournament_url: string, params?: tournamentInterfaces.tournamentAction) {
+export function abortCheckIns(api_key: string, tournament_url: string, params?: tournamentInterfaces.abortCheckIns): Promise<tournamentInterfaces.abortCheckInsTournamentResponse> {
   return new Promise((resolve, reject) => {
-    this.postRequest(`tournaments/${this.baseUrl}/abort_check_in`).then(res => {
+    ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/abort_check_in`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
     }).catch(err => reject(err));
