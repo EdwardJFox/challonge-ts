@@ -64,9 +64,9 @@ export function destroy(api_key: string, tournament_url: string): Promise<tourna
  * NOTE: Checked in participants on the waiting list will be promoted if slots
  *  become available.
  */
-export function processTournamentCheckIn(tournament_url: string) {
+export function processCheckIns(api_key: string, tournament_url: string): Promise<tournamentInterfaces.processCheckInsTournamentResponse> {
   return new Promise((resolve, reject) => {
-    this.postRequest(`tournaments/${this.baseUrl}/process_check_ins`).then(res => {
+    ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/process_check_ins`, api_key).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
     }).catch(err => reject(err));

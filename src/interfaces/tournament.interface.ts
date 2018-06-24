@@ -68,26 +68,26 @@ export interface indexTournaments {
   subdomain?: string
 }
 
-/** Interface for the Create Tournament endpoint */
+/** Parameter interface for the Create Tournament endpoint */
 export interface createTournament {
   /** Tournament object */
   tournament: strictTournamentParameters
 }
 
-/** Interface for the Show Tournament endpoint */
+/** Parameter interface for the Show Tournament endpoint */
 export interface showTournament extends tournamentAction {
 }
 
-/** Interface for the Update Tournament endpoint */
+/** Parameter interface for the Update Tournament endpoint */
 export interface updateTournament extends tournamentParameters {
 }
 
-/** Interface for the Process check-in endpoint  */
-export interface processCheckIns {
-  /** Include an array of associated participant records in the response. Either 0 or 1 */
-  include_participants: 0 | 1
-  /** Include an array of associated match records in the response. Either 0 or 1 */
-  include_matches: 0 | 1
+/** Parameter interface for the Update Tournament endpoint */
+export interface updateTournament extends tournamentParameters {
+}
+
+/** Parameter interface for the Process check-in endpoint  */
+export interface processCheckIns extends tournamentAction {
 }
 
 /** Parameters for creating a tournament */
@@ -163,9 +163,9 @@ export interface strictTournamentParameters extends tournamentParameters {
 /** Start a tournament, opening up first round matches for score reporting. The tournament must have at least 2 participants. */
 export interface tournamentAction {
   /** Include an array of associated participant records */
-  include_participants: number;
+  include_participants?: 0 | 1;
   /** Include an array of associated match records */
-  include_matches: number;
+  include_matches?: 0 | 1;
 }
 
 /** Tournament responses */
@@ -173,25 +173,34 @@ export interface tournamentsResponseBase {
   status: number
 }
 
-/** Response expected from getTournament */
+/** Response expected from index on tournaments */
 export interface indexTournamentsResponse extends tournamentsResponseBase {
   tournaments: Array<tournamentParameters>;
   status: number;
 }
 
+/** Response expected from create tournaments */
 export interface createTournamentResponse extends tournamentsResponseBase {
-  tournament: tournamentParameters;
+  tournament: tournamentResponseObject;
 }
 
+/** Response expected from show tournament */
 export interface showTournamentResponse extends tournamentsResponseBase {
-  tournament: tournamentParameters;
+  tournament: tournamentResponseObject;
 }
 
+/** Response expected from update tournament */
 export interface updateTournamentResponse extends tournamentsResponseBase {
-  tournament: tournamentParameters;
+  tournament: tournamentResponseObject;
 }
 
+/** Response expected from destroy tournament */
 export interface destroyTournamentResponse extends tournamentsResponseBase {
+}
+
+/** Response expected from destroy tournament */
+export interface processCheckInsTournamentResponse extends tournamentsResponseBase {
+  tournament: tournamentResponseObject;
 }
 
 /** Tournament response object */
