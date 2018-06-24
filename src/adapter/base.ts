@@ -33,6 +33,6 @@ export function buildResponse(res) {
   return { data, status }
 }
 
-export function url(tournament, group): string {
+export function url(tournament: string, group?: string): string {
   return group !== undefined && group !== '' ? `${group + "-" + tournament}` : tournament
 }

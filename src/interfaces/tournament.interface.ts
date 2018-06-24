@@ -74,6 +74,10 @@ export interface createTournament {
   tournament: tournamentParameters
 }
 
+/** Interface for the Show Tournament endpoint */
+export interface showTournament extends tournamentAction {
+}
+
 /** Interface for the Update Tournament endpoint */
 export interface updateTournament {
   /** Tournament object */

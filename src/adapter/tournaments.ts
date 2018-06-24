@@ -2,34 +2,34 @@ import * as ChallongeAdapterBase from './base';
 import * as tournamentInterfaces from '../interfaces/tournament.interface';
 
 /** Retrieve a set of tournaments created with your account. */
-export function index(api_key: string, params: tournamentInterfaces.indexTournaments): Promise<tournamentInterfaces.indexTournamentsResponse> {
+export function index(api_key: string, params: tournamentInterfaces.indexTournaments): Promise<tournamentInterfaces.indexTournament> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.getRequest('tournaments', api_key, params).then(res => {
       const { data, status } = res;
 
       resolve({ tournaments: data, status });
-    }).catch(err => reject(err.response));
+    }).catch(err => reject(err));
   });
 }
 
 /** Create a new tournament. */
-export function create(api_key: string, params: tournamentInterfaces.createTournament): Promise<tournamentInterfaces.createTournamentResponse> {
+export function create(api_key: string, params: tournamentInterfaces.createTournament): Promise<tournamentInterfaces.createTournamen> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
       
       resolve({ tournament, status });
-    }).catch(err => reject(err.response));
+    }).catch(err => reject(err));
   });
 }
 
 /** Retrieve a single tournament record created with your account. */
-export function show(tournament_url: string, params: tournamentInterfaces.tournamentAction): Promise<any> {
+export function show(api_key: string, tournament_url: string, params?: tournamentInterfaces.showTournament): Promise<any> {
   return new Promise((resolve, reject) => {
-    this.getRequest(`tournaments/${this.baseUrl}`, params).then(res => {
+    ChallongeAdapterBase.getRequest(`tournaments/${tournament_url}`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
-    }).catch(err => reject(err.response));
+    }).catch(err => reject(err));
   });
 }
 
@@ -39,7 +39,7 @@ export function update(tournament_url: string, params?: tournamentInterfaces.tou
     this.putRequest(`tournaments/${this.baseUrl}`, { tournament: {...params, subdomain: this.group } }).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
-    }).catch(err => reject(err.response));
+    }).catch(err => reject(err));
   });
 }
 
@@ -49,7 +49,7 @@ export function destroyTournament(tournament_url: string) {
     this.deleteRequest(`tournaments/${this.baseUrl}`).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
-    }).catch(err => reject(err.response));
+    }).catch(err => reject(err));
   });
 }
 
@@ -69,7 +69,7 @@ export function processTournamentCheckIn(tournament_url: string) {
     this.postRequest(`tournaments/${this.baseUrl}/process_check_ins`).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
-    }).catch(err => reject(err.response));
+    }).catch(err => reject(err));
   });
 }
 
@@ -87,7 +87,7 @@ export function abortTournamentCheckIn(tournament_url: string, params?: tourname
     this.postRequest(`tournaments/${this.baseUrl}/abort_check_in`).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
-    }).catch(err => reject(err.response));
+    }).catch(err => reject(err));
   });
 }
 
@@ -99,7 +99,7 @@ export function start(tournament_url: string, params?: tournamentInterfaces.tour
       console.log(res.data);
       let { data, status } = res;
       resolve({ data, status });
-    }).catch(err => reject(err.response));
+    }).catch(err => reject(err));
   });
 }
 
@@ -153,7 +153,7 @@ export function participantsBulkAdd(tournament_url: string, participants: Array<
     this.postRequest(`tournaments/${this.baseUrl}/participants/bulk_add`, { participants }).then(res => {
       let { data, status } = res;
       resolve({ data, status });
-    }).catch(err => reject(err.response));
+    }).catch(err => reject(err));
   });
 
 }
