@@ -1,17 +1,20 @@
 import * as ChallongeAdapterBase from './base';
+import * as tournamentInterfaces from '../interfaces/tournament.interface';
 
 /** Retrieve a set of tournaments created with your account. */
 export function index(): Promise<any> {
   return new Promise((resolve, reject) => {
     this.getRequest('tournaments').then(res => {
       let { data, status } = res;
+
+      data = data as tournamentInterfaces.indexTournamentsResponse;
       resolve({ tournaments: data, status });
     }).catch(err => reject(err.response));
   });
 }
 
 /** Create a new tournament. */
-export function createTournament(params?: tournamentParameters): Promise<any> {
+export function createTournament(params?: any): Promise<any> {
   return new Promise((resolve, reject) => {
     this.postRequest(`tournaments`, { tournament: {...params, subdomain: this.group } }).then(res => {
       let { data: { tournament } , status } = res;
