@@ -2,21 +2,20 @@ import * as ChallongeAdapterBase from './base';
 import * as tournamentInterfaces from '../interfaces/tournament.interface';
 
 /** Retrieve a set of tournaments created with your account. */
-export function index(): Promise<any> {
+export function index(api_key: string, params: tournamentInterfaces.indexTournaments): Promise<tournamentInterfaces.indexTournamentsResponse> {
   return new Promise((resolve, reject) => {
-    this.getRequest('tournaments').then(res => {
-      let { data, status } = res;
+    ChallongeAdapterBase.getRequest('tournaments', api_key, params).then(res => {
+      const { data, status } = res;
 
-      data = data as tournamentInterfaces.indexTournamentsResponse;
       resolve({ tournaments: data, status });
     }).catch(err => reject(err.response));
   });
 }
 
 /** Create a new tournament. */
-export function createTournament(params?: any): Promise<any> {
+export function create(api_key: string, params: tournamentInterfaces.createTournament): Promise<tournamentInterfaces.createTournamentResponse> {
   return new Promise((resolve, reject) => {
-    this.postRequest(`tournaments`, { tournament: {...params, subdomain: this.group } }).then(res => {
+    ChallongeAdapterBase.postRequest(`tournaments`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
     }).catch(err => reject(err.response));
@@ -24,7 +23,7 @@ export function createTournament(params?: any): Promise<any> {
 }
 
 /** Retrieve a single tournament record created with your account. */
-export function show(tournament_url: string, params?: tournamentInterfaces.tournamentAction): Promise<any> {
+export function show(tournament_url: string, params: tournamentInterfaces.tournamentAction): Promise<any> {
   return new Promise((resolve, reject) => {
     this.getRequest(`tournaments/${this.baseUrl}`, params).then(res => {
       let { data: { tournament } , status } = res;
@@ -156,8 +155,4 @@ export function participantsBulkAdd(tournament_url: string, participants: Array<
     }).catch(err => reject(err.response));
   });
 
-}
-
-private url(tournament, group): string {
-  return group !== undefined && group !== '' ? `${group + "-" + tournament}` : tournament
 }

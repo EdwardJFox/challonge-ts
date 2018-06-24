@@ -32,3 +32,7 @@ export function buildResponse(res) {
   let { data, status } = res;
   return { data, status }
 }
+
+export function url(tournament, group): string {
+  return group !== undefined && group !== '' ? `${group + "-" + tournament}` : tournament
+}

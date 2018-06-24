@@ -13,11 +13,13 @@
   "author": "EdwardJFox",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.18.0"
+    "axios": "^0.18.0",
+    "node-fetch": "^2.1.2"
   },
   "devDependencies": {
     "@pollyjs/core": "^0.4.0",
     "@types/jest": "^23.1.1",
+    "axios-vcr": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-typedoc": "^2.2.0",
     "gulp-typescript": "^5.0.0-alpha.2",

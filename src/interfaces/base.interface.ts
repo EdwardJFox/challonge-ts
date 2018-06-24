@@ -1,3 +1,4 @@
-export interface baseRequest {
-  api_key: string;
+export interface baseTournamentRequest {
+  tournament_name: string;
+  group?: string;
 }

@@ -1,4 +1,4 @@
-import { baseRequest }  from './base.interface';
+import { baseRequest, baseTournamentRequest }  from './base.interface';
 
 /** Tournament Interfaces */
 
@@ -53,7 +53,7 @@ export enum tournamentGrandFinalsModifierEnum {
 
 /** API request interfaces */
 /** List tournaments (index) interface */
-export interface indexTournaments extends baseRequest {
+export interface indexTournaments {
   /** What state of tournaments to index */
   state?: tournamentStateEnum
   /** Type of tournament to index */
@@ -159,14 +159,17 @@ export interface tournamentAction {
 }
 
 /** Tournament responses */
+export interface tournamentsResponseBase {
+  status: number
+}
 
 /** Response expected from getTournament */
-export interface indexTournamentsResponse {
+export interface indexTournamentsResponse extends tournamentsResponseBase {
   tournaments: Array<tournamentParameters>;
   status: number;
 }
 
-export interface createTournamentResponse {
+export interface createTournamentResponse extends tournamentsResponseBase {
   tournament: tournamentParameters;
 }
 
