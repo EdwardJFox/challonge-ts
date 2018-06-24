@@ -10,15 +10,15 @@ export function getRequest(path: string, api_key: string, params?: any): Promise
   });
 }
 
-export function postRequest(path: string, api_key: string, data?: any): Promise<any> {
+export function postRequest(path: string, api_key: string, params?: any): Promise<any> {
   return axios.post(`${endpoint}${path}.json`, {
-    ...{ "api_key": api_key }, ...data
+    ...{ "api_key": api_key }, ...params
   });
 }
 
-export function putRequest(path: string, api_key: string, data?: any): Promise<any> {
+export function putRequest(path: string, api_key: string, params?: any): Promise<any> {
   return axios.put(`${endpoint}${path}.json`, {
-    ...{ "api_key": api_key }, ...data
+    ...{ "api_key": api_key }, ...params
   });
 }
 

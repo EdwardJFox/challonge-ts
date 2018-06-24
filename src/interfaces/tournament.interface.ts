@@ -71,7 +71,7 @@ export interface indexTournaments {
 /** Interface for the Create Tournament endpoint */
 export interface createTournament {
   /** Tournament object */
-  tournament: tournamentParameters
+  tournament: strictTournamentParameters
 }
 
 /** Interface for the Show Tournament endpoint */
@@ -79,9 +79,7 @@ export interface showTournament extends tournamentAction {
 }
 
 /** Interface for the Update Tournament endpoint */
-export interface updateTournament {
-  /** Tournament object */
-  tournament: tournamentParameters
+export interface updateTournament extends tournamentParameters {
 }
 
 /** Interface for the Process check-in endpoint  */
@@ -95,11 +93,11 @@ export interface processCheckIns {
 /** Parameters for creating a tournament */
 export interface tournamentParameters {
   /** Your event's name/title (Max: 60 characters) */
-  name: string
+  name?: string
   /** Single elimination (default), double elimination, round robin, swiss */
   tournament_type?: tournamentTypeEnum
   /** challonge.com/url (letters, numbers, and underscores only) */
-  url: string
+  url?: string
   /** subdomain.challonge.com/url (Requires write access to the specified subdomain) */
   subdomain?: string
   /** Description/instructions to be displayed above the bracket */
@@ -154,6 +152,14 @@ export interface tournamentParameters {
   grand_finals_modifier?: tournamentGrandFinalsModifierEnum
 }
 
+/** Same as tournamentParameters but with name and url being strictly required */
+export interface strictTournamentParameters extends tournamentParameters {
+  /** Your event's name/title (Max: 60 characters) */
+  name: string
+  /** challonge.com/url (letters, numbers, and underscores only) */
+  url: string
+}
+
 /** Start a tournament, opening up first round matches for score reporting. The tournament must have at least 2 participants. */
 export interface tournamentAction {
   /** Include an array of associated participant records */
@@ -175,6 +181,17 @@ export interface indexTournamentsResponse extends tournamentsResponseBase {
 
 export interface createTournamentResponse extends tournamentsResponseBase {
   tournament: tournamentParameters;
+}
+
+export interface showTournamentResponse extends tournamentsResponseBase {
+  tournament: tournamentParameters;
+}
+
+export interface updateTournamentResponse extends tournamentsResponseBase {
+  tournament: tournamentParameters;
+}
+
+export interface destroyTournamentResponse extends tournamentsResponseBase {
 }
 
 /** Tournament response object */

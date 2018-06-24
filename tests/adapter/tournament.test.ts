@@ -28,7 +28,7 @@ describe('Challonge Adapter - Tournaments', () => {
   });
 
   describe('create function', () => {
-    it('Creates a tournament', async () => {
+    it('Creates a tournament and returns as expected', async () => {
       const { completeRecording } = await record("tournaments/create_200");
 
       const data = await tournamentAdapter.create(challonge_api_key, {
@@ -47,7 +47,7 @@ describe('Challonge Adapter - Tournaments', () => {
   });
 
   describe('show function', () => {
-    it('Gets a tournament', async () => {
+    it('Gets a tournament and returns as expected', async () => {
       const { completeRecording } = await record("tournaments/show_200");
 
       const data = await tournamentAdapter.show(challonge_api_key, url(mainUrl));
@@ -57,6 +57,33 @@ describe('Challonge Adapter - Tournaments', () => {
       expect(data.status).toBe(200);
       expect(data.tournament.name).toBe(mainName);
       expect(data.tournament.url).toBe(mainUrl);
+    });
+  });
+
+  describe('update function', () => {
+    it('Updates a tournament and returns as expected', async () => {
+      const { completeRecording } = await record("tournaments/update_200");
+
+      const data = await tournamentAdapter.update(challonge_api_key, url(mainUrl), {
+        name: 'newTournamentName'
+      });
+
+      completeRecording();
+
+      expect(data.status).toBe(200);
+      expect(data.tournament.name).toBe('newTournamentName');
+    });
+  });
+
+  describe('destroy function', () => {
+    it('Destroys a tournament and returns as expected', async () => {
+      const { completeRecording } = await record("tournaments/destroy_200");
+
+      const data = await tournamentAdapter.destroy(challonge_api_key, url(mainUrl));
+
+      completeRecording();
+
+      expect(data.status).toBe(200);
     });
   });
 });

@@ -1,14 +1,17 @@
 [
     {
         "scope": "https://api.challonge.com:443",
-        "method": "get",
-        "path": "/v1/tournaments/testUrlChallongeTs.json?api_key=H5ReYtTNa4pxL4CP2Q6EdkGK0Ndj8y6GMkqQL4lg",
-        "body": "",
+        "method": "put",
+        "path": "/v1/tournaments/testUrlChallongeTs.json",
+        "body": {
+            "api_key": "H5ReYtTNa4pxL4CP2Q6EdkGK0Ndj8y6GMkqQL4lg",
+            "name": "newTournamentName"
+        },
         "status": 200,
         "response": {
             "tournament": {
                 "id": 4731202,
-                "name": "testNameChallongeTs",
+                "name": "newTournamentName",
                 "url": "testUrlChallongeTs",
                 "description": "",
                 "tournament_type": "single elimination",
@@ -16,8 +19,8 @@
                 "completed_at": null,
                 "require_score_agreement": false,
                 "notify_users_when_matches_open": true,
-                "created_at": "2018-06-24T17:20:06.730-04:00",
-                "updated_at": "2018-06-24T17:20:06.730-04:00",
+                "created_at": "2018-06-24T23:20:06.730+02:00",
+                "updated_at": "2018-06-24T23:20:24.204+02:00",
                 "state": "pending",
                 "open_signup": false,
                 "notify_users_when_the_tournament_ends": true,
@@ -86,29 +89,27 @@
         },
         "rawHeaders": [
             "Date",
-            "Sun, 24 Jun 2018 21:20:07 GMT",
+            "Sun, 24 Jun 2018 21:20:24 GMT",
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
-            "1961",
+            "1959",
             "Connection",
             "close",
             "Set-Cookie",
-            "__cfduid=dbc08cda1983ce4d490de92f45744a0661529875207; expires=Mon, 24-Jun-19 21:20:07 GMT; path=/; domain=.challonge.com; HttpOnly; Secure",
+            "__cfduid=d7fad71b4c65e9c6df60189617b7eb7af1529875224; expires=Mon, 24-Jun-19 21:20:24 GMT; path=/; domain=.challonge.com; HttpOnly; Secure",
             "Status",
             "200 OK",
             "X-Frame-Options",
             "ALLOWALL",
-            "X-Challonge-Cache-ID",
-            "tournament-4731202",
             "P3P",
             "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
             "ETag",
-            "W/\"dbde4bd1d9389833e4b953c233a57d7d\"",
+            "W/\"18d823678fcb9e10902293a2e62e81f1\"",
             "X-Request-Id",
-            "85cd5df6-cb99-4d86-b688-415ce747690f",
+            "16d07c7f-c616-40f0-b90c-e044fb811b97",
             "X-Runtime",
-            "0.027548",
+            "0.043477",
             "Cache-Control",
             "private, max-age=0, no-store, must-revalidate",
             "Pragma",
@@ -126,7 +127,7 @@
             "Server",
             "cloudflare",
             "CF-RAY",
-            "43023c8caa02362f-MAN"
+            "43023cf69880365f-MAN"
         ]
     }
 ]

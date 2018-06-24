@@ -2,7 +2,7 @@ import * as ChallongeAdapterBase from './base';
 import * as tournamentInterfaces from '../interfaces/tournament.interface';
 
 /** Retrieve a set of tournaments created with your account. */
-export function index(api_key: string, params: tournamentInterfaces.indexTournaments): Promise<tournamentInterfaces.indexTournament> {
+export function index(api_key: string, params: tournamentInterfaces.indexTournaments): Promise<tournamentInterfaces.indexTournamentsResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.getRequest('tournaments', api_key, params).then(res => {
       const { data, status } = res;
@@ -13,7 +13,7 @@ export function index(api_key: string, params: tournamentInterfaces.indexTournam
 }
 
 /** Create a new tournament. */
-export function create(api_key: string, params: tournamentInterfaces.createTournament): Promise<tournamentInterfaces.createTournamen> {
+export function create(api_key: string, params: tournamentInterfaces.createTournament): Promise<tournamentInterfaces.createTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
@@ -24,7 +24,7 @@ export function create(api_key: string, params: tournamentInterfaces.createTourn
 }
 
 /** Retrieve a single tournament record created with your account. */
-export function show(api_key: string, tournament_url: string, params?: tournamentInterfaces.showTournament): Promise<any> {
+export function show(api_key: string, tournament_url: string, params?: tournamentInterfaces.showTournament): Promise<tournamentInterfaces.showTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.getRequest(`tournaments/${tournament_url}`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
@@ -34,9 +34,9 @@ export function show(api_key: string, tournament_url: string, params?: tournamen
 }
 
 /** Update a tournament's attributes. */
-export function update(tournament_url: string, params?: tournamentInterfaces.tournamentParameters): Promise<any> {
+export function update(api_key: string, tournament_url: string, params?: tournamentInterfaces.updateTournament): Promise<tournamentInterfaces.updateTournamentResponse> {
   return new Promise((resolve, reject) => {
-    this.putRequest(`tournaments/${this.baseUrl}`, { tournament: {...params, subdomain: this.group } }).then(res => {
+    ChallongeAdapterBase.putRequest(`tournaments/${tournament_url}`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
       resolve({ tournament, status });
     }).catch(err => reject(err));
@@ -44,11 +44,11 @@ export function update(tournament_url: string, params?: tournamentInterfaces.tou
 }
 
 /** Deletes a tournament along with all its associated records. There is no undo, so use with care! */
-export function destroyTournament(tournament_url: string) {
+export function destroy(api_key: string, tournament_url: string): Promise<tournamentInterfaces.destroyTournamentResponse> {
   return new Promise((resolve, reject) => {
-    this.deleteRequest(`tournaments/${this.baseUrl}`).then(res => {
-      let { data: { tournament } , status } = res;
-      resolve({ tournament, status });
+    ChallongeAdapterBase.deleteRequest(`tournaments/${tournament_url}`, api_key).then(res => {
+      const { status } = res;
+      resolve({status});
     }).catch(err => reject(err));
   });
 }

@@ -13,7 +13,7 @@
         "status": 200,
         "response": {
             "tournament": {
-                "id": 4730996,
+                "id": 4731238,
                 "name": "testNameChallongeTs",
                 "url": "testUrlChallongeTs",
                 "description": "",
@@ -22,8 +22,8 @@
                 "completed_at": null,
                 "require_score_agreement": false,
                 "notify_users_when_matches_open": true,
-                "created_at": "2018-06-24T16:31:15.848-04:00",
-                "updated_at": "2018-06-24T16:31:15.848-04:00",
+                "created_at": "2018-06-24T17:29:50.887-04:00",
+                "updated_at": "2018-06-24T17:29:50.887-04:00",
                 "state": "pending",
                 "open_signup": false,
                 "notify_users_when_the_tournament_ends": true,
@@ -92,7 +92,7 @@
         },
         "rawHeaders": [
             "Date",
-            "Sun, 24 Jun 2018 20:31:16 GMT",
+            "Sun, 24 Jun 2018 21:29:51 GMT",
             "Content-Type",
             "application/json; charset=utf-8",
             "Content-Length",
@@ -100,7 +100,7 @@
             "Connection",
             "close",
             "Set-Cookie",
-            "__cfduid=da956ba3efd518b83a8ba207603b38a851529872275; expires=Mon, 24-Jun-19 20:31:15 GMT; path=/; domain=.challonge.com; HttpOnly; Secure",
+            "__cfduid=d003d9d3ed8ae095dd2025b7daf2c811c1529875790; expires=Mon, 24-Jun-19 21:29:50 GMT; path=/; domain=.challonge.com; HttpOnly; Secure",
             "Status",
             "200 OK",
             "X-Frame-Options",
@@ -108,11 +108,11 @@
             "P3P",
             "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
             "ETag",
-            "W/\"12d24318da698cce3f6835375668329b\"",
+            "W/\"93dbfa3b519553377469281dacf33cdf\"",
             "X-Request-Id",
-            "4c067ac4-7df1-49d3-8888-487ca11f79f0",
+            "74c5712c-ba28-4852-abe6-621c583c6b56",
             "X-Runtime",
-            "0.121507",
+            "0.167746",
             "Cache-Control",
             "private, max-age=0, no-store, must-revalidate",
             "Pragma",
@@ -130,7 +130,7 @@
             "Server",
             "cloudflare",
             "CF-RAY",
-            "4301f4fb5dbe361d-MAN"
+            "43024acc5eef3623-MAN"
         ]
     }
 ]
