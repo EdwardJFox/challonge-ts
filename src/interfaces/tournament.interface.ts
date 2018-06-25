@@ -1,5 +1,3 @@
-import { baseTournamentRequest }  from './base.interface';
-
 /** Tournament Interfaces */
 
 /** Enums */
