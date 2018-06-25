@@ -112,4 +112,56 @@ describe('Challonge Adapter - Tournaments', () => {
       expect(data.tournament.state).toBe('pending');
     });
   });
+
+  describe('start function', () => {
+    it('Changes a tournaments state to checked_in', async () => {
+      const { completeRecording } = await record("tournaments/start_200");
+
+      const data = await tournamentAdapter.start(challonge_api_key, url(mainUrl));
+
+      completeRecording();
+
+      expect(data.status).toBe(200);
+      expect(data.tournament.state).toBe('underway');
+    });
+  });
+
+  describe('finalize function', () => {
+    it('Changes a tournaments state to checked_in', async () => {
+      const { completeRecording } = await record("tournaments/finalize_200");
+
+      const data = await tournamentAdapter.finalize(challonge_api_key, url(mainUrl));
+
+      completeRecording();
+
+      expect(data.status).toBe(200);
+      expect(data.tournament.state).toBe('complete');
+    });
+  });
+
+  describe('reset function', () => {
+    it('Changes a tournaments state to checked_in', async () => {
+      const { completeRecording } = await record("tournaments/reset_200");
+
+      const data = await tournamentAdapter.reset(challonge_api_key, url(mainUrl));
+
+      completeRecording();
+
+      expect(data.status).toBe(200);
+      expect(data.tournament.state).toBe('pending');
+    });
+  });
+
+  describe('openForPredictions function', () => {
+    it('Changes a tournaments state to checked_in', async () => {
+      const { completeRecording } = await record("tournaments/openForPredictions_200");
+
+      const data = await tournamentAdapter.openForPredictions(challonge_api_key, url(mainUrl));
+
+      completeRecording();
+
+      expect(data.status).toBe(200);
+      expect(data.tournament.state).toBe('accepting_predictions');
+    });
+  });
 });

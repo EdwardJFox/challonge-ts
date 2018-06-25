@@ -1,4 +1,4 @@
-import { baseRequest, baseTournamentRequest }  from './base.interface';
+import { baseTournamentRequest }  from './base.interface';
 
 /** Tournament Interfaces */
 
@@ -94,6 +94,21 @@ export interface processCheckIns extends tournamentAction {
 export interface abortCheckIns extends tournamentAction {
 }
 
+/** Parameter interface for the start tournament endpoint  */
+export interface start extends tournamentAction {
+}
+
+/** Parameter interface for finalizing a tournaments results endpoint  */
+export interface finalize extends tournamentAction {
+}
+
+/** Parameter interface for restarting a tournament endpoint  */
+export interface reset extends tournamentAction {
+}
+
+/** Parameter interface for opening a tournaments predictions endpoint */
+export interface openForPredictions extends tournamentAction {
+}
 
 /** Parameters for creating a tournament */
 export interface tournamentParameters {
@@ -210,6 +225,26 @@ export interface processCheckInsTournamentResponse extends tournamentsResponseBa
 
 /** Response expected when aborting check ins for tournament */
 export interface abortCheckInsTournamentResponse extends tournamentsResponseBase {
+  tournament: tournamentResponseObject;
+}
+
+/** Response expected when aborting check ins for tournament */
+export interface startTournamentResponse extends tournamentsResponseBase {
+  tournament: tournamentResponseObject;
+}
+
+/** Response expected when finalising a tournaments results */
+export interface finalizeTournamentResponse extends tournamentsResponseBase {
+  tournament: tournamentResponseObject;
+}
+
+/** Response expected when restarting a tournament */
+export interface resetTournamentResponse extends tournamentsResponseBase {
+  tournament: tournamentResponseObject;
+}
+
+/** Response expected when restarting a tournament */
+export interface openForPredictionsTournamentResponse extends tournamentsResponseBase {
   tournament: tournamentResponseObject;
 }
 
