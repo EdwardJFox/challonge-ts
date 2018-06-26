@@ -1,5 +1,5 @@
 import ChallongeBase from './base';
-import * as attachmentInterfaces from './interfaces/attachment.interface';
+import * as attachmentInterfaces from './interfaces/matchAttachment.interface';
 
 export default class Attachment extends ChallongeBase {
   constructor(public api_key: string, public tournament: string,public match_id: number, public attachment_id: number) {

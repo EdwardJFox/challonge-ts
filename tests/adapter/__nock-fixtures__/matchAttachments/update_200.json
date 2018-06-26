@@ -1,0 +1,76 @@
+[
+    {
+        "scope": "https://api.challonge.com:443",
+        "method": "put",
+        "path": "/v1/tournaments/autototester/matches/125316886/attachments/345327.json",
+        "body": {
+            "api_key": "H5ReYtTNa4pxL4CP2Q6EdkGK0Ndj8y6GMkqQL4lg",
+            "match_attachment": {
+                "description": "Updated file attachment"
+            }
+        },
+        "status": 200,
+        "response": {
+            "match_attachment": {
+                "id": 345327,
+                "match_id": 125316886,
+                "user_id": 2687534,
+                "description": "Updated file attachment",
+                "url": null,
+                "original_file_name": null,
+                "created_at": "2018-06-27T07:40:04.974+10:00",
+                "updated_at": "2018-06-27T07:54:46.017+10:00",
+                "asset_file_name": null,
+                "asset_content_type": null,
+                "asset_file_size": null,
+                "asset_url": null
+            }
+        },
+        "rawHeaders": [
+            "Date",
+            "Tue, 26 Jun 2018 21:54:46 GMT",
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Content-Length",
+            "329",
+            "Connection",
+            "close",
+            "Set-Cookie",
+            "__cfduid=d028b18040cef51485f45f7a403c216b01530050085; expires=Wed, 26-Jun-19 21:54:45 GMT; path=/; domain=.challonge.com; HttpOnly; Secure",
+            "Status",
+            "200 OK",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "X-Content-Type-Options",
+            "nosniff",
+            "P3P",
+            "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
+            "ETag",
+            "W/\"69ce54123c6f47364cfb04afffceb80c\"",
+            "X-Request-Id",
+            "eef45229-d0e5-4704-a8e4-5f5dca482092",
+            "X-Runtime",
+            "0.061681",
+            "Cache-Control",
+            "private, max-age=0, no-store, must-revalidate",
+            "Pragma",
+            "no-cache",
+            "X-Cache",
+            "MISS",
+            "Accept-Ranges",
+            "bytes",
+            "Via",
+            "1.1 google",
+            "Alt-Svc",
+            "clear",
+            "Expect-CT",
+            "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+            "Server",
+            "cloudflare",
+            "CF-RAY",
+            "4312ea0caffd367d-MAN"
+        ]
+    }
+]

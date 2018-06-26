@@ -1,0 +1,107 @@
+[
+    {
+        "scope": "https://api.challonge.com:443",
+        "method": "get",
+        "path": "/v1/tournaments/autototester/matches/125316886/attachments.json?api_key=H5ReYtTNa4pxL4CP2Q6EdkGK0Ndj8y6GMkqQL4lg",
+        "body": "",
+        "status": 200,
+        "response": [
+            {
+                "match_attachment": {
+                    "id": 345326,
+                    "match_id": 125316886,
+                    "user_id": 2687534,
+                    "description": "Lorem Ipsum",
+                    "url": "",
+                    "original_file_name": null,
+                    "created_at": "2018-06-26T16:51:30.547-04:00",
+                    "updated_at": "2018-06-26T16:51:30.547-04:00",
+                    "asset_file_name": null,
+                    "asset_content_type": null,
+                    "asset_file_size": null,
+                    "asset_url": null
+                }
+            },
+            {
+                "match_attachment": {
+                    "id": 345324,
+                    "match_id": 125316886,
+                    "user_id": 2687534,
+                    "description": "Google homepage",
+                    "url": "http://google.com",
+                    "original_file_name": null,
+                    "created_at": "2018-06-26T16:51:18.407-04:00",
+                    "updated_at": "2018-06-26T16:51:18.407-04:00",
+                    "asset_file_name": null,
+                    "asset_content_type": null,
+                    "asset_file_size": null,
+                    "asset_url": null
+                }
+            },
+            {
+                "match_attachment": {
+                    "id": 345323,
+                    "match_id": 125316886,
+                    "user_id": 2687534,
+                    "description": "Homer",
+                    "url": "",
+                    "original_file_name": null,
+                    "created_at": "2018-06-26T16:50:56.881-04:00",
+                    "updated_at": "2018-06-26T16:50:56.881-04:00",
+                    "asset_file_name": "maxresdefault.jpg",
+                    "asset_content_type": "image/jpeg",
+                    "asset_file_size": 153299,
+                    "asset_url": "//s3.amazonaws.com/challonge_app/match_attachments/assets/000/345/323/"
+                }
+            }
+        ],
+        "rawHeaders": [
+            "Date",
+            "Tue, 26 Jun 2018 20:52:41 GMT",
+            "Content-Type",
+            "application/json; charset=utf-8",
+            "Content-Length",
+            "1057",
+            "Connection",
+            "close",
+            "Set-Cookie",
+            "__cfduid=d024807f6a6e206515659fe5339e6f7e81530046361; expires=Wed, 26-Jun-19 20:52:41 GMT; path=/; domain=.challonge.com; HttpOnly; Secure",
+            "Status",
+            "200 OK",
+            "X-Frame-Options",
+            "SAMEORIGIN",
+            "X-XSS-Protection",
+            "1; mode=block",
+            "X-Content-Type-Options",
+            "nosniff",
+            "X-Challonge-Cache-ID",
+            "tournament-4729038",
+            "P3P",
+            "CP=\"NOI ADM DEV PSAi COM NAV OUR OTRo STP IND DEM\"",
+            "ETag",
+            "W/\"ffac6f5a34ee7bddf7198a6d2db0dbae\"",
+            "X-Request-Id",
+            "ea810132-728f-494d-a12a-99b3c1784f34",
+            "X-Runtime",
+            "0.064834",
+            "Cache-Control",
+            "private, max-age=0, no-store, must-revalidate",
+            "Pragma",
+            "no-cache",
+            "X-Cache",
+            "MISS",
+            "Accept-Ranges",
+            "bytes",
+            "Via",
+            "1.1 google",
+            "Alt-Svc",
+            "clear",
+            "Expect-CT",
+            "max-age=604800, report-uri=\"https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct\"",
+            "Server",
+            "cloudflare",
+            "CF-RAY",
+            "43128f1ce9ed361d-MAN"
+        ]
+    }
+]
