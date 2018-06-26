@@ -1,3 +1,5 @@
+import { baseResponse } from './base.interface';
+
 /** Tournament Interfaces */
 
 /** Enums */
@@ -74,10 +76,6 @@ export interface createTournament {
 
 /** Parameter interface for the Show Tournament endpoint */
 export interface showTournament extends tournamentAction {
-}
-
-/** Parameter interface for the Update Tournament endpoint */
-export interface updateTournament extends tournamentParameters {
 }
 
 /** Parameter interface for the Update Tournament endpoint */
@@ -187,62 +185,58 @@ export interface tournamentAction {
 }
 
 /** Tournament responses */
-export interface tournamentsResponseBase {
-  status: number
-}
 
 /** Response expected from index on tournaments */
-export interface indexTournamentsResponse extends tournamentsResponseBase {
-  tournaments: Array<tournamentParameters>;
-  status: number;
+export interface indexTournamentsResponse extends baseResponse {
+  tournaments: Array<tournamentResponseObject>;
 }
 
 /** Response expected from create tournaments */
-export interface createTournamentResponse extends tournamentsResponseBase {
+export interface createTournamentResponse extends baseResponse {
   tournament: tournamentResponseObject;
 }
 
 /** Response expected from show tournament */
-export interface showTournamentResponse extends tournamentsResponseBase {
+export interface showTournamentResponse extends baseResponse {
   tournament: tournamentResponseObject;
 }
 
 /** Response expected from update tournament */
-export interface updateTournamentResponse extends tournamentsResponseBase {
+export interface updateTournamentResponse extends baseResponse {
   tournament: tournamentResponseObject;
 }
 
 /** Response expected from destroy tournament */
-export interface destroyTournamentResponse extends tournamentsResponseBase {
+export interface destroyTournamentResponse extends baseResponse {
 }
 
 /** Response expected when processing check ins for tournament */
-export interface processCheckInsTournamentResponse extends tournamentsResponseBase {
+export interface processCheckInsTournamentResponse extends baseResponse {
   tournament: tournamentResponseObject;
 }
 
 /** Response expected when aborting check ins for tournament */
-export interface abortCheckInsTournamentResponse extends tournamentsResponseBase {
+export interface abortCheckInsTournamentResponse extends baseResponse {
   tournament: tournamentResponseObject;
 }
 
 /** Response expected when aborting check ins for tournament */
-export interface startTournamentResponse extends tournamentsResponseBase {
+export interface startTournamentResponse extends baseResponse {
   tournament: tournamentResponseObject;
 }
 
 /** Response expected when finalising a tournaments results */
-export interface finalizeTournamentResponse extends tournamentsResponseBase {
+export interface finalizeTournamentResponse extends baseResponse {
   tournament: tournamentResponseObject;
 }
 
 /** Response expected when restarting a tournament */
-export interface resetTournamentResponse extends tournamentsResponseBase {
+export interface resetTournamentResponse extends baseResponse {
   tournament: tournamentResponseObject;
 }
 
 /** Response expected when restarting a tournament */
-export interface openForPredictionsTournamentResponse extends tournamentsResponseBase {
+export interface openForPredictionsTournamentResponse extends baseResponse {
   tournament: tournamentResponseObject;
 }
 
