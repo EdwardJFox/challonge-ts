@@ -2,7 +2,7 @@ import * as ChallongeAdapterBase from './base';
 import * as tournamentInterfaces from '../interfaces/tournament.interface';
 
 /** Retrieve a set of tournaments created with your account. */
-export function index(api_key: string, params: tournamentInterfaces.indexTournaments): Promise<tournamentInterfaces.indexTournamentsResponse> {
+export function index(api_key: string, params: tournamentInterfaces.indexTournamentsRequest): Promise<tournamentInterfaces.indexTournamentsResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.getRequest('tournaments', api_key, params).then(res => {
       const { data, status } = res;
@@ -13,7 +13,7 @@ export function index(api_key: string, params: tournamentInterfaces.indexTournam
 }
 
 /** Create a new tournament. */
-export function create(api_key: string, params: tournamentInterfaces.createTournament): Promise<tournamentInterfaces.createTournamentResponse> {
+export function create(api_key: string, params: tournamentInterfaces.createTournamentRequest): Promise<tournamentInterfaces.createTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;

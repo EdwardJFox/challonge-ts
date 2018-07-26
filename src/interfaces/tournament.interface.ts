@@ -53,7 +53,7 @@ export enum tournamentGrandFinalsModifierEnum {
 
 /** API request interfaces */
 /** List tournaments (index) interface */
-export interface indexTournaments {
+export interface indexTournamentsRequest {
   /** What state of tournaments to index */
   state?: tournamentStateEnum
   /** Type of tournament to index */
@@ -69,7 +69,7 @@ export interface indexTournaments {
 }
 
 /** Parameter interface for the Create Tournament endpoint */
-export interface createTournament {
+export interface createTournamentRequest {
   /** Tournament object */
   tournament: strictTournamentParameters
 }
@@ -245,9 +245,9 @@ export interface tournamentResponseObject {
   accept_attachments: boolean,
   allow_participant_match_reporting: boolean,
   anonymous_voting: boolean,
-  category: null,
-  check_in_duration: null,
-  completed_at: null,
+  category: string,
+  check_in_duration: number,
+  completed_at: Date,
   created_at: Date,
   created_by_api: boolean,
   credit_capped: boolean,
@@ -265,7 +265,7 @@ export interface tournamentResponseObject {
   open_signup: boolean,
   participants_count: number,
   prediction_method: number,
-  predictions_opened_at: null,
+  predictions_opened_at: Date,
   private: boolean,
   progress_meter: number,
   /** Number between 0 and 1 */
@@ -291,10 +291,10 @@ export interface tournamentResponseObject {
   rr_pts_for_match_win: number,
   sequential_pairings: boolean,
   show_rounds: boolean,
-  signup_cap: null,
-  start_at: null,
+  signup_cap: number,
+  start_at: Date,
   started_at: Date,
-  started_checking_in_at: null,
+  started_checking_in_at: Date,
   state: string,
   swiss_rounds: number,
   teams: boolean,
@@ -303,10 +303,10 @@ export interface tournamentResponseObject {
   updated_at: Date,
   url: string,
   description_source: string,
-  subdomain: null,
+  subdomain: string,
   full_challonge_url: string,
   live_image_url: string,
-  sign_up_url: null,
+  sign_up_url: string,
   review_before_finalizing: boolean,
   accepting_predictions: boolean,
   participants_locked: boolean,
