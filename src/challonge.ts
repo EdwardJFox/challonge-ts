@@ -6,6 +6,8 @@ import { index, create } from './adapter/tournaments';
 /** Wrapper class for the account based Challonge actions, such as list all
  * tournaments and create a new tournament */
 export default class Challonge extends ChallongeBase {
+  tournaments: Array<Tournament>;
+  
   constructor(api_key: string) {
     super(api_key);
   }
@@ -17,7 +19,8 @@ export default class Challonge extends ChallongeBase {
         const toReturn = results.tournaments.map(tournament => {
           return new Tournament(this.api_key, tournament)
         });
-        
+
+        this.tournaments = toReturn;
         resolve(toReturn);
       }).catch(err => {
         reject(err);

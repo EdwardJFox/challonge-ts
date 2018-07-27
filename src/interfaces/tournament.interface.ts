@@ -75,11 +75,11 @@ export interface createTournamentRequest {
 }
 
 /** Parameter interface for the Show Tournament endpoint */
-export interface showTournament extends tournamentAction {
+export interface showTournamentRequest extends tournamentAction {
 }
 
 /** Parameter interface for the Update Tournament endpoint */
-export interface updateTournament extends tournamentParameters {
+export interface updateTournamentRequest extends tournamentParameters {
 }
 
 /** Parameter interface for the Process check-in endpoint  */

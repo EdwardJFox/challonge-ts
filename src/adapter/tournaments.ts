@@ -24,7 +24,7 @@ export function create(api_key: string, params: tournamentInterfaces.createTourn
 }
 
 /** Retrieve a single tournament record created with your account. */
-export function show(api_key: string, tournament_url: string, params?: tournamentInterfaces.showTournament): Promise<tournamentInterfaces.showTournamentResponse> {
+export function show(api_key: string, tournament_url: string, params?: tournamentInterfaces.showTournamentRequest): Promise<tournamentInterfaces.showTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.getRequest(`tournaments/${tournament_url}`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
@@ -34,7 +34,7 @@ export function show(api_key: string, tournament_url: string, params?: tournamen
 }
 
 /** Update a tournament's attributes. */
-export function update(api_key: string, tournament_url: string, params?: tournamentInterfaces.updateTournament): Promise<tournamentInterfaces.updateTournamentResponse> {
+export function update(api_key: string, tournament_url: string, params?: tournamentInterfaces.updateTournamentRequest): Promise<tournamentInterfaces.updateTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.putRequest(`tournaments/${tournament_url}`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
