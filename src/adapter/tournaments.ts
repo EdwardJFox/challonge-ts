@@ -64,7 +64,7 @@ export function destroy(api_key: string, tournament_url: string): Promise<tourna
  * NOTE: Checked in participants on the waiting list will be promoted if slots
  *  become available.
  */
-export function processCheckIns(api_key: string, tournament_url: string, params?: tournamentInterfaces.processCheckIns): Promise<tournamentInterfaces.processCheckInsTournamentResponse> {
+export function processCheckIns(api_key: string, tournament_url: string, params?: tournamentInterfaces.processCheckInsRequest): Promise<tournamentInterfaces.processCheckInsTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/process_check_ins`, api_key, params).then(res => {
       let { data: { tournament } , status } = res;
@@ -82,7 +82,7 @@ export function processCheckIns(api_key: string, tournament_url: string, params?
  * 2. Transitions the tournament state from 'checking_in' or 'checked_in' to 
  * 'pending'
  */
-export function abortCheckIns(api_key: string, tournament_url: string, params?: tournamentInterfaces.abortCheckIns): Promise<tournamentInterfaces.abortCheckInsTournamentResponse> {
+export function abortCheckIns(api_key: string, tournament_url: string, params?: tournamentInterfaces.abortCheckInsRequest): Promise<tournamentInterfaces.abortCheckInsTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/abort_check_in`, api_key, params).then(res => {
       let { data: { tournament }, status } = res;
@@ -93,7 +93,7 @@ export function abortCheckIns(api_key: string, tournament_url: string, params?: 
 
 /** Start a tournament, opening up first round matches for score reporting. 
  * The tournament must have at least 2 participants. */
-export function start(api_key: string, tournament_url: string, params?: tournamentInterfaces.start): Promise<tournamentInterfaces.startTournamentResponse> {
+export function start(api_key: string, tournament_url: string, params?: tournamentInterfaces.startRequest): Promise<tournamentInterfaces.startTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/start`, api_key, params).then(res => {
       let { data: { tournament }, status } = res;
@@ -104,7 +104,7 @@ export function start(api_key: string, tournament_url: string, params?: tourname
 
 /** Finalize a tournament that has had all match scores submitted, rendering 
  * its results permanent. */
-export function finalize(api_key: string, tournament_url: string, params?: tournamentInterfaces.finalize): Promise<tournamentInterfaces.finalizeTournamentResponse> {
+export function finalize(api_key: string, tournament_url: string, params?: tournamentInterfaces.finalizeRequest): Promise<tournamentInterfaces.finalizeTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/finalize`, api_key, params).then(res => {
       let { data: { tournament }, status } = res;
@@ -115,7 +115,7 @@ export function finalize(api_key: string, tournament_url: string, params?: tourn
 
 /** Reset a tournament, clearing all of its scores and attachments. You can 
  * then add/remove/edit participants before starting the tournament again. */
-export function reset(api_key: string, tournament_url: string, params?: tournamentInterfaces.reset): Promise<tournamentInterfaces.resetTournamentResponse> {
+export function reset(api_key: string, tournament_url: string, params?: tournamentInterfaces.resetRequest): Promise<tournamentInterfaces.resetTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/reset`, api_key, params).then(res => {
       let { data: { tournament }, status } = res;
@@ -129,7 +129,7 @@ export function reset(api_key: string, tournament_url: string, params?: tourname
  * scoring) or 2 (linear scoring) to use this option. Note: Once open for 
  * predictions, match records will be persisted, so participant additions and 
  * removals will no longer be permitted. */
-export function openForPredictions(api_key: string, tournament_url: string, params?: tournamentInterfaces.openForPredictions): Promise<tournamentInterfaces.openForPredictionsTournamentResponse> {
+export function openForPredictions(api_key: string, tournament_url: string, params?: tournamentInterfaces.openForPredictionsRequest): Promise<tournamentInterfaces.openForPredictionsTournamentResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/open_for_predictions`, api_key, params).then(res => {
       let { data: { tournament }, status } = res;

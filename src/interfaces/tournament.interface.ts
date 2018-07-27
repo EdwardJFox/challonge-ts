@@ -1,4 +1,6 @@
 import { baseResponse } from './base.interface';
+import { participantResponseObject } from './participant.interface';
+import { matchResponseObject } from './match.interface';
 
 /** Tournament Interfaces */
 
@@ -83,27 +85,27 @@ export interface updateTournamentRequest extends tournamentParameters {
 }
 
 /** Parameter interface for the Process check-in endpoint  */
-export interface processCheckIns extends tournamentAction {
+export interface processCheckInsRequest extends tournamentAction {
 }
 
 /** Parameter interface for the abort check-in endpoint  */
-export interface abortCheckIns extends tournamentAction {
+export interface abortCheckInsRequest extends tournamentAction {
 }
 
 /** Parameter interface for the start tournament endpoint  */
-export interface start extends tournamentAction {
+export interface startRequest extends tournamentAction {
 }
 
 /** Parameter interface for finalizing a tournaments results endpoint  */
-export interface finalize extends tournamentAction {
+export interface finalizeRequest extends tournamentAction {
 }
 
 /** Parameter interface for restarting a tournament endpoint  */
-export interface reset extends tournamentAction {
+export interface resetRequest extends tournamentAction {
 }
 
 /** Parameter interface for opening a tournaments predictions endpoint */
-export interface openForPredictions extends tournamentAction {
+export interface openForPredictionsRequest extends tournamentAction {
 }
 
 /** Parameters for creating a tournament */
@@ -313,7 +315,9 @@ export interface tournamentResponseObject {
   game_name: string,
   participants_swappable: boolean,
   team_convertable: boolean,
-  group_stages_were_started: boolean
+  group_stages_were_started: boolean,
+  participants?: Array<participantResponseObject>,
+  matches?: Array<matchResponseObject>
 }
 
 export type tournamentRankedByType = 'match wins' | 'game wins' | 'game win percentage' | 'points scored' | 'points difference' | 'custom';
