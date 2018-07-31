@@ -13,7 +13,7 @@ export function index(api_key: string, tournament_url: string): Promise<particip
 }
 
 /** Add a participant to a tournament (up until it is started). */
-export function create(api_key: string, tournament_url: string, params: participantInterfaces.createParticipant): Promise<participantInterfaces.createParticipantResponse> {
+export function create(api_key: string, tournament_url: string, params: participantInterfaces.createParticipantRequest): Promise<participantInterfaces.createParticipantResponse> {
   return new Promise((resolve, reject) => {
     ChallongeAdapterBase.postRequest(`tournaments/${tournament_url}/participants`, api_key, params).then(res => {
       const { data: { participant }, status } = res;

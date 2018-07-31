@@ -52,7 +52,7 @@ export interface bulkAddParticipantParameters {
 /** Response expected from index on participants */
 
 /** Parameter interface for the Create Participant endpoint */
-export interface createParticipant {
+export interface createParticipantRequest {
   /** Tournament object */
   participant: participantParameters
 }

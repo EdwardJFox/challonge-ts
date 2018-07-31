@@ -7,7 +7,7 @@ export default class Participant extends ChallongeBase {
   }
 
   /** Retrieve a tournament's participant list. */
-  public show() {
+  public get() {
 
   }
 
