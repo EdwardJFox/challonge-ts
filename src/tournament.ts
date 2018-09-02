@@ -38,7 +38,7 @@ export default class Tournament extends ChallongeBase {
   public delete(): Promise<Boolean> {
     return new Promise((resolve, reject) => {
       destroy(this.api_key, this.baseUrl).then(res => {
-        if(res.status = 200) { resolve(true); }
+        if(res.status = 200) { this.data = undefined; resolve(true); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
     });
@@ -101,7 +101,7 @@ export default class Tournament extends ChallongeBase {
   public getParticipants(): Promise<Tournament> {
     return new Promise((resolve, reject) => {
       index(this.api_key, this.baseUrl).then((res) => {
-        if(res.status = 200) { this.data = res.tournament; resolve(this); }
+        if(res.status = 200) { this.processParticipants(res.participants); resolve(this); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
     });
@@ -135,8 +135,8 @@ export default class Tournament extends ChallongeBase {
   }
   
   private processParticipants(participants) {
-    participants.forEach(element => {
-      
+    this.participants = participants.map(participant => {
+      return new Participant(this.api_key, this.baseUrl, participant.participant)
     });
   }
   
@@ -146,7 +146,7 @@ export default class Tournament extends ChallongeBase {
 
   /** Create a tournament url */
   public generateUrl(url: string, subdomain: string) {
-    if(subdomain) {
+    if(!subdomain) {
       return url;
     } else {
       return `${subdomain}-${url}`;

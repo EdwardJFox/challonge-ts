@@ -1,5 +1,4 @@
 import Challonge from '../src/challonge';
-import * as challongeInterfaces from '../src/interfaces/tournament.interface';
 
 var fs = require('fs');
 import { setupRecorder } from "jest-nock-record";

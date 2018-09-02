@@ -10,7 +10,7 @@ class Participant extends base_1.default {
         this.group = group;
     }
     /** Retrieve a tournament's participant list. */
-    show() {
+    get() {
     }
     /** Update the attributes of a tournament participant. */
     update() {

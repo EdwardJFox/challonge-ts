@@ -1,9 +1,11 @@
 import ChallongeBase from './base';
 import * as participantInterfaces from './interfaces/participant.interface';
 
-export default class Participant extends ChallongeBase {
-  constructor(public api_key: string, public tournament: string, public id: number, public group?: string) {
-    super(api_key, group);
+export default class Participant extends ChallongeBase implements participantInterfaces.participantResponseObject {
+  constructor(public api_key: string, public baseUrl: string, public data: participantInterfaces.participantResponseObject) {
+    super(api_key);
+
+    Object.assign(this, this.data);
   }
 
   /** Retrieve a tournament's participant list. */
