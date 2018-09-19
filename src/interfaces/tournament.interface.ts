@@ -259,8 +259,10 @@ export interface tournamentResponseObject {
   hide_forum: boolean,
   hide_seeds: boolean,
   hold_third_place_match: boolean,
+  /** id of the tournament on Challonge */
   id: number,
   max_predictions_per_user: number,
+  /** Public tournament name */
   name: string,
   notify_users_when_matches_open: boolean,
   notify_users_when_the_tournament_ends: boolean,

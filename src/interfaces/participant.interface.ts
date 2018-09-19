@@ -119,14 +119,12 @@ export interface randomizeParticipantsResponse extends baseResponse {
   participants: Array<participantResponseObject>
 }
 
-
-
 /** Resposne objects */
 /** Participant object used in responses which contain participants */
 export interface participantResponseObject {
   active: boolean
   checked_in_at: null
-  created_at: Date
+  created_at: string
   final_rank: number
   group_id: number
   icon: string
@@ -138,7 +136,7 @@ export interface participantResponseObject {
   on_waiting_list: boolean
   seed: number
   tournament_id: number
-  updated_at: Date
+  updated_at: string
   challonge_username: string
   challonge_email_address_verified: null
   removable: boolean
@@ -152,4 +150,9 @@ export interface participantResponseObject {
   can_check_in: boolean
   checked_in: boolean
   reactivatable: boolean
+  ranked_member_id: number
+  display_name: string
+  check_in_open: boolean
+  group_player_ids: Array<number>
+  has_irrelevant_seed: boolean
 }

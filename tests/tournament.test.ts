@@ -97,7 +97,7 @@ describe('Tournament class', () => {
     
       completeRecording();
 
-      expect(tournament.data.tournament_type).toBe('single elimination')
+      expect(tournament.tournament_type).toBe('single elimination')
     });
   });
 
@@ -111,7 +111,7 @@ describe('Tournament class', () => {
     
       completeRecording();
 
-      expect(tournament.data.name).toBe('newTournamentName')
+      expect(tournament.name).toBe('newTournamentName')
     });
   });
 
@@ -123,7 +123,7 @@ describe('Tournament class', () => {
     
       completeRecording();
 
-      expect(tournament.data).toBeUndefined()
+      expect(tournament.api_key).toBeUndefined()
     });
   });
 
@@ -135,7 +135,7 @@ describe('Tournament class', () => {
     
       completeRecording();
 
-      expect(tournament.data.state).toBe('checked_in')
+      expect(tournament.state).toBe('checked_in')
     });
   });
 
@@ -147,7 +147,7 @@ describe('Tournament class', () => {
     
       completeRecording();
 
-      expect(tournament.data.state).toBe('pending')
+      expect(tournament.state).toBe('pending')
     });
   });
 
@@ -159,7 +159,7 @@ describe('Tournament class', () => {
     
       completeRecording();
 
-      expect(tournament.data.state).toBe('underway')
+      expect(tournament.state).toBe('underway')
     });
   });
 
@@ -171,7 +171,7 @@ describe('Tournament class', () => {
     
       completeRecording();
 
-      expect(tournament.data.state).toBe('complete');
+      expect(tournament.state).toBe('complete');
     });
   });
 
@@ -183,7 +183,7 @@ describe('Tournament class', () => {
     
       completeRecording();
 
-      expect(tournament.data.state).toBe('pending');
+      expect(tournament.state).toBe('pending');
     });
   });
 
@@ -195,7 +195,7 @@ describe('Tournament class', () => {
     
       completeRecording();
 
-      expect(tournament.data.accepting_predictions).toBeTruthy();
+      expect(tournament.accepting_predictions).toBeTruthy();
     });
   });
 
@@ -203,12 +203,50 @@ describe('Tournament class', () => {
     it('Gets the tournaments participants, and creates objects for them all', async () => {
       const { completeRecording } = await record("participants/index_200");
       tournament.baseUrl = 'autototester'
-      await tournament.getParticipants();
+      const participants = await tournament.getParticipants();
     
       completeRecording();
 
-      expect(tournament.participants).toHaveLength(20);
-      expect(tournament.participants[0].name).toBe('Delfina');
+      expect(participants).toHaveLength(20);
+      expect(participants[0].name).toBe('Delfina');
+    });
+  });
+
+  describe('newParticipant method', () => {
+    it('Creates new participant', async () => {
+      const { completeRecording } = await record("participants/create_200");
+      tournament.baseUrl = 'autototester'
+      const participant = await tournament.newParticipant({
+        participant: {
+          name: 'newParticipant'
+        }
+      });
+    
+      completeRecording();
+
+      expect(participant.name).toBe("newParticipant");
+    });
+  });
+
+  describe('bulkAddParticipants method', () => {
+    it('Adds new participants matching the request', async () => {
+      const { completeRecording } = await record("participants/bulkAdd_200");
+      tournament.baseUrl = 'autototester'
+      await tournament.bulkAddParticipants({
+        participants: [{
+          name: 'newParticipant1'
+        },{
+          name: 'newParticipant2'
+        },{
+          name: 'newParticipant3'
+        }]
+      });
+    
+      completeRecording();
+
+      expect(tournament.participants).toHaveLength(3);
+      expect(tournament.participants[0].name).toBe('newParticipant1');
+      expect(tournament.participants[2].name).toBe('newParticipant3');
     });
   });
 });
