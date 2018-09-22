@@ -217,9 +217,7 @@ describe('Tournament class', () => {
       const { completeRecording } = await record("participants/create_200");
       tournament.baseUrl = 'autototester'
       const participant = await tournament.newParticipant({
-        participant: {
-          name: 'newParticipant'
-        }
+        name: 'newParticipant'
       });
     
       completeRecording();
@@ -247,6 +245,33 @@ describe('Tournament class', () => {
       expect(tournament.participants).toHaveLength(3);
       expect(tournament.participants[0].name).toBe('newParticipant1');
       expect(tournament.participants[2].name).toBe('newParticipant3');
+    });
+  });
+
+  describe('clearParticipants method', () => {
+    it('Clears the participants of the tournament', async () => {
+      const { completeRecording } = await record("participants/clear_200");
+      tournament.baseUrl = 'autototester'
+      const participants = await tournament.clearParticipants();
+    
+      completeRecording();
+
+      expect(participants).toBe('Cleared all participants')
+      expect(tournament.participants).toHaveLength(0);
+    });
+  });
+
+  describe('randomizeParticipants method', () => {
+    it('Randomizes the participants of the tournament', async () => {
+      const { completeRecording } = await record("participants/randomize_200");
+      tournament.baseUrl = 'autototester'
+
+      const participants = await tournament.randomizeParticipants();
+    
+      completeRecording();
+
+      expect(participants).toHaveLength(24);
+      expect(participants[0].name).toBe('Charline');
     });
   });
 });

@@ -1,4 +1,4 @@
-import { indexTournamentsRequest, createTournamentRequest } from './interfaces/tournament.interface';
+import { indexTournamentsRequest, strictTournamentParameters } from './interfaces/tournament.interface';
 import ChallongeBase from './base';
 import Tournament from './tournament';
 import { index, create } from './adapter/tournaments';
@@ -29,9 +29,9 @@ export default class Challonge extends ChallongeBase {
   }
 
   /** Create a new tournament. */
-  public createTournament(params: createTournamentRequest): Promise<Tournament> {
+  public createTournament(params: strictTournamentParameters): Promise<Tournament> {
     return new Promise((resolve, reject) => {
-      create(this.api_key, params).then(result => {
+      create(this.api_key, { tournament: params }).then(result => {
         resolve(new Tournament(this.api_key, result.tournament));
       }).catch(err => {
         reject(err);

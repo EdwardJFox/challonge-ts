@@ -39,8 +39,8 @@ export default class Participant extends ChallongeBase {
     }
   }
 
-  /** Retrieve a tournament's participant list. */
-  public get() {
+  /** Retrieve a single participant data. */
+  public get(): Promise<Participant> {
     return new Promise((resolve, reject) => {
       show(this.api_key, this.baseUrl, this.id).then(res => {
         Object.assign(this, res.participant);
@@ -50,7 +50,7 @@ export default class Participant extends ChallongeBase {
   }
 
   /** Update the attributes of a tournament participant. */
-  public update(params?: participantInterfaces.updateParticipantRequest) {
+  public update(params?: participantInterfaces.updateParticipantRequest): Promise<Participant> {
     return new Promise((resolve, reject) => {
       update(this.api_key, this.baseUrl, this.id, params).then(res => {
         Object.assign(this, res.participant);

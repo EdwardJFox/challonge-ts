@@ -4,7 +4,8 @@ import Match from './match';
 import * as tournamentInterfaces from './interfaces/tournament.interface';
 import { show, update, destroy, processCheckIns, abortCheckIns, start, finalize, reset, openForPredictions } from './adapter/tournaments';
 import * as participantInterfaces from './interfaces/participant.interface';
-import { index, create, bulkAdd } from './adapter/participants';
+import { index as participantIndex, create, bulkAdd, clear, randomize } from './adapter/participants';
+import { index as matchIndex } from './adapter/matches';
 
 export default class Tournament extends ChallongeBase {
   baseUrl: string;
@@ -50,7 +51,7 @@ export default class Tournament extends ChallongeBase {
   /** Number between 0 and 1 */
   pts_for_match_win: string;
   quick_advance: boolean;
-  ranked_by: tournamentRankedByType;
+  ranked_by: tournamentInterfaces.tournamentRankedByType;
   require_score_agreement: boolean;
   /** Number between 0 and 1 */
   rr_pts_for_game_tie: string;
@@ -69,12 +70,12 @@ export default class Tournament extends ChallongeBase {
   state: string;
   swiss_rounds: number;
   teams: boolean;
-  tie_breaks: Array<tournamentTieBreakType>;
+  tie_breaks: Array<tournamentInterfaces.tournamentTieBreakType>;
   locked_at: string;
   event_id: number;
   public_predictions_before_start_time: string;
   ranked: boolean;
-  grand_finals_modifier: tournamentGrandFinalsModifier;
+  grand_finals_modifier: tournamentInterfaces.tournamentGrandFinalsModifier;
   spam: boolean;
   ham: string;
   rr_iterations: number;
@@ -82,7 +83,7 @@ export default class Tournament extends ChallongeBase {
   tournament_registration_id: number;
   donation_contest_enabled: boolean;
   mandatory_donation: boolean;
-  tournament_type: tournamentTypeType;
+  tournament_type: tournamentInterfaces.tournamentTypeType;
   updated_at: string;
   url: string;
   description_source: string;
@@ -98,11 +99,11 @@ export default class Tournament extends ChallongeBase {
   team_convertable: boolean;
   group_stages_were_started: boolean;
 
-
   constructor(api_key: string, public data: tournamentInterfaces.tournamentResponseObject) {
     super(api_key);
 
     this.baseUrl = this.generateUrl(data.url, data.subdomain);
+    this.processTournamentData(data, {});
   }
 
   public get(params?: tournamentInterfaces.showTournamentRequest): Promise<Tournament> {
@@ -188,16 +189,16 @@ export default class Tournament extends ChallongeBase {
 
   public getParticipants(): Promise<Array<Participant>> {
     return new Promise((resolve, reject) => {
-      index(this.api_key, this.baseUrl).then((res) => {
+      participantIndex(this.api_key, this.baseUrl).then((res) => {
         if(res.status = 200) { resolve(this.processParticipants(res.participants)); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
     });
   }
 
-  public newParticipant(params: participantInterfaces.createParticipantRequest): Promise<Participant> {
+  public newParticipant(params: participantInterfaces.participantParameters): Promise<Participant> {
     return new Promise((resolve, reject) => {
-      create(this.api_key, this.baseUrl, params).then((res) => {
+      create(this.api_key, this.baseUrl, { participant: params }).then((res) => {
         if(res.status = 200) { resolve(this.processParticipant(res.participant)); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -208,6 +209,33 @@ export default class Tournament extends ChallongeBase {
     return new Promise((resolve, reject) => {
       bulkAdd(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { resolve(this.processParticipants(res.participants)); }
+        else { reject({error: 'Challonge did not return 200'}) }
+      }).catch(err => reject(err));
+    });
+  }
+
+  public clearParticipants(): Promise<string> {
+    return new Promise((resolve, reject) => {
+      clear(this.api_key, this.baseUrl).then((res) => {
+        if(res.status = 200) { this.participants = []; resolve(res.message); }
+        else { reject({error: 'Challonge did not return 200'}) }
+      }).catch(err => reject(err));
+    });
+  }
+
+  public randomizeParticipants(): Promise<Array<Participant>> {
+    return new Promise((resolve, reject) => {
+      randomize(this.api_key, this.baseUrl).then((res) => {
+        if(res.status = 200) { resolve(this.processParticipants(res.participants)); }
+        else { reject({error: 'Challonge did not return 200'}) }
+      }).catch(err => reject(err));
+    });
+  }
+
+  public getMatches(): Promise<Array<Match>> {
+    return new Promise((resolve, reject) => {
+      matchIndex(this.api_key, this.baseUrl).then((res) => {
+        if(res.status = 200) { resolve(this.processMatches(res.matches)); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
     });
@@ -241,7 +269,15 @@ export default class Tournament extends ChallongeBase {
   }
   
   private processMatches(matches) {
+    this.matches = matches.map(match => {
+      return this.processMatch(match.match);
+    });
 
+    return this.matches;
+  }
+
+  private processMatch(match) {
+    return new Match(this.api_key, this.baseUrl, match.id, match)
   }
 
   /** Create a tournament url */

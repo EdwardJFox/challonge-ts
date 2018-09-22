@@ -1,23 +1,54 @@
 import ChallongeBase from './base';
 import * as attachmentInterfaces from './interfaces/matchAttachment.interface';
+import { show, update, destroy } from './adapter/matchAttachments';
 
 export default class Attachment extends ChallongeBase {
-  constructor(public api_key: string, public tournament: string,public match_id: number, public attachment_id: number) {
+  user_id: number;
+  description?: string;
+  url?: string;
+  original_file_name?: string;
+  created_at?: Date;
+  updated_at?: Date;
+  asset_file_name?: string;
+  asset_content_type?: string;
+  asset_file_size?: number;
+  asset_url?: string;
+
+  constructor(public api_key: string, public baseUrl: string, public match_id: number, public id: number, data?: attachmentInterfaces.matchAttachmentResponseObject) {
     super(api_key);
+
+    if(data){
+      Object.assign(this, data);
+    }
   }
 
   /** Retrieve a single match attachment record. */
-  public show() {
-
+  public get(): Promise<Attachment> {
+    return new Promise((resolve, reject) => {
+      show(this.api_key, this.baseUrl, this.match_id, this.id).then(res => {
+        Object.assign(this, res.match_attachment);
+        resolve(this);
+      }).catch(err => reject(err));
+    });
   }
 
   /** Update the attributes of a match attachment. */
-  public update() {
-
+  public update(params?: attachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment> {
+    return new Promise((resolve, reject) => {
+      update(this.api_key, this.baseUrl, this.match_id, this.id, { match_attachment: params }).then(res => {
+        Object.assign(this, res.match_attachment);
+        resolve(this);
+      }).catch(err => reject(err));
+    });
   }
 
   /** Delete a match attachment. */
-  public destroy() {
-
+  public delete() {
+    return new Promise((resolve, reject) => {
+      destroy(this.api_key, this.baseUrl, this.match_id, this.id).then(res => {
+        if(res.status = 200) { this.api_key = undefined; resolve(true); }
+        else { reject({error: 'Challonge did not return 200'}) }
+      }).catch(err => reject(err));
+    });
   }
 }

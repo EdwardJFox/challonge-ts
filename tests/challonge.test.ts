@@ -33,10 +33,10 @@ describe('Challonge class', () => {
     it('Creates a tournament and returns a new Tournament object', async () => {
       const { completeRecording } = await record("tournaments/create_200");
 
-      const tournament = await challonge.createTournament({tournament: {
+      const tournament = await challonge.createTournament({
         name: mainName,
         url: mainUrl
-      }});
+      });
     
       completeRecording();
 
