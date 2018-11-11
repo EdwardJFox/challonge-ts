@@ -4,7 +4,7 @@
         "method": "put",
         "path": "/v1/tournaments/autototester/participants/76885646.json",
         "body": {
-            "api_key": "H5ReYtTNa4pxL4CP2Q6EdkGK0Ndj8y6GMkqQL4lg",
+            "api_key": "test_api_key",
             "participant": {
                 "name": "NewName"
             }

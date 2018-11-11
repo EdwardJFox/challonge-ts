@@ -2,7 +2,7 @@
     {
         "scope": "https://api.challonge.com:443",
         "method": "get",
-        "path": "/v1/tournaments/autototester/participants.json?api_key=H5ReYtTNa4pxL4CP2Q6EdkGK0Ndj8y6GMkqQL4lg",
+        "path": "/v1/tournaments/autototester/participants.json?api_key=test_api_key",
         "body": "",
         "status": 200,
         "response": [
