@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>getTournamentsResponse | Challonge-ts</title>
+	<title>finalizeRequest | Challonge-ts</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,10 +54,10 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="gettournamentsresponse.html">getTournamentsResponse</a>
+					<a href="finalizerequest.html">finalizeRequest</a>
 				</li>
 			</ul>
-			<h1>Interface getTournamentsResponse</h1>
+			<h1>Interface finalizeRequest</h1>
 		</div>
 	</div>
 </header>
@@ -67,7 +67,7 @@
 			<section class="tsd-panel tsd-comment">
 				<div class="tsd-comment tsd-typography">
 					<div class="lead">
-						<p>Response expected from getTournament</p>
+						<p>Parameter interface for finalizing a tournaments results endpoint</p>
 					</div>
 				</div>
 			</section>
@@ -75,7 +75,12 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">getTournamentsResponse</span>
+						<a href="tournamentaction.html" class="tsd-signature-type">tournamentAction</a>
+						<ul class="tsd-hierarchy">
+							<li>
+								<span class="target">finalizeRequest</span>
+							</li>
+						</ul>
 					</li>
 				</ul>
 			</section>
@@ -83,37 +88,49 @@
 				<h2>Index</h2>
 				<section class="tsd-panel tsd-index-panel">
 					<div class="tsd-index-content">
-						<section class="tsd-index-section ">
+						<section class="tsd-index-section tsd-is-inherited">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="gettournamentsresponse.html#status" class="tsd-kind-icon">status</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="gettournamentsresponse.html#tournaments" class="tsd-kind-icon">tournaments</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="finalizerequest.html#include_matches" class="tsd-kind-icon">include_<wbr>matches</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface tsd-is-inherited"><a href="finalizerequest.html#include_participants" class="tsd-kind-icon">include_<wbr>participants</a></li>
 							</ul>
 						</section>
 					</div>
 				</section>
 			</section>
-			<section class="tsd-panel-group tsd-member-group ">
+			<section class="tsd-panel-group tsd-member-group tsd-is-inherited">
 				<h2>Properties</h2>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="status" class="tsd-anchor"></a>
-					<h3>status</h3>
-					<div class="tsd-signature tsd-kind-icon">status<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="include_matches" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> include_<wbr>matches</h3>
+					<div class="tsd-signature tsd-kind-icon">include_<wbr>matches<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="tournamentaction.html">tournamentAction</a>.<a href="tournamentaction.html#include_matches">include_matches</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/648a47d/src/tournament.interface.ts#L134">tournament.interface.ts:134</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/9f2bef2/src/interfaces/tournament.interface.ts#L186">interfaces/tournament.interface.ts:186</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Include an array of associated match records</p>
+						</div>
+					</div>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="tournaments" class="tsd-anchor"></a>
-					<h3>tournaments</h3>
-					<div class="tsd-signature tsd-kind-icon">tournaments<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Array</span><span class="tsd-signature-symbol">&lt;</span><a href="tournamentparameters.html" class="tsd-signature-type">tournamentParameters</a><span class="tsd-signature-symbol">&gt;</span></div>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+					<a name="include_participants" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> include_<wbr>participants</h3>
+					<div class="tsd-signature tsd-kind-icon">include_<wbr>participants<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span></div>
 					<aside class="tsd-sources">
+						<p>Inherited from <a href="tournamentaction.html">tournamentAction</a>.<a href="tournamentaction.html#include_participants">include_participants</a></p>
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/648a47d/src/tournament.interface.ts#L133">tournament.interface.ts:133</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/9f2bef2/src/interfaces/tournament.interface.ts#L184">interfaces/tournament.interface.ts:184</a></li>
 						</ul>
 					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Include an array of associated participant records</p>
+						</div>
+					</div>
 				</section>
 			</section>
 		</div>
@@ -127,72 +144,21 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="../enums/tournamentgrandfinalsmodifierenum.html" class="tsd-kind-icon">tournament<wbr>Grand<wbr>Finals<wbr>Modifier<wbr>Enum</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/tournamentrankedbyenum.html" class="tsd-kind-icon">tournament<wbr>Ranked<wbr>ByEnum</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/tournamenttypeenum.html" class="tsd-kind-icon">tournament<wbr>Type<wbr>Enum</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/attachment.html" class="tsd-kind-icon">Attachment</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/challonge.html" class="tsd-kind-icon">Challonge</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/challongebase.html" class="tsd-kind-icon">Challonge<wbr>Base</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/match.html" class="tsd-kind-icon">Match</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/participant.html" class="tsd-kind-icon">Participant</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/tournament.html" class="tsd-kind-icon">Tournament</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="challongebase.html" class="tsd-kind-icon">challonge<wbr>Base</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="createtournament.html" class="tsd-kind-icon">create<wbr>Tournament</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="gettournamentsresponse.html" class="tsd-kind-icon">get<wbr>Tournaments<wbr>Response</a>
+						<a href="finalizerequest.html" class="tsd-kind-icon">finalize<wbr>Request</a>
 						<ul>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="gettournamentsresponse.html#status" class="tsd-kind-icon">status</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="finalizerequest.html#include_matches" class="tsd-kind-icon">include_<wbr>matches</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="gettournamentsresponse.html#tournaments" class="tsd-kind-icon">tournaments</a>
+							<li class=" tsd-kind-property tsd-parent-kind-interface tsd-is-inherited">
+								<a href="finalizerequest.html#include_participants" class="tsd-kind-icon">include_<wbr>participants</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="matchattachment.html" class="tsd-kind-icon">match<wbr>Attachment</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="participantactions.html" class="tsd-kind-icon">participant<wbr>Actions</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="processcheckins.html" class="tsd-kind-icon">process<wbr>Check<wbr>Ins</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="tournamentaction.html" class="tsd-kind-icon">tournament<wbr>Action</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="tournamentparameters.html" class="tsd-kind-icon">tournament<wbr>Parameters</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="updatetournament.html" class="tsd-kind-icon">update<wbr>Tournament</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

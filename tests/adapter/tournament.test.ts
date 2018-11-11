@@ -1,9 +1,9 @@
 import { url } from '../../src/adapter/base';
-import * as tournamentAdapter from '../../src/adapter/tournaments';
+import { TournamentAdapter } from '../../src';
 import * as challongeInterfaces from '../../src/interfaces/tournament.interface';
 
 var fs = require('fs');
-import { setupRecorder } from "jest-nock-record";
+import { setupRecorder } from "nock-record";
 
 let mainName = 'testNameChallongeTs';
 let mainUrl = 'testUrlChallongeTs';
@@ -16,7 +16,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Retrieves an array of all tournaments', async () => {
       const { completeRecording } = await record("tournaments/index_200");
 
-      const data = await tournamentAdapter.index(challonge_api_key, {
+      const data = await TournamentAdapter.index(challonge_api_key, {
         state: challongeInterfaces.tournamentStateEnum.ALL
       });
     
@@ -31,7 +31,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Creates a tournament and returns as expected', async () => {
       const { completeRecording } = await record("tournaments/create_200");
 
-      const data = await tournamentAdapter.create(challonge_api_key, {
+      const data = await TournamentAdapter.create(challonge_api_key, {
         tournament: {
           name: mainName,
           url: mainUrl
@@ -50,7 +50,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Gets a tournament and returns as expected', async () => {
       const { completeRecording } = await record("tournaments/show_200");
 
-      const data = await tournamentAdapter.show(challonge_api_key, url(mainUrl));
+      const data = await TournamentAdapter.show(challonge_api_key, url(mainUrl));
 
       completeRecording();
 
@@ -64,7 +64,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Updates a tournament and returns as expected', async () => {
       const { completeRecording } = await record("tournaments/update_200");
 
-      const data = await tournamentAdapter.update(challonge_api_key, url(mainUrl), {
+      const data = await TournamentAdapter.update(challonge_api_key, url(mainUrl), {
         name: 'newTournamentName'
       });
 
@@ -79,7 +79,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Destroys a tournament and returns as expected', async () => {
       const { completeRecording } = await record("tournaments/destroy_200");
 
-      const data = await tournamentAdapter.destroy(challonge_api_key, url(mainUrl));
+      const data = await TournamentAdapter.destroy(challonge_api_key, url(mainUrl));
 
       completeRecording();
 
@@ -91,7 +91,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Changes a tournaments state to checked_in', async () => {
       const { completeRecording } = await record("tournaments/processCheckIns_200");
 
-      const data = await tournamentAdapter.processCheckIns(challonge_api_key, url(mainUrl));
+      const data = await TournamentAdapter.processCheckIns(challonge_api_key, url(mainUrl));
 
       completeRecording();
 
@@ -104,7 +104,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Changes a tournaments state to checked_in', async () => {
       const { completeRecording } = await record("tournaments/abortCheckIns_200");
 
-      const data = await tournamentAdapter.abortCheckIns(challonge_api_key, url(mainUrl));
+      const data = await TournamentAdapter.abortCheckIns(challonge_api_key, url(mainUrl));
 
       completeRecording();
 
@@ -117,7 +117,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Changes a tournaments state to checked_in', async () => {
       const { completeRecording } = await record("tournaments/start_200");
 
-      const data = await tournamentAdapter.start(challonge_api_key, url(mainUrl));
+      const data = await TournamentAdapter.start(challonge_api_key, url(mainUrl));
 
       completeRecording();
 
@@ -130,7 +130,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Changes a tournaments state to checked_in', async () => {
       const { completeRecording } = await record("tournaments/finalize_200");
 
-      const data = await tournamentAdapter.finalize(challonge_api_key, url(mainUrl));
+      const data = await TournamentAdapter.finalize(challonge_api_key, url(mainUrl));
 
       completeRecording();
 
@@ -143,7 +143,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Changes a tournaments state to checked_in', async () => {
       const { completeRecording } = await record("tournaments/reset_200");
 
-      const data = await tournamentAdapter.reset(challonge_api_key, url(mainUrl));
+      const data = await TournamentAdapter.reset(challonge_api_key, url(mainUrl));
 
       completeRecording();
 
@@ -156,7 +156,7 @@ describe('Challonge Adapter - Tournaments', () => {
     it('Changes a tournaments state to checked_in', async () => {
       const { completeRecording } = await record("tournaments/openForPredictions_200");
 
-      const data = await tournamentAdapter.openForPredictions(challonge_api_key, url(mainUrl));
+      const data = await TournamentAdapter.openForPredictions(challonge_api_key, url(mainUrl));
 
       completeRecording();
 

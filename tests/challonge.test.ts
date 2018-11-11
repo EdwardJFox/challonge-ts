@@ -1,7 +1,7 @@
-import Challonge from '../src/challonge';
+import { Challonge } from '../src';
 
 var fs = require('fs');
-import { setupRecorder } from "jest-nock-record";
+import { setupRecorder } from "nock-record";
 
 let mainName = 'testNameChallongeTs';
 let mainUrl = 'testUrlChallongeTs';

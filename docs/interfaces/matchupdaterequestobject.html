@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>processCheckIns | Challonge-ts</title>
+	<title>matchUpdateRequestObject | Challonge-ts</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
@@ -54,28 +54,21 @@
 					<a href="../globals.html">Globals</a>
 				</li>
 				<li>
-					<a href="processcheckins.html">processCheckIns</a>
+					<a href="matchupdaterequestobject.html">matchUpdateRequestObject</a>
 				</li>
 			</ul>
-			<h1>Interface processCheckIns</h1>
+			<h1>Interface matchUpdateRequestObject</h1>
 		</div>
 	</div>
 </header>
 <div class="container container-main">
 	<div class="row">
 		<div class="col-8 col-content">
-			<section class="tsd-panel tsd-comment">
-				<div class="tsd-comment tsd-typography">
-					<div class="lead">
-						<p>Interface for the Process check-in endpoint</p>
-					</div>
-				</div>
-			</section>
 			<section class="tsd-panel tsd-hierarchy">
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<span class="target">processCheckIns</span>
+						<span class="target">matchUpdateRequestObject</span>
 					</li>
 				</ul>
 			</section>
@@ -86,8 +79,10 @@
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="processcheckins.html#include_matches" class="tsd-kind-icon">include_<wbr>matches</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="processcheckins.html#include_participants" class="tsd-kind-icon">include_<wbr>participants</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="matchupdaterequestobject.html#player1_votes" class="tsd-kind-icon">player1_<wbr>votes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="matchupdaterequestobject.html#player2_votes" class="tsd-kind-icon">player2_<wbr>votes</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="matchupdaterequestobject.html#scores_csv" class="tsd-kind-icon">scores_<wbr>csv</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-interface"><a href="matchupdaterequestobject.html#winner_id" class="tsd-kind-icon">winner_<wbr>id</a></li>
 							</ul>
 						</section>
 					</div>
@@ -96,32 +91,65 @@
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Properties</h2>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="include_matches" class="tsd-anchor"></a>
-					<h3>include_<wbr>matches</h3>
-					<div class="tsd-signature tsd-kind-icon">include_<wbr>matches<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span></div>
+					<a name="player1_votes" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> player1_<wbr>votes</h3>
+					<div class="tsd-signature tsd-kind-icon">player1_<wbr>votes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/648a47d/src/tournament.interface.ts#L56">tournament.interface.ts:56</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/9f2bef2/src/interfaces/match.interface.ts#L35">interfaces/match.interface.ts:35</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Include an array of associated match records in the response. Either 0 or 1</p>
+							<p>Overwrites the number of votes for player 1</p>
 						</div>
 					</div>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
-					<a name="include_participants" class="tsd-anchor"></a>
-					<h3>include_<wbr>participants</h3>
-					<div class="tsd-signature tsd-kind-icon">include_<wbr>participants<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">0</span><span class="tsd-signature-symbol"> | </span><span class="tsd-signature-type">1</span></div>
+					<a name="player2_votes" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> player2_<wbr>votes</h3>
+					<div class="tsd-signature tsd-kind-icon">player2_<wbr>votes<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/648a47d/src/tournament.interface.ts#L54">tournament.interface.ts:54</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/9f2bef2/src/interfaces/match.interface.ts#L37">interfaces/match.interface.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
 						<div class="lead">
-							<p>Include an array of associated participant records in the response. Either 0 or 1</p>
+							<p>Overwrites the number of votes for player 2</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="scores_csv" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> scores_<wbr>csv</h3>
+					<div class="tsd-signature tsd-kind-icon">scores_<wbr>csv<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/9f2bef2/src/interfaces/match.interface.ts#L29">interfaces/match.interface.ts:29</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>Comma separated set/game scores with player 1 score first
+							(e.g. &quot;1-3,3-0,3-2&quot;)</p>
+						</div>
+					</div>
+				</section>
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-interface">
+					<a name="winner_id" class="tsd-anchor"></a>
+					<h3><span class="tsd-flag ts-flagOptional">Optional</span> winner_<wbr>id</h3>
+					<div class="tsd-signature tsd-kind-icon">winner_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
+					<aside class="tsd-sources">
+						<ul>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/9f2bef2/src/interfaces/match.interface.ts#L33">interfaces/match.interface.ts:33</a></li>
+						</ul>
+					</aside>
+					<div class="tsd-comment tsd-typography">
+						<div class="lead">
+							<p>The participant ID of the winner or &quot;tie&quot; if applicable (Round Robin and
+								Swiss). NOTE: If you change the outcome of a completed match, all matches
+							in the bracket that branch from the updated match will be reset.</p>
 						</div>
 					</div>
 				</section>
@@ -137,72 +165,27 @@
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="../enums/tournamentgrandfinalsmodifierenum.html" class="tsd-kind-icon">tournament<wbr>Grand<wbr>Finals<wbr>Modifier<wbr>Enum</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/tournamentrankedbyenum.html" class="tsd-kind-icon">tournament<wbr>Ranked<wbr>ByEnum</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="../enums/tournamenttypeenum.html" class="tsd-kind-icon">tournament<wbr>Type<wbr>Enum</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/attachment.html" class="tsd-kind-icon">Attachment</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/challonge.html" class="tsd-kind-icon">Challonge</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/challongebase.html" class="tsd-kind-icon">Challonge<wbr>Base</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/match.html" class="tsd-kind-icon">Match</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/participant.html" class="tsd-kind-icon">Participant</a>
-					</li>
-					<li class=" tsd-kind-class">
-						<a href="../classes/tournament.html" class="tsd-kind-icon">Tournament</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="challongebase.html" class="tsd-kind-icon">challonge<wbr>Base</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="createtournament.html" class="tsd-kind-icon">create<wbr>Tournament</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="gettournamentsresponse.html" class="tsd-kind-icon">get<wbr>Tournaments<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="matchattachment.html" class="tsd-kind-icon">match<wbr>Attachment</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="participantactions.html" class="tsd-kind-icon">participant<wbr>Actions</a>
-					</li>
 				</ul>
 				<ul class="current">
 					<li class="current tsd-kind-interface">
-						<a href="processcheckins.html" class="tsd-kind-icon">process<wbr>Check<wbr>Ins</a>
+						<a href="matchupdaterequestobject.html" class="tsd-kind-icon">match<wbr>Update<wbr>Request<wbr>Object</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="processcheckins.html#include_matches" class="tsd-kind-icon">include_<wbr>matches</a>
+								<a href="matchupdaterequestobject.html#player1_votes" class="tsd-kind-icon">player1_<wbr>votes</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
-								<a href="processcheckins.html#include_participants" class="tsd-kind-icon">include_<wbr>participants</a>
+								<a href="matchupdaterequestobject.html#player2_votes" class="tsd-kind-icon">player2_<wbr>votes</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="matchupdaterequestobject.html#scores_csv" class="tsd-kind-icon">scores_<wbr>csv</a>
+							</li>
+							<li class=" tsd-kind-property tsd-parent-kind-interface">
+								<a href="matchupdaterequestobject.html#winner_id" class="tsd-kind-icon">winner_<wbr>id</a>
 							</li>
 						</ul>
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface">
-						<a href="tournamentaction.html" class="tsd-kind-icon">tournament<wbr>Action</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="tournamentparameters.html" class="tsd-kind-icon">tournament<wbr>Parameters</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="updatetournament.html" class="tsd-kind-icon">update<wbr>Tournament</a>
-					</li>
 				</ul>
 			</nav>
 		</div>

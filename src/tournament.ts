@@ -2,10 +2,8 @@ import ChallongeBase from './base';
 import Participant from './participant';
 import Match from './match';
 import * as tournamentInterfaces from './interfaces/tournament.interface';
-import { show, update, destroy, processCheckIns, abortCheckIns, start, finalize, reset, openForPredictions } from './adapter/tournaments';
 import * as participantInterfaces from './interfaces/participant.interface';
-import { index as participantIndex, create, bulkAdd, clear, randomize } from './adapter/participants';
-import { index as matchIndex } from './adapter/matches';
+import { ParticipantAdapter, MatchAdapter, TournamentAdapter } from './adapter';
 
 export default class Tournament extends ChallongeBase {
   baseUrl: string;
@@ -108,7 +106,7 @@ export default class Tournament extends ChallongeBase {
 
   public get(params?: tournamentInterfaces.showTournamentRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
-      show(this.api_key, this.baseUrl, params).then(res => {
+      TournamentAdapter.show(this.api_key, this.baseUrl, params).then(res => {
         this.processTournamentData(res.tournament, params);
         resolve(this);
       }).catch(err => reject(err));
@@ -117,7 +115,7 @@ export default class Tournament extends ChallongeBase {
 
   public update(params?: tournamentInterfaces.updateTournamentRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
-      update(this.api_key, this.baseUrl, params).then(res => {
+      TournamentAdapter.update(this.api_key, this.baseUrl, params).then(res => {
         this.processTournamentData(res.tournament, params);
         resolve(this);
       }).catch(err => reject(err));
@@ -126,7 +124,7 @@ export default class Tournament extends ChallongeBase {
 
   public delete(): Promise<Boolean> {
     return new Promise((resolve, reject) => {
-      destroy(this.api_key, this.baseUrl).then(res => {
+      TournamentAdapter.destroy(this.api_key, this.baseUrl).then(res => {
         if(res.status = 200) { this.api_key = undefined; resolve(true); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -135,7 +133,7 @@ export default class Tournament extends ChallongeBase {
 
   public processCheckIns(params?: tournamentInterfaces.processCheckInsRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
-      processCheckIns(this.api_key, this.baseUrl, params).then(res => {
+      TournamentAdapter.processCheckIns(this.api_key, this.baseUrl, params).then(res => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -144,7 +142,7 @@ export default class Tournament extends ChallongeBase {
 
   public abortCheckIns(params?: tournamentInterfaces.abortCheckInsRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
-      abortCheckIns(this.api_key, this.baseUrl, params).then((res) => {
+      TournamentAdapter.abortCheckIns(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -153,7 +151,7 @@ export default class Tournament extends ChallongeBase {
 
   public startTournament(params?: tournamentInterfaces.startRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
-      start(this.api_key, this.baseUrl, params).then((res) => {
+      TournamentAdapter.start(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -162,7 +160,7 @@ export default class Tournament extends ChallongeBase {
 
   public finalizeResults(params?: tournamentInterfaces.finalizeRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
-      finalize(this.api_key, this.baseUrl, params).then((res) => {
+      TournamentAdapter.finalize(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -171,7 +169,7 @@ export default class Tournament extends ChallongeBase {
 
   public resetTournament(params?: tournamentInterfaces.resetRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
-      reset(this.api_key, this.baseUrl, params).then((res) => {
+      TournamentAdapter.reset(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -180,7 +178,7 @@ export default class Tournament extends ChallongeBase {
 
   public openForPredictions(params: tournamentInterfaces.openForPredictionsRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
-      openForPredictions(this.api_key, this.baseUrl, params).then((res) => {
+      TournamentAdapter.openForPredictions(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -189,7 +187,7 @@ export default class Tournament extends ChallongeBase {
 
   public getParticipants(): Promise<Array<Participant>> {
     return new Promise((resolve, reject) => {
-      participantIndex(this.api_key, this.baseUrl).then((res) => {
+      ParticipantAdapter.index(this.api_key, this.baseUrl).then((res) => {
         if(res.status = 200) { resolve(this.processParticipants(res.participants)); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -198,7 +196,7 @@ export default class Tournament extends ChallongeBase {
 
   public newParticipant(params: participantInterfaces.participantParameters): Promise<Participant> {
     return new Promise((resolve, reject) => {
-      create(this.api_key, this.baseUrl, { participant: params }).then((res) => {
+      ParticipantAdapter.create(this.api_key, this.baseUrl, { participant: params }).then((res) => {
         if(res.status = 200) { resolve(this.processParticipant(res.participant)); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -207,7 +205,7 @@ export default class Tournament extends ChallongeBase {
 
   public bulkAddParticipants(params: participantInterfaces.bulkAddParticipantsRequest): Promise<Array<Participant>> {
     return new Promise((resolve, reject) => {
-      bulkAdd(this.api_key, this.baseUrl, params).then((res) => {
+      ParticipantAdapter.bulkAdd(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { resolve(this.processParticipants(res.participants)); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -216,7 +214,7 @@ export default class Tournament extends ChallongeBase {
 
   public clearParticipants(): Promise<string> {
     return new Promise((resolve, reject) => {
-      clear(this.api_key, this.baseUrl).then((res) => {
+      ParticipantAdapter.clear(this.api_key, this.baseUrl).then((res) => {
         if(res.status = 200) { this.participants = []; resolve(res.message); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -225,7 +223,7 @@ export default class Tournament extends ChallongeBase {
 
   public randomizeParticipants(): Promise<Array<Participant>> {
     return new Promise((resolve, reject) => {
-      randomize(this.api_key, this.baseUrl).then((res) => {
+      ParticipantAdapter.randomize(this.api_key, this.baseUrl).then((res) => {
         if(res.status = 200) { resolve(this.processParticipants(res.participants)); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
@@ -234,14 +232,14 @@ export default class Tournament extends ChallongeBase {
 
   public getMatches(): Promise<Array<Match>> {
     return new Promise((resolve, reject) => {
-      matchIndex(this.api_key, this.baseUrl).then((res) => {
+      MatchAdapter.index(this.api_key, this.baseUrl).then((res) => {
         if(res.status = 200) { resolve(this.processMatches(res.matches)); }
         else { reject({error: 'Challonge did not return 200'}) }
       }).catch(err => reject(err));
     });
   }
 
-  private processTournamentData(data: tournamentInterfaces.tournamentResponseObject, params) {
+  private processTournamentData(data: tournamentInterfaces.tournamentResponseObject, params?) {
     const { participants, matches, ...values } = data;
 
     if(params){

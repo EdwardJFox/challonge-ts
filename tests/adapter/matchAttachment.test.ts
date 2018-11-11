@@ -1,9 +1,8 @@
 import { url } from '../../src/adapter/base';
-import * as matchAttachmentAdapter from '../../src/adapter/matchAttachments';
-import * as challongeInterfaces from '../../src/interfaces/matchAttachment.interface';
+import { MatchAttachmentAdapter } from '../../src';
 
 var fs = require('fs');
-import { setupRecorder } from "jest-nock-record";
+import { setupRecorder } from "nock-record";
 
 let mainUrl = 'autototester';
 
@@ -15,7 +14,7 @@ describe('Challonge Adapter - Matches', () => {
     it('Retrieves an array of all attachments for a match', async () => {
       const { completeRecording } = await record("matchAttachments/index_200");
 
-      const data = await matchAttachmentAdapter.index(challonge_api_key, url(mainUrl), 125316886);
+      const data = await MatchAttachmentAdapter.index(challonge_api_key, url(mainUrl), 125316886);
     
       completeRecording();
 
@@ -34,7 +33,7 @@ describe('Challonge Adapter - Matches', () => {
     it('Creates a match', async () => {
       const { completeRecording } = await record("matchAttachments/create_200");
 
-      const data = await matchAttachmentAdapter.create(challonge_api_key, url(mainUrl), 125316886, {
+      const data = await MatchAttachmentAdapter.create(challonge_api_key, url(mainUrl), 125316886, {
         match_attachment: {
           description: 'A new file attachment'
         }
@@ -51,7 +50,7 @@ describe('Challonge Adapter - Matches', () => {
     it('Gets a match attachment record', async () => {
       const { completeRecording } = await record("matchAttachments/show_200");
 
-      const data = await matchAttachmentAdapter.show(challonge_api_key, url(mainUrl), 125316886, 345327);
+      const data = await MatchAttachmentAdapter.show(challonge_api_key, url(mainUrl), 125316886, 345327);
     
       completeRecording();
 
@@ -64,7 +63,7 @@ describe('Challonge Adapter - Matches', () => {
     it('Updates a match attachment record', async () => {
       const { completeRecording } = await record("matchAttachments/update_200");
 
-      const data = await matchAttachmentAdapter.update(challonge_api_key, url(mainUrl), 125316886, 345327, {
+      const data = await MatchAttachmentAdapter.update(challonge_api_key, url(mainUrl), 125316886, 345327, {
         match_attachment: {
           description: 'Updated file attachment'
         }
@@ -81,7 +80,7 @@ describe('Challonge Adapter - Matches', () => {
     it('Deletes a match attachment record', async () => {
       const { completeRecording } = await record("matchAttachments/destroy_200");
 
-      const data = await matchAttachmentAdapter.destroy(challonge_api_key, url(mainUrl), 125316886, 345327);
+      const data = await MatchAttachmentAdapter.destroy(challonge_api_key, url(mainUrl), 125316886, 345327);
     
       completeRecording();
 

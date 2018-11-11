@@ -1,7 +1,7 @@
-import Attachment from '../src/attachment';
+import { Attachment } from '../src';
 
 var fs = require('fs');
-import { setupRecorder } from "jest-nock-record";
+import { setupRecorder } from "nock-record";
 
 const challonge_api_key = fs.readFileSync('./tests/api_key.txt', 'utf8');
 const record = setupRecorder({ fixturePath: 'tests/adapter/__nock-fixtures__'});

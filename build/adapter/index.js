@@ -1,0 +1,10 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+var matchAttachments_1 = require("./matchAttachments");
+exports.MatchAttachmentAdapter = matchAttachments_1.MatchAttachmentAdapter;
+var matches_1 = require("./matches");
+exports.MatchAdapter = matches_1.MatchAdapter;
+var participants_1 = require("./participants");
+exports.ParticipantAdapter = participants_1.ParticipantAdapter;
+var tournaments_1 = require("./tournaments");
+exports.TournamentAdapter = tournaments_1.TournamentAdapter;

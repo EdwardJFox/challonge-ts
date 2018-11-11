@@ -2,29 +2,36 @@
   "name": "challonge-ts",
   "version": "0.0.1",
   "description": "Challonge API interface",
-  "main": "index.js",
+  "main": "./build/index.js",
+  "typings": "build/index.d.ts",
+  "repository": "github:EdwardJFox/challonge-ts",
+  "author": "EdwardJFox",
+  "license": "MIT",
   "scripts": {
-    "test": "jest tests"
+    "test": "jest tests",
+    "build": "gulp build"
   },
   "keywords": [
     "challonge",
     "typescript"
   ],
-  "author": "EdwardJFox",
-  "license": "MIT",
+  "files": [
+    "build"
+  ],
   "dependencies": {
-    "@types/nock": "^9.1.3",
     "axios": "^0.18.0",
     "node-fetch": "^2.1.2"
   },
   "devDependencies": {
-    "@pollyjs/core": "^0.4.0",
     "@types/jest": "^23.1.1",
+    "@types/nock": "^9.1.3",
     "gulp": "^4.0.0",
+    "gulp-concat": "^2.6.1",
+    "gulp-delete-lines": "0.0.7",
     "gulp-typedoc": "^2.2.0",
     "gulp-typescript": "^5.0.0-alpha.2",
     "jest": "^23.1.0",
-    "jest-nock-record": "^0.2.3",
+    "nock-record": "^0.2.3",
     "ts-jest": "^22.4.6",
     "typedoc": "^0.11.1",
     "typescript": "^2.9.2"

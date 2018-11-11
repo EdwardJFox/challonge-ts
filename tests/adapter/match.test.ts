@@ -1,9 +1,9 @@
 import { url } from '../../src/adapter/base';
-import * as matchAdapter from '../../src/adapter/matches';
+import { MatchAdapter } from '../../src';
 import * as challongeInterfaces from '../../src/interfaces/match.interface';
 
 var fs = require('fs');
-import { setupRecorder } from "jest-nock-record";
+import { setupRecorder } from "nock-record";
 
 let mainUrl = 'autototester';
 
@@ -15,7 +15,7 @@ describe('Challonge Adapter - Matches', () => {
     it('Retrieves an array of all matches in a tournament', async () => {
       const { completeRecording } = await record("matches/index_200");
 
-      const data = await matchAdapter.index(challonge_api_key, url(mainUrl));
+      const data = await MatchAdapter.index(challonge_api_key, url(mainUrl));
     
       completeRecording();
 
@@ -28,7 +28,7 @@ describe('Challonge Adapter - Matches', () => {
     it('Retrieves a specific match', async () => {
       const { completeRecording } = await record("matches/show_200");
 
-      const data = await matchAdapter.show(challonge_api_key, url(mainUrl), 125316886);
+      const data = await MatchAdapter.show(challonge_api_key, url(mainUrl), 125316886);
     
       completeRecording();
 
@@ -41,7 +41,7 @@ describe('Challonge Adapter - Matches', () => {
     it('Updates the match details', async () => {
       const { completeRecording } = await record("matches/update_200");
 
-      const data = await matchAdapter.update(challonge_api_key, url(mainUrl), 125316886, {
+      const data = await MatchAdapter.update(challonge_api_key, url(mainUrl), 125316886, {
         match: {
           scores_csv: "3-1,3-1,2-3,3-0",
           winner_id: 77048083
@@ -60,7 +60,7 @@ describe('Challonge Adapter - Matches', () => {
     it('Reopens the match for score', async () => {
       const { completeRecording } = await record("matches/reopen_200");
 
-      const data = await matchAdapter.reopen(challonge_api_key, url(mainUrl), 125316886);
+      const data = await MatchAdapter.reopen(challonge_api_key, url(mainUrl), 125316886);
     
       completeRecording();
 

@@ -1,9 +1,8 @@
 import { url } from '../../src/adapter/base';
-import * as participantAdapter from '../../src/adapter/participants';
-import * as challongeInterfaces from '../../src/interfaces/participant.interface';
+import { ParticipantAdapter } from '../../src';
 
 var fs = require('fs');
-import { setupRecorder } from "jest-nock-record";
+import { setupRecorder } from "nock-record";
 
 let mainUrl = 'autototester';
 
@@ -15,7 +14,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Retrieves an array of all participants', async () => {
       const { completeRecording } = await record("participants/index_200");
 
-      const data = await participantAdapter.index(challonge_api_key, url(mainUrl));
+      const data = await ParticipantAdapter.index(challonge_api_key, url(mainUrl));
     
       completeRecording();
 
@@ -28,7 +27,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Creates a participant and returns the same participant', async () => {
       const { completeRecording } = await record("participants/create_200");
 
-      const data = await participantAdapter.create(challonge_api_key, url(mainUrl), {
+      const data = await ParticipantAdapter.create(challonge_api_key, url(mainUrl), {
         participant: {
           name: 'newParticipant'
         }
@@ -45,7 +44,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Creates a participant and returns the same participant', async () => {
       const { completeRecording } = await record("participants/bulkAdd_200");
 
-      const data = await participantAdapter.bulkAdd(challonge_api_key, url(mainUrl), {
+      const data = await ParticipantAdapter.bulkAdd(challonge_api_key, url(mainUrl), {
         participants: [{
           name: 'newParticipant1'
         },{
@@ -68,7 +67,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Returns the participant with the matching id participant', async () => {
       const { completeRecording } = await record("participants/show_200");
 
-      const data = await participantAdapter.show(challonge_api_key, url(mainUrl), 76885627);
+      const data = await ParticipantAdapter.show(challonge_api_key, url(mainUrl), 76885627);
     
       completeRecording();
 
@@ -82,7 +81,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Updates the participants details', async () => {
       const { completeRecording } = await record("participants/update_200");
 
-      const data = await participantAdapter.update(challonge_api_key, url(mainUrl), 76885646, {
+      const data = await ParticipantAdapter.update(challonge_api_key, url(mainUrl), 76885646, {
         participant: {
           name: 'NewName'
         }
@@ -100,7 +99,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Updates a participants state to be checked in', async () => {
       const { completeRecording } = await record("participants/checkIn_200");
 
-      const data = await participantAdapter.checkIn(challonge_api_key, url(mainUrl), 76885646);
+      const data = await ParticipantAdapter.checkIn(challonge_api_key, url(mainUrl), 76885646);
     
       completeRecording();
 
@@ -114,7 +113,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Undoes checking for participant', async () => {
       const { completeRecording } = await record("participants/undoCheckIn_200");
 
-      const data = await participantAdapter.undoCheckIn(challonge_api_key, url(mainUrl), 76885646);
+      const data = await ParticipantAdapter.undoCheckIn(challonge_api_key, url(mainUrl), 76885646);
     
       completeRecording();
 
@@ -128,7 +127,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Updates the participants details', async () => {
       const { completeRecording } = await record("participants/destroy_200");
 
-      const data = await participantAdapter.destroy(challonge_api_key, url(mainUrl), 76885646);
+      const data = await ParticipantAdapter.destroy(challonge_api_key, url(mainUrl), 76885646);
     
       completeRecording();
 
@@ -142,7 +141,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Removes all participants from a tournament', async () => {
       const { completeRecording } = await record("participants/clear_200");
 
-      const data = await participantAdapter.clear(challonge_api_key, url(mainUrl));
+      const data = await ParticipantAdapter.clear(challonge_api_key, url(mainUrl));
     
       completeRecording();
 
@@ -155,7 +154,7 @@ describe('Challonge Adapter - Participants', () => {
     it('Calls the randomize endpoint and returns participants', async () => {
       const { completeRecording } = await record("participants/randomize_200");
 
-      const data = await participantAdapter.randomize(challonge_api_key, url(mainUrl));
+      const data = await ParticipantAdapter.randomize(challonge_api_key, url(mainUrl));
     
       completeRecording();
 

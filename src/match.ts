@@ -1,8 +1,8 @@
 import ChallongeBase from './base';
 import * as matchInterfaces from './interfaces/match.interface';
 import * as matchAttachmentInterfaces from './interfaces/matchAttachment.interface';
-import { show, update, reopen } from './adapter/matches';
-import { index, create } from './adapter/matchAttachments';
+import { MatchAdapter } from './adapter';
+import { MatchAttachmentAdapter } from './adapter';
 import Attachment from './attachment';
 
 export default class Match extends ChallongeBase {
@@ -45,7 +45,7 @@ export default class Match extends ChallongeBase {
   /** Retrieve a single match record for a tournament. */
   public get(): Promise<Match> {
     return new Promise((resolve, reject) => {
-      show(this.api_key, this.baseUrl, this.id).then(res => {
+      MatchAdapter.show(this.api_key, this.baseUrl, this.id).then(res => {
         Object.assign(this, res.match);
         resolve(this);
       }).catch(err => reject(err));
@@ -55,7 +55,7 @@ export default class Match extends ChallongeBase {
   /** Update/submit the score(s) for a match. */
   public update(params?: matchInterfaces.matchUpdateRequestObject): Promise<Match> {
     return new Promise((resolve, reject) => {
-      update(this.api_key, this.baseUrl, this.id, { match: params }).then(res => {
+      MatchAdapter.update(this.api_key, this.baseUrl, this.id, { match: params }).then(res => {
         Object.assign(this, res.match);
         resolve(this);
       }).catch(err => reject(err));
@@ -71,7 +71,7 @@ export default class Match extends ChallongeBase {
    * matches that follow it */
   public reopen(): Promise<Match> {
     return new Promise((resolve, reject) => {
-      reopen(this.api_key, this.baseUrl, this.id).then(res => {
+      MatchAdapter.reopen(this.api_key, this.baseUrl, this.id).then(res => {
         Object.assign(this, res.match);
         resolve(this);
       }).catch(err => reject(err));
@@ -81,7 +81,7 @@ export default class Match extends ChallongeBase {
   /** Retrieve a matches attachments. */
   public getAllAttachments(): Promise<Array<Attachment>> {
     return new Promise((resolve, reject) => {
-      index(this.api_key, this.baseUrl, this.id).then(res => {
+      MatchAttachmentAdapter.index(this.api_key, this.baseUrl, this.id).then(res => {
         resolve(this.processAttachments(res.attachments));
       }).catch(err => reject(err));
     });
@@ -90,9 +90,9 @@ export default class Match extends ChallongeBase {
   /** Add a file, link, or text attachment to a match. NOTE: The associated 
    * tournament's "accept_attachments" attribute must be true for this action 
    * to succeed. */
-  public createAttachment(params?: matchAttachmentInterfaces.matchAttachmentRequestObject) {
+  public createAttachment(params?: matchAttachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment> {
     return new Promise((resolve, reject) => {
-      create(this.api_key, this.baseUrl, this.id, { match_attachment: params }).then(res => {
+      MatchAttachmentAdapter.create(this.api_key, this.baseUrl, this.id, { match_attachment: params }).then(res => {
         const attachment = this.processAttachment(res.match_attachment);
         this.attachments.push(attachment); 
         resolve(attachment);
@@ -100,7 +100,7 @@ export default class Match extends ChallongeBase {
     });
   }
 
-  private processAttachments(attachments) {
+  private processAttachments(attachments): Array<Attachment> {
     this.attachments = attachments.map(attachment => {
       return this.processAttachment(attachment.match_attachment);
     });
