@@ -1,9 +1,4 @@
-import ChallongeBase from './base';
-import Participant from './participant';
-import Match from './match';
-import * as tournamentInterfaces from './interfaces/tournament.interface';
-import * as participantInterfaces from './interfaces/participant.interface';
-import { ParticipantAdapter, MatchAdapter, TournamentAdapter } from './adapter';
+import { TournamentInterfaces, ParticipantInterfaces, ParticipantAdapter, MatchAdapter, TournamentAdapter, Match, Participant, ChallongeBase } from './';
 
 export default class Tournament extends ChallongeBase {
   baseUrl: string;
@@ -49,7 +44,7 @@ export default class Tournament extends ChallongeBase {
   /** Number between 0 and 1 */
   pts_for_match_win: string;
   quick_advance: boolean;
-  ranked_by: tournamentInterfaces.tournamentRankedByType;
+  ranked_by: TournamentInterfaces.tournamentRankedByType;
   require_score_agreement: boolean;
   /** Number between 0 and 1 */
   rr_pts_for_game_tie: string;
@@ -68,12 +63,12 @@ export default class Tournament extends ChallongeBase {
   state: string;
   swiss_rounds: number;
   teams: boolean;
-  tie_breaks: Array<tournamentInterfaces.tournamentTieBreakType>;
+  tie_breaks: Array<TournamentInterfaces.tournamentTieBreakType>;
   locked_at: string;
   event_id: number;
   public_predictions_before_start_time: string;
   ranked: boolean;
-  grand_finals_modifier: tournamentInterfaces.tournamentGrandFinalsModifier;
+  grand_finals_modifier: TournamentInterfaces.tournamentGrandFinalsModifier;
   spam: boolean;
   ham: string;
   rr_iterations: number;
@@ -81,7 +76,7 @@ export default class Tournament extends ChallongeBase {
   tournament_registration_id: number;
   donation_contest_enabled: boolean;
   mandatory_donation: boolean;
-  tournament_type: tournamentInterfaces.tournamentTypeType;
+  tournament_type: TournamentInterfaces.tournamentTypeType;
   updated_at: string;
   url: string;
   description_source: string;
@@ -97,14 +92,14 @@ export default class Tournament extends ChallongeBase {
   team_convertable: boolean;
   group_stages_were_started: boolean;
 
-  constructor(api_key: string, public data: tournamentInterfaces.tournamentResponseObject) {
+  constructor(api_key: string, public data: TournamentInterfaces.tournamentResponseObject) {
     super(api_key);
 
     this.baseUrl = this.generateUrl(data.url, data.subdomain);
     this.processTournamentData(data, {});
   }
 
-  public get(params?: tournamentInterfaces.showTournamentRequest): Promise<Tournament> {
+  public get(params?: TournamentInterfaces.showTournamentRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
       TournamentAdapter.show(this.api_key, this.baseUrl, params).then(res => {
         this.processTournamentData(res.tournament, params);
@@ -113,7 +108,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  public update(params?: tournamentInterfaces.updateTournamentRequest): Promise<Tournament> {
+  public update(params?: TournamentInterfaces.updateTournamentRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
       TournamentAdapter.update(this.api_key, this.baseUrl, params).then(res => {
         this.processTournamentData(res.tournament, params);
@@ -131,7 +126,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  public processCheckIns(params?: tournamentInterfaces.processCheckInsRequest): Promise<Tournament> {
+  public processCheckIns(params?: TournamentInterfaces.processCheckInsRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
       TournamentAdapter.processCheckIns(this.api_key, this.baseUrl, params).then(res => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
@@ -140,7 +135,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  public abortCheckIns(params?: tournamentInterfaces.abortCheckInsRequest): Promise<Tournament> {
+  public abortCheckIns(params?: TournamentInterfaces.abortCheckInsRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
       TournamentAdapter.abortCheckIns(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
@@ -149,7 +144,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  public startTournament(params?: tournamentInterfaces.startRequest): Promise<Tournament> {
+  public startTournament(params?: TournamentInterfaces.startRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
       TournamentAdapter.start(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
@@ -158,7 +153,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  public finalizeResults(params?: tournamentInterfaces.finalizeRequest): Promise<Tournament> {
+  public finalizeResults(params?: TournamentInterfaces.finalizeRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
       TournamentAdapter.finalize(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
@@ -167,7 +162,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  public resetTournament(params?: tournamentInterfaces.resetRequest): Promise<Tournament> {
+  public resetTournament(params?: TournamentInterfaces.resetRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
       TournamentAdapter.reset(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
@@ -176,7 +171,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  public openForPredictions(params: tournamentInterfaces.openForPredictionsRequest): Promise<Tournament> {
+  public openForPredictions(params: TournamentInterfaces.openForPredictionsRequest): Promise<Tournament> {
     return new Promise((resolve, reject) => {
       TournamentAdapter.openForPredictions(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { this.processTournamentData(res.tournament, params); resolve(this); }
@@ -194,7 +189,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  public newParticipant(params: participantInterfaces.participantParameters): Promise<Participant> {
+  public newParticipant(params: ParticipantInterfaces.participantParameters): Promise<Participant> {
     return new Promise((resolve, reject) => {
       ParticipantAdapter.create(this.api_key, this.baseUrl, { participant: params }).then((res) => {
         if(res.status = 200) { resolve(this.processParticipant(res.participant)); }
@@ -203,7 +198,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  public bulkAddParticipants(params: participantInterfaces.bulkAddParticipantsRequest): Promise<Array<Participant>> {
+  public bulkAddParticipants(params: ParticipantInterfaces.bulkAddParticipantsRequest): Promise<Array<Participant>> {
     return new Promise((resolve, reject) => {
       ParticipantAdapter.bulkAdd(this.api_key, this.baseUrl, params).then((res) => {
         if(res.status = 200) { resolve(this.processParticipants(res.participants)); }
@@ -239,7 +234,7 @@ export default class Tournament extends ChallongeBase {
     });
   }
 
-  private processTournamentData(data: tournamentInterfaces.tournamentResponseObject, params?) {
+  private processTournamentData(data: TournamentInterfaces.tournamentResponseObject, params?) {
     const { participants, matches, ...values } = data;
 
     if(params){

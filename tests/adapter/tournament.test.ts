@@ -1,6 +1,5 @@
 import { url } from '../../src/adapter/base';
-import { TournamentAdapter } from '../../src';
-import * as challongeInterfaces from '../../src/interfaces/tournament.interface';
+import { TournamentAdapter, TournamentInterfaces } from '../../src';
 
 var fs = require('fs');
 import { setupRecorder } from "nock-record";
@@ -17,7 +16,7 @@ describe('Challonge Adapter - Tournaments', () => {
       const { completeRecording } = await record("tournaments/index_200");
 
       const data = await TournamentAdapter.index(challonge_api_key, {
-        state: challongeInterfaces.tournamentStateEnum.ALL
+        state: TournamentInterfaces.tournamentStateEnum.ALL
       });
     
       completeRecording();

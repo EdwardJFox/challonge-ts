@@ -1,6 +1,4 @@
-import ChallongeBase from './base';
-import * as participantInterfaces from './interfaces/participant.interface';
-import { ParticipantAdapter } from './adapter';
+import { ChallongeBase, ParticipantInterfaces, ParticipantAdapter } from './';
 
 export default class Participant extends ChallongeBase {
   active: boolean;
@@ -31,7 +29,7 @@ export default class Participant extends ChallongeBase {
   checked_in: boolean;
   reactivatable: boolean;
   
-  constructor(public api_key: string, public baseUrl: string, public id: number, data?: participantInterfaces.participantResponseObject) {
+  constructor(public api_key: string, public baseUrl: string, public id: number, data?: ParticipantInterfaces.participantResponseObject) {
     super(api_key);
 
     if(data){
@@ -50,7 +48,7 @@ export default class Participant extends ChallongeBase {
   }
 
   /** Update the attributes of a tournament participant. */
-  public update(params?: participantInterfaces.updateParticipantRequest): Promise<Participant> {
+  public update(params?: ParticipantInterfaces.updateParticipantRequest): Promise<Participant> {
     return new Promise((resolve, reject) => {
       ParticipantAdapter.update(this.api_key, this.baseUrl, this.id, params).then(res => {
         Object.assign(this, res.participant);

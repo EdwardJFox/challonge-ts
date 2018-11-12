@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const base_1 = require("./base");
-const adapter_1 = require("./adapter");
-class Attachment extends base_1.default {
+const _1 = require("./");
+class Attachment extends _1.ChallongeBase {
     constructor(api_key, baseUrl, match_id, id, data) {
         super(api_key);
         this.api_key = api_key;
@@ -16,7 +15,7 @@ class Attachment extends base_1.default {
     /** Retrieve a single match attachment record. */
     get() {
         return new Promise((resolve, reject) => {
-            adapter_1.MatchAttachmentAdapter.show(this.api_key, this.baseUrl, this.match_id, this.id).then(res => {
+            _1.MatchAttachmentAdapter.show(this.api_key, this.baseUrl, this.match_id, this.id).then(res => {
                 Object.assign(this, res.match_attachment);
                 resolve(this);
             }).catch(err => reject(err));
@@ -25,7 +24,7 @@ class Attachment extends base_1.default {
     /** Update the attributes of a match attachment. */
     update(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.MatchAttachmentAdapter.update(this.api_key, this.baseUrl, this.match_id, this.id, { match_attachment: params }).then(res => {
+            _1.MatchAttachmentAdapter.update(this.api_key, this.baseUrl, this.match_id, this.id, { match_attachment: params }).then(res => {
                 Object.assign(this, res.match_attachment);
                 resolve(this);
             }).catch(err => reject(err));
@@ -34,7 +33,7 @@ class Attachment extends base_1.default {
     /** Delete a match attachment. */
     delete() {
         return new Promise((resolve, reject) => {
-            adapter_1.MatchAttachmentAdapter.destroy(this.api_key, this.baseUrl, this.match_id, this.id).then(res => {
+            _1.MatchAttachmentAdapter.destroy(this.api_key, this.baseUrl, this.match_id, this.id).then(res => {
                 if (res.status = 200) {
                     this.api_key = undefined;
                     resolve(true);

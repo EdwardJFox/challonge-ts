@@ -4,19 +4,39 @@ An overdone [Challonge](https://challonge.com/) API interface and adapter, writt
 ## Using the adapter
 The adapter is a direct stateless interface with Challonge, with no frills, you're calling the Challonge API directly.
 
-### Example - Retrieving a list of tournaments
+### Example - Retrieving a list of tournaments with the TournamentAdapter
+The following returns the direct raw response from the Challonge API
 ```
-import * as tournamentAdapter from '../../src/adapter/tournaments';
-import { tournamentStateEnum } as challongeInterfaces from '../../src/interfaces/tournament.interface';
+import { TournamentAdapter } from 'challonge-ts';
 
-const data = await tournamentAdapter.index(challonge_api_key, {
-  state: tournamentStateEnum.ALL
-});
+const test = async () => {
+  const data = await TournamentAdapter.index('api_key');
 
-data.tournaments // Direct response from the API, array of tournament JSON objects
+  console.log(data);
+}
+
+test(); // Direct response from the API, array of tournament JSON objects
 ```
 
-Due to the direct nature
+Due to the direct nature of these adapters, I recommend looking at both the [Challonge API](https://api.challonge.com/v1) documentation for the routes, and the [ChallongeTS documentation](https://edwardjfox.github.io/challonge-ts/) 
+
+## Using the class
+Devised as a nicer abstraction over the adapter, this is a set of classes which wrap the adapter in a more OO type way, if that's your thing.
+
+### Example - Retrieving a list of tournaments with the Challonge class
+
+```
+import { Challonge } from 'challonge-ts';
+
+const test = async () => {
+  const challonge = new Challonge('api_key')
+  const tournaments = await challonge.getTournaments();
+
+  console.log(tournaments); // Array of Tournament objects
+}
+
+test();
+```
 
 ## Running the tests
 The tests for this are written using [Jest](https://jestjs.io/), and uses [Nock Record](https://www.npmjs.com/package/nock-record) to stub the API requests to Challonge. To run them do the following:
@@ -28,3 +48,6 @@ To regenerate the API nock files, delete the `tests/adapter/__nock-fixtures__` f
 
 ## Building
 Ensure you have `gulp-cli` installed locally, then run `npm run build`. Hopefully it goes all right with no errors! :)
+
+## Merging with master
+After you have run the tests, and built the project, your repo should be good to go for merging with master!

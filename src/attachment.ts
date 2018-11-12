@@ -1,6 +1,4 @@
-import ChallongeBase from './base';
-import * as attachmentInterfaces from './interfaces/matchAttachment.interface';
-import { MatchAttachmentAdapter } from './adapter';
+import { ChallongeBase, MatchAttachmentAdapter, MatchAttachmentInterfaces } from './';
 
 export default class Attachment extends ChallongeBase {
   user_id: number;
@@ -14,7 +12,7 @@ export default class Attachment extends ChallongeBase {
   asset_file_size?: number;
   asset_url?: string;
 
-  constructor(public api_key: string, public baseUrl: string, public match_id: number, public id: number, data?: attachmentInterfaces.matchAttachmentResponseObject) {
+  constructor(public api_key: string, public baseUrl: string, public match_id: number, public id: number, data?: MatchAttachmentInterfaces.matchAttachmentResponseObject) {
     super(api_key);
 
     if(data){
@@ -33,7 +31,7 @@ export default class Attachment extends ChallongeBase {
   }
 
   /** Update the attributes of a match attachment. */
-  public update(params?: attachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment> {
+  public update(params?: MatchAttachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment> {
     return new Promise((resolve, reject) => {
       MatchAttachmentAdapter.update(this.api_key, this.baseUrl, this.match_id, this.id, { match_attachment: params }).then(res => {
         Object.assign(this, res.match_attachment);

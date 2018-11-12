@@ -1,8 +1,10 @@
-export interface baseTournamentRequest {
-  tournament_name: string;
-  group?: string;
-}
+export namespace BaseInterfaces {
+  export interface baseTournamentRequest {
+    tournament_name: string;
+    group?: string;
+  }
 
-export interface baseResponse {
-  status: number
+  export interface baseResponse {
+    status: number
+  }
 }

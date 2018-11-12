@@ -9,11 +9,8 @@ var __rest = (this && this.__rest) || function (s, e) {
     return t;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const base_1 = require("./base");
-const participant_1 = require("./participant");
-const match_1 = require("./match");
-const adapter_1 = require("./adapter");
-class Tournament extends base_1.default {
+const _1 = require("./");
+class Tournament extends _1.ChallongeBase {
     constructor(api_key, data) {
         super(api_key);
         this.data = data;
@@ -22,7 +19,7 @@ class Tournament extends base_1.default {
     }
     get(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.TournamentAdapter.show(this.api_key, this.baseUrl, params).then(res => {
+            _1.TournamentAdapter.show(this.api_key, this.baseUrl, params).then(res => {
                 this.processTournamentData(res.tournament, params);
                 resolve(this);
             }).catch(err => reject(err));
@@ -30,7 +27,7 @@ class Tournament extends base_1.default {
     }
     update(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.TournamentAdapter.update(this.api_key, this.baseUrl, params).then(res => {
+            _1.TournamentAdapter.update(this.api_key, this.baseUrl, params).then(res => {
                 this.processTournamentData(res.tournament, params);
                 resolve(this);
             }).catch(err => reject(err));
@@ -38,7 +35,7 @@ class Tournament extends base_1.default {
     }
     delete() {
         return new Promise((resolve, reject) => {
-            adapter_1.TournamentAdapter.destroy(this.api_key, this.baseUrl).then(res => {
+            _1.TournamentAdapter.destroy(this.api_key, this.baseUrl).then(res => {
                 if (res.status = 200) {
                     this.api_key = undefined;
                     resolve(true);
@@ -51,7 +48,7 @@ class Tournament extends base_1.default {
     }
     processCheckIns(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.TournamentAdapter.processCheckIns(this.api_key, this.baseUrl, params).then(res => {
+            _1.TournamentAdapter.processCheckIns(this.api_key, this.baseUrl, params).then(res => {
                 if (res.status = 200) {
                     this.processTournamentData(res.tournament, params);
                     resolve(this);
@@ -64,7 +61,7 @@ class Tournament extends base_1.default {
     }
     abortCheckIns(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.TournamentAdapter.abortCheckIns(this.api_key, this.baseUrl, params).then((res) => {
+            _1.TournamentAdapter.abortCheckIns(this.api_key, this.baseUrl, params).then((res) => {
                 if (res.status = 200) {
                     this.processTournamentData(res.tournament, params);
                     resolve(this);
@@ -77,7 +74,7 @@ class Tournament extends base_1.default {
     }
     startTournament(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.TournamentAdapter.start(this.api_key, this.baseUrl, params).then((res) => {
+            _1.TournamentAdapter.start(this.api_key, this.baseUrl, params).then((res) => {
                 if (res.status = 200) {
                     this.processTournamentData(res.tournament, params);
                     resolve(this);
@@ -90,7 +87,7 @@ class Tournament extends base_1.default {
     }
     finalizeResults(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.TournamentAdapter.finalize(this.api_key, this.baseUrl, params).then((res) => {
+            _1.TournamentAdapter.finalize(this.api_key, this.baseUrl, params).then((res) => {
                 if (res.status = 200) {
                     this.processTournamentData(res.tournament, params);
                     resolve(this);
@@ -103,7 +100,7 @@ class Tournament extends base_1.default {
     }
     resetTournament(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.TournamentAdapter.reset(this.api_key, this.baseUrl, params).then((res) => {
+            _1.TournamentAdapter.reset(this.api_key, this.baseUrl, params).then((res) => {
                 if (res.status = 200) {
                     this.processTournamentData(res.tournament, params);
                     resolve(this);
@@ -116,7 +113,7 @@ class Tournament extends base_1.default {
     }
     openForPredictions(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.TournamentAdapter.openForPredictions(this.api_key, this.baseUrl, params).then((res) => {
+            _1.TournamentAdapter.openForPredictions(this.api_key, this.baseUrl, params).then((res) => {
                 if (res.status = 200) {
                     this.processTournamentData(res.tournament, params);
                     resolve(this);
@@ -129,7 +126,7 @@ class Tournament extends base_1.default {
     }
     getParticipants() {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.index(this.api_key, this.baseUrl).then((res) => {
+            _1.ParticipantAdapter.index(this.api_key, this.baseUrl).then((res) => {
                 if (res.status = 200) {
                     resolve(this.processParticipants(res.participants));
                 }
@@ -141,7 +138,7 @@ class Tournament extends base_1.default {
     }
     newParticipant(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.create(this.api_key, this.baseUrl, { participant: params }).then((res) => {
+            _1.ParticipantAdapter.create(this.api_key, this.baseUrl, { participant: params }).then((res) => {
                 if (res.status = 200) {
                     resolve(this.processParticipant(res.participant));
                 }
@@ -153,7 +150,7 @@ class Tournament extends base_1.default {
     }
     bulkAddParticipants(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.bulkAdd(this.api_key, this.baseUrl, params).then((res) => {
+            _1.ParticipantAdapter.bulkAdd(this.api_key, this.baseUrl, params).then((res) => {
                 if (res.status = 200) {
                     resolve(this.processParticipants(res.participants));
                 }
@@ -165,7 +162,7 @@ class Tournament extends base_1.default {
     }
     clearParticipants() {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.clear(this.api_key, this.baseUrl).then((res) => {
+            _1.ParticipantAdapter.clear(this.api_key, this.baseUrl).then((res) => {
                 if (res.status = 200) {
                     this.participants = [];
                     resolve(res.message);
@@ -178,7 +175,7 @@ class Tournament extends base_1.default {
     }
     randomizeParticipants() {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.randomize(this.api_key, this.baseUrl).then((res) => {
+            _1.ParticipantAdapter.randomize(this.api_key, this.baseUrl).then((res) => {
                 if (res.status = 200) {
                     resolve(this.processParticipants(res.participants));
                 }
@@ -190,7 +187,7 @@ class Tournament extends base_1.default {
     }
     getMatches() {
         return new Promise((resolve, reject) => {
-            adapter_1.MatchAdapter.index(this.api_key, this.baseUrl).then((res) => {
+            _1.MatchAdapter.index(this.api_key, this.baseUrl).then((res) => {
                 if (res.status = 200) {
                     resolve(this.processMatches(res.matches));
                 }
@@ -219,7 +216,7 @@ class Tournament extends base_1.default {
         return this.participants;
     }
     processParticipant(participant) {
-        return new participant_1.default(this.api_key, this.baseUrl, participant.id, participant);
+        return new _1.Participant(this.api_key, this.baseUrl, participant.id, participant);
     }
     processMatches(matches) {
         this.matches = matches.map(match => {
@@ -228,7 +225,7 @@ class Tournament extends base_1.default {
         return this.matches;
     }
     processMatch(match) {
-        return new match_1.default(this.api_key, this.baseUrl, match.id, match);
+        return new _1.Match(this.api_key, this.baseUrl, match.id, match);
     }
     /** Create a tournament url */
     generateUrl(url, subdomain) {

@@ -1,6 +1,5 @@
 import { url } from '../../src/adapter/base';
 import { MatchAdapter } from '../../src';
-import * as challongeInterfaces from '../../src/interfaces/match.interface';
 
 var fs = require('fs');
 import { setupRecorder } from "nock-record";

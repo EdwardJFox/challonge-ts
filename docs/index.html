@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Challonge-ts</title>
+	<title>ChallongeTS</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="assets/css/main.css">
@@ -22,7 +22,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="index.html" class="title">Challonge-ts</a>
+					<a href="index.html" class="title">ChallongeTS</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -54,7 +54,7 @@
 					<a href="globals.html">Globals</a>
 				</li>
 			</ul>
-			<h1> Challonge-ts</h1>
+			<h1> ChallongeTS</h1>
 		</div>
 	</div>
 </header>
@@ -66,17 +66,30 @@
 				<p>An overdone <a href="https://challonge.com/">Challonge</a> API interface and adapter, written with Typescript but should work in ES6+ too.</p>
 				<h2 id="using-the-adapter">Using the adapter</h2>
 				<p>The adapter is a direct stateless interface with Challonge, with no frills, you&#39;re calling the Challonge API directly.</p>
-				<h3 id="example-retrieving-a-list-of-tournaments">Example - Retrieving a list of tournaments</h3>
-				<pre><code><span class="hljs-keyword">import</span> * <span class="hljs-keyword">as</span> tournamentAdapter <span class="hljs-keyword">from</span> <span class="hljs-string">'../../src/adapter/tournaments'</span>;
-<span class="hljs-keyword">import</span> { tournamentStateEnum } <span class="hljs-keyword">as</span> challongeInterfaces <span class="hljs-keyword">from</span> <span class="hljs-string">'../../src/interfaces/tournament.interface'</span>;
+				<h3 id="example-retrieving-a-list-of-tournaments-with-the-tournamentadapter">Example - Retrieving a list of tournaments with the TournamentAdapter</h3>
+				<p>The following returns the direct raw response from the Challonge API</p>
+				<pre><code>import { TournamentAdapter } from 'challonge-ts';
+<span class="hljs-built_in">
+const </span>test = async () =&gt; {
+ <span class="hljs-built_in"> const </span>data = await TournamentAdapter.index('api_key');
 
-<span class="hljs-keyword">const</span> data = <span class="hljs-keyword">await</span> tournamentAdapter.index(challonge_api_key, {
-  <span class="hljs-attr">state</span>: tournamentStateEnum.ALL
-});
+  console.log(data);
+}
 
-data.tournaments <span class="hljs-comment">// Direct response from the API, array of tournament JSON objects</span>
-</code></pre><p>Due to the direct nature</p>
-				<h2 id="running-the-tests">Running the tests</h2>
+test(); // Direct response from the API,<span class="hljs-built_in"> array </span>of tournament JSON objects</code></pre><p>Due to the direct nature of these adapters, I recommend looking at both the <a href="https://api.challonge.com/v1">Challonge API</a> documentation for the routes, and the <a href="https://edwardjfox.github.io/challonge-ts/">ChallongeTS documentation</a> </p>
+				<h2 id="using-the-class">Using the class</h2>
+				<p>Devised as a nicer abstraction over the adapter, this is a set of classes which wrap the adapter in a more OO type way, if that&#39;s your thing.</p>
+				<h3 id="example-retrieving-a-list-of-tournaments-with-the-challonge-class">Example - Retrieving a list of tournaments with the Challonge class</h3>
+				<pre><code><span class="hljs-keyword">import</span> { Challonge } <span class="hljs-keyword">from</span> <span class="hljs-string">'challonge-ts'</span>;
+
+<span class="hljs-keyword">const</span> test = <span class="hljs-keyword">async</span> () =&gt; {
+  <span class="hljs-keyword">const</span> challonge = <span class="hljs-keyword">new</span> Challonge(<span class="hljs-string">'SRYL36JGDlziwZaouAfgyQHyztqIxFllDP1OHnG5'</span>)
+  <span class="hljs-keyword">const</span> tournaments = <span class="hljs-keyword">await</span> challonge.getTournaments({ <span class="hljs-attr">include_participants</span>: <span class="hljs-number">1</span> });
+
+  <span class="hljs-built_in">console</span>.log(tournaments); <span class="hljs-comment">// Array of populated Tournament objects</span>
+}
+
+test();</code></pre><h2 id="running-the-tests">Running the tests</h2>
 				<p>The tests for this are written using <a href="https://jestjs.io/">Jest</a>, and uses <a href="https://www.npmjs.com/package/nock-record">Nock Record</a> to stub the API requests to Challonge. To run them do the following:</p>
 				<ol>
 					<li>Create an <code>api_key.txt</code> file in the <code>tests</code> folder, containing an api key which matches the nock files if running offline, or your live api key if regenerating the nock files. In the case of the master branch, the file should just contain <code>test_api_key</code></li>
@@ -85,6 +98,8 @@ data.tournaments <span class="hljs-comment">// Direct response from the API, arr
 				<p>To regenerate the API nock files, delete the <code>tests/adapter/__nock-fixtures__</code> folder and re-run the tests. With a valid API key, the files should be regenerated. Once the tests pass and the files have been generated, remember to do a find and replace for your API key to <code>test_api_key</code> to ensure you don&#39;t push your public Challonge API key to a public repo!</p>
 				<h2 id="building">Building</h2>
 				<p>Ensure you have <code>gulp-cli</code> installed locally, then run <code>npm run build</code>. Hopefully it goes all right with no errors! :)</p>
+				<h2 id="merging-with-master">Merging with master</h2>
+				<p>After you have run the tests, and built the project, your repo should be good to go for merging with master!</p>
 			</div>
 		</div>
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
@@ -94,33 +109,36 @@ data.tournaments <span class="hljs-comment">// Direct response from the API, arr
 						<a href="globals.html"><em>Globals</em></a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/baseinterfaces.html">Base<wbr>Interfaces</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/matchadapter.html">Match<wbr>Adapter</a>
 					</li>
 					<li class=" tsd-kind-module">
 						<a href="modules/matchattachmentadapter.html">Match<wbr>Attachment<wbr>Adapter</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/matchattachmentinterfaces.html">Match<wbr>Attachment<wbr>Interfaces</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/matchinterfaces.html">Match<wbr>Interfaces</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/participantadapter.html">Participant<wbr>Adapter</a>
 					</li>
 					<li class=" tsd-kind-module">
+						<a href="modules/participantinterfaces.html">Participant<wbr>Interfaces</a>
+					</li>
+					<li class=" tsd-kind-module">
 						<a href="modules/tournamentadapter.html">Tournament<wbr>Adapter</a>
+					</li>
+					<li class=" tsd-kind-module">
+						<a href="modules/tournamentinterfaces.html">Tournament<wbr>Interfaces</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-enum">
-						<a href="enums/tournamentgrandfinalsmodifierenum.html" class="tsd-kind-icon">tournament<wbr>Grand<wbr>Finals<wbr>Modifier<wbr>Enum</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="enums/tournamentrankedbyenum.html" class="tsd-kind-icon">tournament<wbr>Ranked<wbr>ByEnum</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="enums/tournamentstateenum.html" class="tsd-kind-icon">tournament<wbr>State<wbr>Enum</a>
-					</li>
-					<li class=" tsd-kind-enum">
-						<a href="enums/tournamenttypeenum.html" class="tsd-kind-icon">tournament<wbr>Type<wbr>Enum</a>
-					</li>
 					<li class=" tsd-kind-class">
 						<a href="classes/attachment.html" class="tsd-kind-icon">Attachment</a>
 					</li>
@@ -140,214 +158,7 @@ data.tournaments <span class="hljs-comment">// Direct response from the API, arr
 						<a href="classes/tournament.html" class="tsd-kind-icon">Tournament</a>
 					</li>
 					<li class=" tsd-kind-interface">
-						<a href="interfaces/abortcheckinsrequest.html" class="tsd-kind-icon">abort<wbr>Check<wbr>Ins<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/abortcheckinstournamentresponse.html" class="tsd-kind-icon">abort<wbr>Check<wbr>Ins<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/baseresponse.html" class="tsd-kind-icon">base<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/basetournamentrequest.html" class="tsd-kind-icon">base<wbr>Tournament<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/bulkaddparticipantparameters.html" class="tsd-kind-icon">bulk<wbr>Add<wbr>Participant<wbr>Parameters</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/bulkaddparticipantsrequest.html" class="tsd-kind-icon">bulk<wbr>Add<wbr>Participants<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/bulkaddparticipantsresposne.html" class="tsd-kind-icon">bulk<wbr>Add<wbr>Participants<wbr>Resposne</a>
-					</li>
-					<li class=" tsd-kind-interface">
 						<a href="interfaces/challongebase.html" class="tsd-kind-icon">challonge<wbr>Base</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/checkinparticipantresponse.html" class="tsd-kind-icon">check<wbr>InParticipant<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/clearparticipantsresponse.html" class="tsd-kind-icon">clear<wbr>Participants<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/creatematchattachmentrequest.html" class="tsd-kind-icon">create<wbr>Match<wbr>Attachment<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/creatematchattachmentresponse.html" class="tsd-kind-icon">create<wbr>Match<wbr>Attachment<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/createparticipantrequest.html" class="tsd-kind-icon">create<wbr>Participant<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/createparticipantresponse.html" class="tsd-kind-icon">create<wbr>Participant<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/createtournamentrequest.html" class="tsd-kind-icon">create<wbr>Tournament<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/createtournamentresponse.html" class="tsd-kind-icon">create<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/destroymatchattachmentresponse.html" class="tsd-kind-icon">destroy<wbr>Match<wbr>Attachment<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/destroyparticipantresponse.html" class="tsd-kind-icon">destroy<wbr>Participant<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/destroytournamentresponse.html" class="tsd-kind-icon">destroy<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/finalizerequest.html" class="tsd-kind-icon">finalize<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/finalizetournamentresponse.html" class="tsd-kind-icon">finalize<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/indexmatchattachmentsresponse.html" class="tsd-kind-icon">index<wbr>Match<wbr>Attachments<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/indexmatchesrequest.html" class="tsd-kind-icon">index<wbr>Matches<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/indexmatchesresponse.html" class="tsd-kind-icon">index<wbr>Matches<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/indexparticipantsresponse.html" class="tsd-kind-icon">index<wbr>Participants<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/indextournamentsrequest.html" class="tsd-kind-icon">index<wbr>Tournaments<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/indextournamentsresponse.html" class="tsd-kind-icon">index<wbr>Tournaments<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/matchactions.html" class="tsd-kind-icon">match<wbr>Actions</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/matchattachmentrequestobject.html" class="tsd-kind-icon">match<wbr>Attachment<wbr>Request<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/matchattachmentresponseobject.html" class="tsd-kind-icon">match<wbr>Attachment<wbr>Response<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/matchattachmentresponseobjectfields.html" class="tsd-kind-icon">match<wbr>Attachment<wbr>Response<wbr>Object<wbr>Fields</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/matchresponseobject.html" class="tsd-kind-icon">match<wbr>Response<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/matchupdaterequestobject.html" class="tsd-kind-icon">match<wbr>Update<wbr>Request<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/openforpredictionsrequest.html" class="tsd-kind-icon">open<wbr>For<wbr>Predictions<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/openforpredictionstournamentresponse.html" class="tsd-kind-icon">open<wbr>For<wbr>Predictions<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/participantactions.html" class="tsd-kind-icon">participant<wbr>Actions</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/participantparameters.html" class="tsd-kind-icon">participant<wbr>Parameters</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/participantresponseobject.html" class="tsd-kind-icon">participant<wbr>Response<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/processcheckinsrequest.html" class="tsd-kind-icon">process<wbr>Check<wbr>Ins<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/processcheckinstournamentresponse.html" class="tsd-kind-icon">process<wbr>Check<wbr>Ins<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/randomizeparticipantsresponse.html" class="tsd-kind-icon">randomize<wbr>Participants<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/reopenmatchresponse.html" class="tsd-kind-icon">reopen<wbr>Match<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/resetrequest.html" class="tsd-kind-icon">reset<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/resettournamentresponse.html" class="tsd-kind-icon">reset<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/showmatchattachmentresponse.html" class="tsd-kind-icon">show<wbr>Match<wbr>Attachment<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/showmatchresponse.html" class="tsd-kind-icon">show<wbr>Match<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/showmatchesrequest.html" class="tsd-kind-icon">show<wbr>Matches<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/showparticipantresponse.html" class="tsd-kind-icon">show<wbr>Participant<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/showtournamentrequest.html" class="tsd-kind-icon">show<wbr>Tournament<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/showtournamentresponse.html" class="tsd-kind-icon">show<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/startrequest.html" class="tsd-kind-icon">start<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/starttournamentresponse.html" class="tsd-kind-icon">start<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/stricttournamentparameters.html" class="tsd-kind-icon">strict<wbr>Tournament<wbr>Parameters</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/tournamentaction.html" class="tsd-kind-icon">tournament<wbr>Action</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/tournamentparameters.html" class="tsd-kind-icon">tournament<wbr>Parameters</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/tournamentresponseobject.html" class="tsd-kind-icon">tournament<wbr>Response<wbr>Object</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/undocheckinparticipantresponse.html" class="tsd-kind-icon">undo<wbr>Check<wbr>InParticipant<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/updatematchattachmentrequest.html" class="tsd-kind-icon">update<wbr>Match<wbr>Attachment<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/updatematchattachmentresponse.html" class="tsd-kind-icon">update<wbr>Match<wbr>Attachment<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/updatematchresponse.html" class="tsd-kind-icon">update<wbr>Match<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/updatematchesrequest.html" class="tsd-kind-icon">update<wbr>Matches<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/updateparticipantrequest.html" class="tsd-kind-icon">update<wbr>Participant<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/updateparticipantresponse.html" class="tsd-kind-icon">update<wbr>Participant<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/updatetournamentrequest.html" class="tsd-kind-icon">update<wbr>Tournament<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-interface">
-						<a href="interfaces/updatetournamentresponse.html" class="tsd-kind-icon">update<wbr>Tournament<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#matchstatetype" class="tsd-kind-icon">match<wbr>State<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tournamentgrandfinalsmodifier" class="tsd-kind-icon">tournament<wbr>Grand<wbr>Finals<wbr>Modifier</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tournamentrankedbytype" class="tsd-kind-icon">tournament<wbr>Ranked<wbr>ByType</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tournamenttiebreaktype" class="tsd-kind-icon">tournament<wbr>Tie<wbr>Break<wbr>Type</a>
-					</li>
-					<li class=" tsd-kind-type-alias">
-						<a href="globals.html#tournamenttypetype" class="tsd-kind-icon">tournament<wbr>Type<wbr>Type</a>
 					</li>
 					<li class=" tsd-kind-variable">
 						<a href="globals.html#endpoint" class="tsd-kind-icon">endpoint</a>

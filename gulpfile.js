@@ -31,9 +31,9 @@ gulp.task("typedoc", function(){
         .pipe(typedoc({
             module: "commonjs",
             target: "es2017",
-            includeDeclarations: true,
+            includeDeclarations: false,
             out: "docs/",
-            name: "Challonge-ts",
+            name: "ChallongeTS",
             ignoreCompilerErrors: false,
             version: true,
             externalPattern: "**/node_modules/**",

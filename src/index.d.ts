@@ -1,14 +1,11 @@
-import * as matchAttachmentInterfaces from './interfaces/matchAttachment.interface';
-import * as tournamentInterfaces from './interfaces/tournament.interface';
-import * as matchInterfaces from './interfaces/match.interface';
-import * as participantInterfaces from './interfaces/participant.interface';
+import { MatchAttachmentInterfaces, MatchInterfaces, ParticipantInterfaces, TournamentInterfaces } from './';
 
 declare class Attachment {
-	constructor(api_key: string, baseUrl: string, match_id: number, id: number, data?: matchAttachmentInterfaces.matchAttachmentResponseObject);
+	constructor(api_key: string, baseUrl: string, match_id: number, id: number, data?: MatchAttachmentInterfaces.matchAttachmentResponseObject);
 
 	get(): Promise<Attachment>;
 
-	update(params?: matchAttachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment>;
+	update(params?: MatchAttachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment>;
 
 	delete(): Promise<boolean>;
 }
@@ -16,17 +13,17 @@ declare class Attachment {
 export class Challonge {
 	constructor(api_key: string);
 
-	getTournaments(params?: tournamentInterfaces.indexTournamentsRequest): Promise<Array<Tournament>>;
+	getTournaments(params?: TournamentInterfaces.indexTournamentsRequest): Promise<Array<Tournament>>;
 
-	createTournament(params: tournamentInterfaces.strictTournamentParameters): Promise<Tournament>;
+	createTournament(params: TournamentInterfaces.strictTournamentParameters): Promise<Tournament>;
 }
 
 export class Match {
-	constructor(api_key: string, baseUrl: string, id: number, data?: matchInterfaces.matchResponseObject);
+	constructor(api_key: string, baseUrl: string, id: number, data?: MatchInterfaces.matchResponseObject);
 
 	get(): Promise<Match>;
 
-	update(params?: matchInterfaces.matchUpdateRequestObject): Promise<Match>;
+	update(params?: MatchInterfaces.matchUpdateRequestObject): Promise<Match>;
 
 	selectWinner(winner_id: number, scores: string): Promise<Match>;
 
@@ -34,7 +31,7 @@ export class Match {
 
 	getAllAttachments(): Promise<Array<Attachment>>;
 
-	createAttachment(params?: matchAttachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment>;
+	createAttachment(params?: MatchAttachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment>;
 
 	processAttachment(attachments): Array<Attachment>;
 
@@ -42,11 +39,11 @@ export class Match {
 }
 
 export class Participant {
-	constructor(api_key: string, baseUrl: string, id: number, data?: participantInterfaces.participantResponseObject);
+	constructor(api_key: string, baseUrl: string, id: number, data?: ParticipantInterfaces.participantResponseObject);
 
 	get(): Promise<Participant>;
 
-	update(params?: participantInterfaces.updateParticipantRequest): Promise<Participant>;
+	update(params?: ParticipantInterfaces.updateParticipantRequest): Promise<Participant>;
 
 	checkIn(): void;
 	
@@ -56,31 +53,31 @@ export class Participant {
 }
 
 export class Tournament {
-	constructor(api_key: string, data: tournamentInterfaces.tournamentResponseObject);
+	constructor(api_key: string, data: TournamentInterfaces.tournamentResponseObject);
 
-	get(params?: tournamentInterfaces.showTournamentRequest): Promise<Tournament>;
+	get(params?: TournamentInterfaces.showTournamentRequest): Promise<Tournament>;
 
-	update(params?: tournamentInterfaces.updateTournamentRequest): Promise<Tournament>;
+	update(params?: TournamentInterfaces.updateTournamentRequest): Promise<Tournament>;
 
 	delete(): Promise<Boolean>;
 
-	processCheckIns(params?: tournamentInterfaces.processCheckInsRequest): Promise<Tournament>;
+	processCheckIns(params?: TournamentInterfaces.processCheckInsRequest): Promise<Tournament>;
 
-	abortCheckIns(params?: tournamentInterfaces.abortCheckInsRequest): Promise<Tournament>;
+	abortCheckIns(params?: TournamentInterfaces.abortCheckInsRequest): Promise<Tournament>;
 
-	startTournament(params?: tournamentInterfaces.startRequest): Promise<Tournament>;
+	startTournament(params?: TournamentInterfaces.startRequest): Promise<Tournament>;
 
-	finalizeResults(params?: tournamentInterfaces.finalizeRequest): Promise<Tournament>;
+	finalizeResults(params?: TournamentInterfaces.finalizeRequest): Promise<Tournament>;
 
-	resetTournament(params?: tournamentInterfaces.resetRequest): Promise<Tournament>;
+	resetTournament(params?: TournamentInterfaces.resetRequest): Promise<Tournament>;
 
-	openForPredictions(params: tournamentInterfaces.openForPredictionsRequest): Promise<Tournament>;
+	openForPredictions(params: TournamentInterfaces.openForPredictionsRequest): Promise<Tournament>;
 
 	getParticipants(): Promise<Array<Participant>>;
 
-	newParticipant(params: participantInterfaces.participantParameters): Promise<Participant>;
+	newParticipant(params: ParticipantInterfaces.participantParameters): Promise<Participant>;
 
-	bulkAddParticipants(params: participantInterfaces.bulkAddParticipantsRequest): Promise<Array<Participant>>;
+	bulkAddParticipants(params: ParticipantInterfaces.bulkAddParticipantsRequest): Promise<Array<Participant>>;
 
 	clearParticipants(): Promise<string>;
 
@@ -90,7 +87,7 @@ export class Tournament {
 
 	generateUrl(...args: any[]): void;
 	
-	private processTournamentData(data: tournamentInterfaces.tournamentResponseObject, params?): void;
+	private processTournamentData(data: TournamentInterfaces.tournamentResponseObject, params?): void;
 
 	private processMatch(match): void;
 
@@ -102,70 +99,70 @@ export class Tournament {
 }
 
 export namespace MatchAdapter {
-	function index(api_key: string, tournament_url: string): Promise<matchInterfaces.indexMatchesResponse>;
+	function index(api_key: string, tournament_url: string): Promise<MatchInterfaces.indexMatchesResponse>;
 
-	function show(api_key: string, tournament_url: string, match_id: number): Promise<matchInterfaces.showMatchResponse>;
+	function show(api_key: string, tournament_url: string, match_id: number): Promise<MatchInterfaces.showMatchResponse>;
 
-	function update(api_key: string, tournament_url: string, match_id: number, params: matchInterfaces.updateMatchesRequest): Promise<matchInterfaces.updateMatchResponse>;
+	function update(api_key: string, tournament_url: string, match_id: number, params: MatchInterfaces.updateMatchesRequest): Promise<MatchInterfaces.updateMatchResponse>;
 
-	function reopen(api_key: string, tournament_url: string, match_id: number): Promise<matchInterfaces.reopenMatchResponse>;
+	function reopen(api_key: string, tournament_url: string, match_id: number): Promise<MatchInterfaces.reopenMatchResponse>;
 }
 
 export namespace MatchAttachmentAdapter {
-	function index(api_key: string, tournament_url: string, match_id: number): Promise<matchAttachmentInterfaces.indexMatchAttachmentsResponse>;
+	function index(api_key: string, tournament_url: string, match_id: number): Promise<MatchAttachmentInterfaces.indexMatchAttachmentsResponse>;
 
-	function create(api_key: string, tournament_url: string, match_id: number, params: matchAttachmentInterfaces.createMatchAttachmentRequest): Promise<matchAttachmentInterfaces.createMatchAttachmentResponse>;
+	function create(api_key: string, tournament_url: string, match_id: number, params: MatchAttachmentInterfaces.createMatchAttachmentRequest): Promise<MatchAttachmentInterfaces.createMatchAttachmentResponse>;
 	
-	function show(api_key: string, tournament_url: string, match_id: number, attachment_id: number): Promise<matchAttachmentInterfaces.showMatchAttachmentResponse>;
+	function show(api_key: string, tournament_url: string, match_id: number, attachment_id: number): Promise<MatchAttachmentInterfaces.showMatchAttachmentResponse>;
 
-	function update(api_key: string, tournament_url: string, match_id: number, attachment_id: number, params: matchAttachmentInterfaces.updateMatchAttachmentRequest): Promise<matchAttachmentInterfaces.updateMatchAttachmentResponse>;
+	function update(api_key: string, tournament_url: string, match_id: number, attachment_id: number, params: MatchAttachmentInterfaces.updateMatchAttachmentRequest): Promise<MatchAttachmentInterfaces.updateMatchAttachmentResponse>;
 	
-	function destroy(api_key: string, tournament_url: string, match_id: number, attachment_id: number): Promise<matchAttachmentInterfaces.destroyMatchAttachmentResponse>;
+	function destroy(api_key: string, tournament_url: string, match_id: number, attachment_id: number): Promise<MatchAttachmentInterfaces.destroyMatchAttachmentResponse>;
 }
 
 export namespace ParticipantAdapter {
-	function index(api_key: string, tournament_url: string): Promise<participantInterfaces.indexParticipantsResponse>;
+	function index(api_key: string, tournament_url: string): Promise<ParticipantInterfaces.indexParticipantsResponse>;
 
-	function create(api_key: string, tournament_url: string, params: participantInterfaces.createParticipantRequest): Promise<participantInterfaces.createParticipantResponse>;
+	function create(api_key: string, tournament_url: string, params: ParticipantInterfaces.createParticipantRequest): Promise<ParticipantInterfaces.createParticipantResponse>;
 
-	function bulkAdd(api_key: string, tournament_url: string, params: participantInterfaces.bulkAddParticipantsRequest): Promise<participantInterfaces.bulkAddParticipantsResposne>;
+	function bulkAdd(api_key: string, tournament_url: string, params: ParticipantInterfaces.bulkAddParticipantsRequest): Promise<ParticipantInterfaces.bulkAddParticipantsResposne>;
 
-	function show(api_key: string, tournament_url: string, participant_id: number): Promise<participantInterfaces.showParticipantResponse>;
+	function show(api_key: string, tournament_url: string, participant_id: number): Promise<ParticipantInterfaces.showParticipantResponse>;
 
-	function update(api_key: string, tournament_url: string, participant_id: number, params: participantInterfaces.updateParticipantRequest): Promise<participantInterfaces.updateParticipantResponse>;
+	function update(api_key: string, tournament_url: string, participant_id: number, params: ParticipantInterfaces.updateParticipantRequest): Promise<ParticipantInterfaces.updateParticipantResponse>;
 
-	function checkIn(api_key: string, tournament_url: string, participant_id: number): Promise<participantInterfaces.checkInParticipantResponse>;
+	function checkIn(api_key: string, tournament_url: string, participant_id: number): Promise<ParticipantInterfaces.checkInParticipantResponse>;
 
-	function undoCheckIn(api_key: string, tournament_url: string, participant_id: number): Promise<participantInterfaces.checkInParticipantResponse>;
+	function undoCheckIn(api_key: string, tournament_url: string, participant_id: number): Promise<ParticipantInterfaces.checkInParticipantResponse>;
 
-	function destroy(api_key: string, tournament_url: string, participant_id: number): Promise<participantInterfaces.destroyParticipantResponse>;
+	function destroy(api_key: string, tournament_url: string, participant_id: number): Promise<ParticipantInterfaces.destroyParticipantResponse>;
 
-	function clear(api_key: string, tournament_url: string): Promise<participantInterfaces.clearParticipantsResponse>;
+	function clear(api_key: string, tournament_url: string): Promise<ParticipantInterfaces.clearParticipantsResponse>;
 
-	function randomize(api_key: string, tournament_url: string): Promise<participantInterfaces.randomizeParticipantsResponse>;
+	function randomize(api_key: string, tournament_url: string): Promise<ParticipantInterfaces.randomizeParticipantsResponse>;
 
 }
 
 declare namespace TournamentAdapter {
-	function abortCheckIns(api_key: string, tournament_url: string, params?: tournamentInterfaces.abortCheckInsRequest): Promise<tournamentInterfaces.abortCheckInsTournamentResponse>
+	function abortCheckIns(api_key: string, tournament_url: string, params?: TournamentInterfaces.abortCheckInsRequest): Promise<TournamentInterfaces.abortCheckInsTournamentResponse>
 
-	function create(api_key: string, params: tournamentInterfaces.createTournamentRequest): Promise<tournamentInterfaces.createTournamentResponse>;
+	function create(api_key: string, params: TournamentInterfaces.createTournamentRequest): Promise<TournamentInterfaces.createTournamentResponse>;
 	
-	function destroy(api_key: string, tournament_url: string): Promise<tournamentInterfaces.destroyTournamentResponse>
+	function destroy(api_key: string, tournament_url: string): Promise<TournamentInterfaces.destroyTournamentResponse>
 	
-	function finalize(api_key: string, tournament_url: string, params?: tournamentInterfaces.finalizeRequest): Promise<tournamentInterfaces.finalizeTournamentResponse>
+	function finalize(api_key: string, tournament_url: string, params?: TournamentInterfaces.finalizeRequest): Promise<TournamentInterfaces.finalizeTournamentResponse>
 	
-	function index(api_key: string, params: tournamentInterfaces.indexTournamentsRequest): Promise<tournamentInterfaces.indexTournamentsResponse>;
+	function index(api_key: string, params?: TournamentInterfaces.indexTournamentsRequest): Promise<TournamentInterfaces.indexTournamentsResponse>;
 
-	function openForPredictions(api_key: string, tournament_url: string, params?: tournamentInterfaces.openForPredictionsRequest): Promise<tournamentInterfaces.openForPredictionsTournamentResponse>
+	function openForPredictions(api_key: string, tournament_url: string, params?: TournamentInterfaces.openForPredictionsRequest): Promise<TournamentInterfaces.openForPredictionsTournamentResponse>
 
-	function processCheckIns(api_key: string, tournament_url: string, params?: tournamentInterfaces.processCheckInsRequest): Promise<tournamentInterfaces.processCheckInsTournamentResponse>
+	function processCheckIns(api_key: string, tournament_url: string, params?: TournamentInterfaces.processCheckInsRequest): Promise<TournamentInterfaces.processCheckInsTournamentResponse>
 
-	function reset(api_key: string, tournament_url: string, params?: tournamentInterfaces.resetRequest): Promise<tournamentInterfaces.resetTournamentResponse>
+	function reset(api_key: string, tournament_url: string, params?: TournamentInterfaces.resetRequest): Promise<TournamentInterfaces.resetTournamentResponse>
 
-	function show(api_key: string, tournament_url: string, params?: tournamentInterfaces.showTournamentRequest): Promise<tournamentInterfaces.showTournamentResponse>
+	function show(api_key: string, tournament_url: string, params?: TournamentInterfaces.showTournamentRequest): Promise<TournamentInterfaces.showTournamentResponse>
 
-	function start(api_key: string, tournament_url: string, params?: tournamentInterfaces.startRequest): Promise<tournamentInterfaces.startTournamentResponse>
+	function start(api_key: string, tournament_url: string, params?: TournamentInterfaces.startRequest): Promise<TournamentInterfaces.startTournamentResponse>
 
-	function update(api_key: string, tournament_url: string, params?: tournamentInterfaces.updateTournamentRequest): Promise<tournamentInterfaces.updateTournamentResponse>
+	function update(api_key: string, tournament_url: string, params?: TournamentInterfaces.updateTournamentRequest): Promise<TournamentInterfaces.updateTournamentResponse>
 }

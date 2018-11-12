@@ -1,9 +1,4 @@
-import ChallongeBase from './base';
-import * as matchInterfaces from './interfaces/match.interface';
-import * as matchAttachmentInterfaces from './interfaces/matchAttachment.interface';
-import { MatchAdapter } from './adapter';
-import { MatchAttachmentAdapter } from './adapter';
-import Attachment from './attachment';
+import { ChallongeBase, MatchInterfaces, MatchAttachmentInterfaces, MatchAdapter, MatchAttachmentAdapter, Attachment } from './';
 
 export default class Match extends ChallongeBase {
   attachment_count: number;
@@ -24,7 +19,7 @@ export default class Match extends ChallongeBase {
   round: number;
   scheduled_time: Date;
   started_at: Date;
-  state: matchInterfaces.matchStateType;
+  state: MatchInterfaces.matchStateType;
   tournament_id: number;
   underway_at: Date;
   updated_at: Date;
@@ -33,7 +28,7 @@ export default class Match extends ChallongeBase {
   scores_csv: string;
   attachments: Array<Attachment>;
 
-  constructor(public api_key: string, public baseUrl: string, public id: number, data?: matchInterfaces.matchResponseObject) {
+  constructor(public api_key: string, public baseUrl: string, public id: number, data?: MatchInterfaces.matchResponseObject) {
     super(api_key);
 
     this.attachments = [];
@@ -53,7 +48,7 @@ export default class Match extends ChallongeBase {
   }
 
   /** Update/submit the score(s) for a match. */
-  public update(params?: matchInterfaces.matchUpdateRequestObject): Promise<Match> {
+  public update(params?: MatchInterfaces.matchUpdateRequestObject): Promise<Match> {
     return new Promise((resolve, reject) => {
       MatchAdapter.update(this.api_key, this.baseUrl, this.id, { match: params }).then(res => {
         Object.assign(this, res.match);
@@ -90,7 +85,7 @@ export default class Match extends ChallongeBase {
   /** Add a file, link, or text attachment to a match. NOTE: The associated 
    * tournament's "accept_attachments" attribute must be true for this action 
    * to succeed. */
-  public createAttachment(params?: matchAttachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment> {
+  public createAttachment(params?: MatchAttachmentInterfaces.matchAttachmentRequestObject): Promise<Attachment> {
     return new Promise((resolve, reject) => {
       MatchAttachmentAdapter.create(this.api_key, this.baseUrl, this.id, { match_attachment: params }).then(res => {
         const attachment = this.processAttachment(res.match_attachment);

@@ -1,10 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const base_1 = require("./base");
-const adapter_1 = require("./adapter");
-const adapter_2 = require("./adapter");
-const attachment_1 = require("./attachment");
-class Match extends base_1.default {
+const _1 = require("./");
+class Match extends _1.ChallongeBase {
     constructor(api_key, baseUrl, id, data) {
         super(api_key);
         this.api_key = api_key;
@@ -18,7 +15,7 @@ class Match extends base_1.default {
     /** Retrieve a single match record for a tournament. */
     get() {
         return new Promise((resolve, reject) => {
-            adapter_1.MatchAdapter.show(this.api_key, this.baseUrl, this.id).then(res => {
+            _1.MatchAdapter.show(this.api_key, this.baseUrl, this.id).then(res => {
                 Object.assign(this, res.match);
                 resolve(this);
             }).catch(err => reject(err));
@@ -27,7 +24,7 @@ class Match extends base_1.default {
     /** Update/submit the score(s) for a match. */
     update(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.MatchAdapter.update(this.api_key, this.baseUrl, this.id, { match: params }).then(res => {
+            _1.MatchAdapter.update(this.api_key, this.baseUrl, this.id, { match: params }).then(res => {
                 Object.assign(this, res.match);
                 resolve(this);
             }).catch(err => reject(err));
@@ -41,7 +38,7 @@ class Match extends base_1.default {
      * matches that follow it */
     reopen() {
         return new Promise((resolve, reject) => {
-            adapter_1.MatchAdapter.reopen(this.api_key, this.baseUrl, this.id).then(res => {
+            _1.MatchAdapter.reopen(this.api_key, this.baseUrl, this.id).then(res => {
                 Object.assign(this, res.match);
                 resolve(this);
             }).catch(err => reject(err));
@@ -50,7 +47,7 @@ class Match extends base_1.default {
     /** Retrieve a matches attachments. */
     getAllAttachments() {
         return new Promise((resolve, reject) => {
-            adapter_2.MatchAttachmentAdapter.index(this.api_key, this.baseUrl, this.id).then(res => {
+            _1.MatchAttachmentAdapter.index(this.api_key, this.baseUrl, this.id).then(res => {
                 resolve(this.processAttachments(res.attachments));
             }).catch(err => reject(err));
         });
@@ -60,7 +57,7 @@ class Match extends base_1.default {
      * to succeed. */
     createAttachment(params) {
         return new Promise((resolve, reject) => {
-            adapter_2.MatchAttachmentAdapter.create(this.api_key, this.baseUrl, this.id, { match_attachment: params }).then(res => {
+            _1.MatchAttachmentAdapter.create(this.api_key, this.baseUrl, this.id, { match_attachment: params }).then(res => {
                 const attachment = this.processAttachment(res.match_attachment);
                 this.attachments.push(attachment);
                 resolve(attachment);
@@ -74,7 +71,7 @@ class Match extends base_1.default {
         return this.attachments;
     }
     processAttachment(attachment) {
-        return new attachment_1.default(this.api_key, this.baseUrl, this.id, attachment.id, attachment);
+        return new _1.Attachment(this.api_key, this.baseUrl, this.id, attachment.id, attachment);
     }
 }
 exports.default = Match;

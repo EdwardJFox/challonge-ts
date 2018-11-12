@@ -1,5 +1,8 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+// Interfaces
+var interfaces_1 = require("./interfaces");
+exports.TournamentInterfaces = interfaces_1.TournamentInterfaces;
 // Adapter
 var adapter_1 = require("./adapter");
 exports.MatchAdapter = adapter_1.MatchAdapter;
@@ -7,6 +10,8 @@ exports.MatchAttachmentAdapter = adapter_1.MatchAttachmentAdapter;
 exports.TournamentAdapter = adapter_1.TournamentAdapter;
 exports.ParticipantAdapter = adapter_1.ParticipantAdapter;
 // Classes
+var base_1 = require("./base");
+exports.ChallongeBase = base_1.default;
 var attachment_1 = require("./attachment");
 exports.Attachment = attachment_1.default;
 var challonge_1 = require("./challonge");

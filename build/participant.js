@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-const base_1 = require("./base");
-const adapter_1 = require("./adapter");
-class Participant extends base_1.default {
+const _1 = require("./");
+class Participant extends _1.ChallongeBase {
     constructor(api_key, baseUrl, id, data) {
         super(api_key);
         this.api_key = api_key;
@@ -15,7 +14,7 @@ class Participant extends base_1.default {
     /** Retrieve a single participant data. */
     get() {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.show(this.api_key, this.baseUrl, this.id).then(res => {
+            _1.ParticipantAdapter.show(this.api_key, this.baseUrl, this.id).then(res => {
                 Object.assign(this, res.participant);
                 resolve(this);
             }).catch(err => reject(err));
@@ -24,7 +23,7 @@ class Participant extends base_1.default {
     /** Update the attributes of a tournament participant. */
     update(params) {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.update(this.api_key, this.baseUrl, this.id, params).then(res => {
+            _1.ParticipantAdapter.update(this.api_key, this.baseUrl, this.id, params).then(res => {
                 Object.assign(this, res.participant);
                 resolve(this);
             }).catch(err => reject(err));
@@ -33,7 +32,7 @@ class Participant extends base_1.default {
     /** Checks a participant in, setting checked_in_at to the current time. */
     checkIn() {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.checkIn(this.api_key, this.baseUrl, this.id).then(res => {
+            _1.ParticipantAdapter.checkIn(this.api_key, this.baseUrl, this.id).then(res => {
                 Object.assign(this, res.participant);
                 resolve(this);
             }).catch(err => reject(err));
@@ -43,7 +42,7 @@ class Participant extends base_1.default {
      * nil. */
     undoCheckIn() {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.undoCheckIn(this.api_key, this.baseUrl, this.id).then(res => {
+            _1.ParticipantAdapter.undoCheckIn(this.api_key, this.baseUrl, this.id).then(res => {
                 Object.assign(this, res.participant);
                 resolve(this);
             }).catch(err => reject(err));
@@ -55,7 +54,7 @@ class Participant extends base_1.default {
      */
     destroy() {
         return new Promise((resolve, reject) => {
-            adapter_1.ParticipantAdapter.destroy(this.api_key, this.baseUrl, this.id).then(res => {
+            _1.ParticipantAdapter.destroy(this.api_key, this.baseUrl, this.id).then(res => {
                 if (res.status = 200) {
                     this.api_key = undefined;
                     resolve(true);
