@@ -1,11 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TournamentInterfaces = void 0;
 /** Tournament Interfaces */
 var TournamentInterfaces;
 (function (TournamentInterfaces) {
     /** Enums */
     /** Enum for the options for tournament_type */
-    let tournamentTypeEnum;
+    var tournamentTypeEnum;
     (function (tournamentTypeEnum) {
         /** Single elimination */
         tournamentTypeEnum["SINGLE_ELIMINATION"] = "single elimination";
@@ -17,7 +18,7 @@ var TournamentInterfaces;
         tournamentTypeEnum["SWISS"] = "swiss";
     })(tournamentTypeEnum = TournamentInterfaces.tournamentTypeEnum || (TournamentInterfaces.tournamentTypeEnum = {}));
     /** Enum for tournaments state */
-    let tournamentStateEnum;
+    var tournamentStateEnum;
     (function (tournamentStateEnum) {
         /** All tournaments */
         tournamentStateEnum["ALL"] = "all";
@@ -29,7 +30,7 @@ var TournamentInterfaces;
         tournamentStateEnum["ENDED"] = "ended";
     })(tournamentStateEnum = TournamentInterfaces.tournamentStateEnum || (TournamentInterfaces.tournamentStateEnum = {}));
     /** Enum for the options for ranked_by */
-    let tournamentRankedByEnum;
+    var tournamentRankedByEnum;
     (function (tournamentRankedByEnum) {
         /** Match wins */
         tournamentRankedByEnum["MATCH_WINS"] = "match wins";
@@ -43,7 +44,7 @@ var TournamentInterfaces;
         tournamentRankedByEnum["CUSTOM"] = "custom";
     })(tournamentRankedByEnum = TournamentInterfaces.tournamentRankedByEnum || (TournamentInterfaces.tournamentRankedByEnum = {}));
     /** Enum for the grand_finals_modifier parameter */
-    let tournamentGrandFinalsModifierEnum;
+    var tournamentGrandFinalsModifierEnum;
     (function (tournamentGrandFinalsModifierEnum) {
         /** Give the winners bracket finalist two chances to beat the losers bracket finalist */
         tournamentGrandFinalsModifierEnum["DEFAULT"] = "";

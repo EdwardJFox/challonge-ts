@@ -4,9 +4,9 @@
   ],
   "compilerOptions": {
     "module": "commonjs",
-    "target": "es2017",
+    "target": "es5",
     "sourceMap": true,
-    "inlineSourceMap": true
+    "inlineSourceMap": false
   },
   "exclude": [
     "node_modules",

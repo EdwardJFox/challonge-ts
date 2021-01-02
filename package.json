@@ -1,6 +1,6 @@
 {
   "name": "challonge-ts",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Challonge API interface",
   "main": "./build/index.js",
   "typings": "build/index.d.ts",
@@ -19,8 +19,7 @@
     "build"
   ],
   "dependencies": {
-    "axios": "^0.21.1",
-    "node-fetch": "^2.6.1"
+    "axios": "^0.21.1"
   },
   "devDependencies": {
     "@types/jest": "^26.0.19",

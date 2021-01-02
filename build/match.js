@@ -1,77 +1,99 @@
 "use strict";
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 Object.defineProperty(exports, "__esModule", { value: true });
-const _1 = require("./");
-class Match extends _1.ChallongeBase {
-    constructor(api_key, baseUrl, id, data) {
-        super(api_key);
-        this.api_key = api_key;
-        this.baseUrl = baseUrl;
-        this.id = id;
-        this.attachments = [];
+var _1 = require("./");
+var Match = /** @class */ (function (_super) {
+    __extends(Match, _super);
+    function Match(api_key, baseUrl, id, data) {
+        var _this = _super.call(this, api_key) || this;
+        _this.api_key = api_key;
+        _this.baseUrl = baseUrl;
+        _this.id = id;
+        _this.attachments = [];
         if (data) {
-            Object.assign(this, data);
+            Object.assign(_this, data);
         }
+        return _this;
     }
     /** Retrieve a single match record for a tournament. */
-    get() {
-        return new Promise((resolve, reject) => {
-            _1.MatchAdapter.show(this.api_key, this.baseUrl, this.id).then(res => {
-                Object.assign(this, res.match);
-                resolve(this);
-            }).catch(err => reject(err));
+    Match.prototype.get = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _1.MatchAdapter.show(_this.api_key, _this.baseUrl, _this.id).then(function (res) {
+                Object.assign(_this, res.match);
+                resolve(_this);
+            }).catch(function (err) { return reject(err); });
         });
-    }
+    };
     /** Update/submit the score(s) for a match. */
-    update(params) {
-        return new Promise((resolve, reject) => {
-            _1.MatchAdapter.update(this.api_key, this.baseUrl, this.id, { match: params }).then(res => {
-                Object.assign(this, res.match);
-                resolve(this);
-            }).catch(err => reject(err));
+    Match.prototype.update = function (params) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _1.MatchAdapter.update(_this.api_key, _this.baseUrl, _this.id, { match: params }).then(function (res) {
+                Object.assign(_this, res.match);
+                resolve(_this);
+            }).catch(function (err) { return reject(err); });
         });
-    }
+    };
     /** Choose winner passing in a participant id and the scores in csv format */
-    selectWinner(winner_id, scores) {
-        return this.update({ winner_id, scores_csv: scores });
-    }
+    Match.prototype.selectWinner = function (winner_id, scores) {
+        return this.update({ winner_id: winner_id, scores_csv: scores });
+    };
     /** Reopens a match that was marked completed, automatically resetting
      * matches that follow it */
-    reopen() {
-        return new Promise((resolve, reject) => {
-            _1.MatchAdapter.reopen(this.api_key, this.baseUrl, this.id).then(res => {
-                Object.assign(this, res.match);
-                resolve(this);
-            }).catch(err => reject(err));
+    Match.prototype.reopen = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _1.MatchAdapter.reopen(_this.api_key, _this.baseUrl, _this.id).then(function (res) {
+                Object.assign(_this, res.match);
+                resolve(_this);
+            }).catch(function (err) { return reject(err); });
         });
-    }
+    };
     /** Retrieve a matches attachments. */
-    getAllAttachments() {
-        return new Promise((resolve, reject) => {
-            _1.MatchAttachmentAdapter.index(this.api_key, this.baseUrl, this.id).then(res => {
-                resolve(this.processAttachments(res.attachments));
-            }).catch(err => reject(err));
+    Match.prototype.getAllAttachments = function () {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _1.MatchAttachmentAdapter.index(_this.api_key, _this.baseUrl, _this.id).then(function (res) {
+                resolve(_this.processAttachments(res.attachments));
+            }).catch(function (err) { return reject(err); });
         });
-    }
+    };
     /** Add a file, link, or text attachment to a match. NOTE: The associated
      * tournament's "accept_attachments" attribute must be true for this action
      * to succeed. */
-    createAttachment(params) {
-        return new Promise((resolve, reject) => {
-            _1.MatchAttachmentAdapter.create(this.api_key, this.baseUrl, this.id, { match_attachment: params }).then(res => {
-                const attachment = this.processAttachment(res.match_attachment);
-                this.attachments.push(attachment);
+    Match.prototype.createAttachment = function (params) {
+        var _this = this;
+        return new Promise(function (resolve, reject) {
+            _1.MatchAttachmentAdapter.create(_this.api_key, _this.baseUrl, _this.id, { match_attachment: params }).then(function (res) {
+                var attachment = _this.processAttachment(res.match_attachment);
+                _this.attachments.push(attachment);
                 resolve(attachment);
-            }).catch(err => reject(err));
+            }).catch(function (err) { return reject(err); });
         });
-    }
-    processAttachments(attachments) {
-        this.attachments = attachments.map(attachment => {
-            return this.processAttachment(attachment.match_attachment);
+    };
+    Match.prototype.processAttachments = function (attachments) {
+        var _this = this;
+        this.attachments = attachments.map(function (attachment) {
+            return _this.processAttachment(attachment.match_attachment);
         });
         return this.attachments;
-    }
-    processAttachment(attachment) {
+    };
+    Match.prototype.processAttachment = function (attachment) {
         return new _1.Attachment(this.api_key, this.baseUrl, this.id, attachment.id, attachment);
-    }
-}
+    };
+    return Match;
+}(_1.ChallongeBase));
 exports.default = Match;

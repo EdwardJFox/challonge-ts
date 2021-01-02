@@ -30,7 +30,7 @@ gulp.task("typedoc", function(){
         .src(["src/**/*.ts"])
         .pipe(typedoc({
             module: "commonjs",
-            target: "es2017",
+            target: "es5",
             includeDeclarations: false,
             out: "docs/",
             name: "ChallongeTS",

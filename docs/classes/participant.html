@@ -3,17 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Participant | ChallongeTS</title>
-	<meta name="description" content="">
+	<title>Participant | challonge-ts</title>
+	<meta name="description" content="Documentation for challonge-ts">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">ChallongeTS</a>
+					<a href="../index.html" class="title">challonge-ts</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,8 +39,8 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -51,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">challonge-ts</a>
 				</li>
 				<li>
 					<a href="participant.html">Participant</a>
@@ -68,7 +69,7 @@
 				<h3>Hierarchy</h3>
 				<ul class="tsd-hierarchy">
 					<li>
-						<a href="challongebase.html" class="tsd-signature-type">ChallongeBase</a>
+						<a href="challongebase.html" class="tsd-signature-type" data-tsd-kind="Class">ChallongeBase</a>
 						<ul class="tsd-hierarchy">
 							<li>
 								<span class="target">Participant</span>
@@ -84,14 +85,14 @@
 						<section class="tsd-index-section ">
 							<h3>Constructors</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite"><a href="participant.html#constructor" class="tsd-kind-icon">constructor</a></li>
+								<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><a href="participant.html#constructor" class="tsd-kind-icon">constructor</a></li>
 							</ul>
 						</section>
 						<section class="tsd-index-section ">
 							<h3>Properties</h3>
 							<ul class="tsd-index-list">
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="participant.html#active" class="tsd-kind-icon">active</a></li>
-								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-overwrite"><a href="participant.html#api_key" class="tsd-kind-icon">api_<wbr>key</a></li>
+								<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><a href="participant.html#api_key" class="tsd-kind-icon">api_<wbr>key</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="participant.html#attached_participatable_portrait_url" class="tsd-kind-icon">attached_<wbr>participatable_<wbr>portrait_<wbr>url</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="participant.html#baseurl" class="tsd-kind-icon">base<wbr>Url</a></li>
 								<li class="tsd-kind-property tsd-parent-kind-class"><a href="participant.html#can_check_in" class="tsd-kind-icon">can_<wbr>check_<wbr>in</a></li>
@@ -137,18 +138,18 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Constructors</h2>
-				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 					<a name="constructor" class="tsd-anchor"></a>
 					<h3>constructor</h3>
-					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
-						<li class="tsd-signature tsd-kind-icon">new <wbr>Participant<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, baseUrl<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, data<span class="tsd-signature-symbol">?: </span><a href="../interfaces/participantinterfaces.participantresponseobject.html" class="tsd-signature-type">participantResponseObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="participant.html" class="tsd-signature-type">Participant</a></li>
+					<ul class="tsd-signatures tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
+						<li class="tsd-signature tsd-kind-icon">new <wbr>Participant<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, baseUrl<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, data<span class="tsd-signature-symbol">?: </span><a href="../interfaces/participantinterfaces.participantresponseobject.html" class="tsd-signature-type" data-tsd-kind="Interface">participantResponseObject</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><a href="participant.html" class="tsd-signature-type" data-tsd-kind="Class">Participant</a></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
-								<p>Overrides <a href="challongebase.html">ChallongeBase</a>.<a href="challongebase.html#constructor">constructor</a></p>
+								<p>Inherited from <a href="challongebase.html">ChallongeBase</a>.<a href="challongebase.html#constructor">constructor</a></p>
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L30">participant.ts:30</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L30">participant.ts:30</a></li>
 								</ul>
 							</aside>
 							<h4 class="tsd-parameters-title">Parameters</h4>
@@ -163,10 +164,10 @@
 									<h5>id: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <a href="../interfaces/participantinterfaces.participantresponseobject.html" class="tsd-signature-type">participantResponseObject</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> data: <a href="../interfaces/participantinterfaces.participantresponseobject.html" class="tsd-signature-type" data-tsd-kind="Interface">participantResponseObject</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <a href="participant.html" class="tsd-signature-type">Participant</a></h4>
+							<h4 class="tsd-returns-title">Returns <a href="participant.html" class="tsd-signature-type" data-tsd-kind="Class">Participant</a></h4>
 						</li>
 					</ul>
 				</section>
@@ -179,19 +180,16 @@
 					<div class="tsd-signature tsd-kind-icon">active<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L4">participant.ts:4</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L4">participant.ts:4</a></li>
 						</ul>
 					</aside>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
+				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 					<a name="api_key" class="tsd-anchor"></a>
 					<h3>api_<wbr>key</h3>
 					<div class="tsd-signature tsd-kind-icon">api_<wbr>key<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<p>Overrides <a href="challongebase.html">ChallongeBase</a>.<a href="challongebase.html#api_key">api_key</a></p>
-						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L32">participant.ts:32</a></li>
-						</ul>
+						<p>Inherited from <a href="challongebase.html">ChallongeBase</a>.<a href="challongebase.html#api_key">api_key</a></p>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
@@ -200,7 +198,7 @@
 					<div class="tsd-signature tsd-kind-icon">attached_<wbr>participatable_<wbr>portrait_<wbr>url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L27">participant.ts:27</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L27">participant.ts:27</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -209,9 +207,6 @@
 					<h3>base<wbr>Url</h3>
 					<div class="tsd-signature tsd-kind-icon">base<wbr>Url<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L32">participant.ts:32</a></li>
-						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
@@ -220,7 +215,7 @@
 					<div class="tsd-signature tsd-kind-icon">can_<wbr>check_<wbr>in<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L28">participant.ts:28</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L28">participant.ts:28</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -230,7 +225,7 @@
 					<div class="tsd-signature tsd-kind-icon">challonge_<wbr>email_<wbr>address_<wbr>verified<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L19">participant.ts:19</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L19">participant.ts:19</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -240,7 +235,7 @@
 					<div class="tsd-signature tsd-kind-icon">challonge_<wbr>username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L18">participant.ts:18</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L18">participant.ts:18</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -250,7 +245,7 @@
 					<div class="tsd-signature tsd-kind-icon">checked_<wbr>in<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L29">participant.ts:29</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L29">participant.ts:29</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -260,7 +255,7 @@
 					<div class="tsd-signature tsd-kind-icon">checked_<wbr>in_<wbr>at<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L5">participant.ts:5</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L5">participant.ts:5</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -270,7 +265,7 @@
 					<div class="tsd-signature tsd-kind-icon">confirm_<wbr>remove<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L22">participant.ts:22</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L22">participant.ts:22</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -280,7 +275,7 @@
 					<div class="tsd-signature tsd-kind-icon">created_<wbr>at<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L6">participant.ts:6</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L6">participant.ts:6</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -290,7 +285,7 @@
 					<div class="tsd-signature tsd-kind-icon">display_<wbr>name_<wbr>with_<wbr>invitation_<wbr>email_<wbr>address<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L24">participant.ts:24</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L24">participant.ts:24</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -300,7 +295,7 @@
 					<div class="tsd-signature tsd-kind-icon">email_<wbr>hash<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L25">participant.ts:25</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L25">participant.ts:25</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -310,7 +305,7 @@
 					<div class="tsd-signature tsd-kind-icon">final_<wbr>rank<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L7">participant.ts:7</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L7">participant.ts:7</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -320,7 +315,7 @@
 					<div class="tsd-signature tsd-kind-icon">group_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L8">participant.ts:8</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L8">participant.ts:8</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -330,7 +325,7 @@
 					<div class="tsd-signature tsd-kind-icon">icon<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L9">participant.ts:9</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L9">participant.ts:9</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -339,9 +334,6 @@
 					<h3>id</h3>
 					<div class="tsd-signature tsd-kind-icon">id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
-						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L32">participant.ts:32</a></li>
-						</ul>
 					</aside>
 				</section>
 				<section class="tsd-panel tsd-member tsd-kind-property tsd-parent-kind-class">
@@ -350,7 +342,7 @@
 					<div class="tsd-signature tsd-kind-icon">invitation_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L10">participant.ts:10</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L10">participant.ts:10</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -360,7 +352,7 @@
 					<div class="tsd-signature tsd-kind-icon">invitation_<wbr>pending<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L23">participant.ts:23</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L23">participant.ts:23</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -370,7 +362,7 @@
 					<div class="tsd-signature tsd-kind-icon">invite_<wbr>email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">null</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L11">participant.ts:11</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L11">participant.ts:11</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -380,7 +372,7 @@
 					<div class="tsd-signature tsd-kind-icon">misc<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L12">participant.ts:12</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L12">participant.ts:12</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -390,7 +382,7 @@
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L13">participant.ts:13</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L13">participant.ts:13</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -400,7 +392,7 @@
 					<div class="tsd-signature tsd-kind-icon">on_<wbr>waiting_<wbr>list<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L14">participant.ts:14</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L14">participant.ts:14</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -410,7 +402,7 @@
 					<div class="tsd-signature tsd-kind-icon">participatable_<wbr>or_<wbr>invitation_<wbr>attached<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L21">participant.ts:21</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L21">participant.ts:21</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -420,7 +412,7 @@
 					<div class="tsd-signature tsd-kind-icon">reactivatable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L30">participant.ts:30</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L30">participant.ts:30</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -430,7 +422,7 @@
 					<div class="tsd-signature tsd-kind-icon">removable<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">boolean</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L20">participant.ts:20</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L20">participant.ts:20</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -440,7 +432,7 @@
 					<div class="tsd-signature tsd-kind-icon">seed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L15">participant.ts:15</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L15">participant.ts:15</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -450,7 +442,7 @@
 					<div class="tsd-signature tsd-kind-icon">tournament_<wbr>id<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L16">participant.ts:16</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L16">participant.ts:16</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -460,7 +452,7 @@
 					<div class="tsd-signature tsd-kind-icon">updated_<wbr>at<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">Date</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L17">participant.ts:17</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L17">participant.ts:17</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -470,7 +462,7 @@
 					<div class="tsd-signature tsd-kind-icon">username<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L26">participant.ts:26</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L26">participant.ts:26</a></li>
 						</ul>
 					</aside>
 				</section>
@@ -481,13 +473,13 @@
 					<a name="checkin" class="tsd-anchor"></a>
 					<h3>check<wbr>In</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">check<wbr>In<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">check<wbr>In<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L61">participant.ts:61</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L61">participant.ts:61</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -495,7 +487,7 @@
 									<p>Checks a participant in, setting checked_in_at to the current time.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -503,13 +495,13 @@
 					<a name="destroy" class="tsd-anchor"></a>
 					<h3>destroy</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">destroy<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L85">participant.ts:85</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L85">participant.ts:85</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -519,7 +511,7 @@
 									participant inactive, automatically forfeiting his/her remaining matches.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -527,13 +519,13 @@
 					<a name="get" class="tsd-anchor"></a>
 					<h3>get</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="participant.html" class="tsd-signature-type">Participant</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">get<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="participant.html" class="tsd-signature-type" data-tsd-kind="Class">Participant</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L41">participant.ts:41</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L41">participant.ts:41</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -541,7 +533,7 @@
 									<p>Retrieve a single participant data.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="participant.html" class="tsd-signature-type">Participant</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="participant.html" class="tsd-signature-type" data-tsd-kind="Class">Participant</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -549,13 +541,13 @@
 					<a name="undocheckin" class="tsd-anchor"></a>
 					<h3>undo<wbr>Check<wbr>In</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">undo<wbr>Check<wbr>In<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">undo<wbr>Check<wbr>In<span class="tsd-signature-symbol">(</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L72">participant.ts:72</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L72">participant.ts:72</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -564,7 +556,7 @@
 									nil.</p>
 								</div>
 							</div>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">Object</span><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><span class="tsd-signature-type">unknown</span><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -572,13 +564,13 @@
 					<a name="update" class="tsd-anchor"></a>
 					<h3>update</h3>
 					<ul class="tsd-signatures tsd-kind-method tsd-parent-kind-class">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">?: </span><a href="../interfaces/participantinterfaces.updateparticipantrequest.html" class="tsd-signature-type">updateParticipantRequest</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="participant.html" class="tsd-signature-type">Participant</a><span class="tsd-signature-symbol">&gt;</span></li>
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>params<span class="tsd-signature-symbol">?: </span><a href="../interfaces/participantinterfaces.updateparticipantrequest.html" class="tsd-signature-type" data-tsd-kind="Interface">updateParticipantRequest</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="participant.html" class="tsd-signature-type" data-tsd-kind="Class">Participant</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/participant.ts#L51">participant.ts:51</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/participant.ts#L51">participant.ts:51</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -589,10 +581,10 @@
 							<h4 class="tsd-parameters-title">Parameters</h4>
 							<ul class="tsd-parameters">
 								<li>
-									<h5><span class="tsd-flag ts-flagOptional">Optional</span> params: <a href="../interfaces/participantinterfaces.updateparticipantrequest.html" class="tsd-signature-type">updateParticipantRequest</a></h5>
+									<h5><span class="tsd-flag ts-flagOptional">Optional</span> params: <a href="../interfaces/participantinterfaces.updateparticipantrequest.html" class="tsd-signature-type" data-tsd-kind="Interface">updateParticipantRequest</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="participant.html" class="tsd-signature-type">Participant</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="participant.html" class="tsd-signature-type" data-tsd-kind="Class">Participant</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -601,8 +593,8 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
 					</li>
 				</ul>
 			</nav>
@@ -625,13 +617,13 @@
 					<li class="current tsd-kind-class">
 						<a href="participant.html" class="tsd-kind-icon">Participant</a>
 						<ul>
-							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited">
 								<a href="participant.html#constructor" class="tsd-kind-icon">constructor</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
 								<a href="participant.html#active" class="tsd-kind-icon">active</a>
 							</li>
-							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-overwrite">
+							<li class=" tsd-kind-property tsd-parent-kind-class tsd-is-inherited">
 								<a href="participant.html#api_key" class="tsd-kind-icon">api_<wbr>key</a>
 							</li>
 							<li class=" tsd-kind-property tsd-parent-kind-class">
@@ -740,30 +732,6 @@
 					<li class=" tsd-kind-class">
 						<a href="tournament.html" class="tsd-kind-icon">Tournament</a>
 					</li>
-					<li class=" tsd-kind-interface">
-						<a href="../interfaces/challongebase.html" class="tsd-kind-icon">challonge<wbr>Base</a>
-					</li>
-					<li class=" tsd-kind-variable">
-						<a href="../globals.html#endpoint" class="tsd-kind-icon">endpoint</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#buildresponse" class="tsd-kind-icon">build<wbr>Response</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#deleterequest" class="tsd-kind-icon">delete<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#getrequest" class="tsd-kind-icon">get<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#postrequest" class="tsd-kind-icon">post<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#putrequest" class="tsd-kind-icon">put<wbr>Request</a>
-					</li>
-					<li class=" tsd-kind-function">
-						<a href="../globals.html#url" class="tsd-kind-icon">url</a>
-					</li>
 				</ul>
 			</nav>
 		</div>
@@ -774,65 +742,24 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

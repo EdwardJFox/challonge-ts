@@ -3,17 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>MatchAdapter | ChallongeTS</title>
-	<meta name="description" content="">
+	<title>MatchAdapter | challonge-ts</title>
+	<meta name="description" content="Documentation for challonge-ts">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">ChallongeTS</a>
+					<a href="../index.html" class="title">challonge-ts</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,8 +39,8 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -51,13 +52,13 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">challonge-ts</a>
 				</li>
 				<li>
 					<a href="matchadapter.html">MatchAdapter</a>
 				</li>
 			</ul>
-			<h1>Module MatchAdapter</h1>
+			<h1>Namespace MatchAdapter</h1>
 		</div>
 	</div>
 </header>
@@ -78,10 +79,10 @@
 						<section class="tsd-index-section ">
 							<h3>Functions</h3>
 							<ul class="tsd-index-list">
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="matchadapter.html#index" class="tsd-kind-icon">index</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="matchadapter.html#reopen" class="tsd-kind-icon">reopen</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="matchadapter.html#show" class="tsd-kind-icon">show</a></li>
-								<li class="tsd-kind-function tsd-parent-kind-module"><a href="matchadapter.html#update" class="tsd-kind-icon">update</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="matchadapter.html#index" class="tsd-kind-icon">index</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="matchadapter.html#reopen" class="tsd-kind-icon">reopen</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="matchadapter.html#show" class="tsd-kind-icon">show</a></li>
+								<li class="tsd-kind-function tsd-parent-kind-namespace"><a href="matchadapter.html#update" class="tsd-kind-icon">update</a></li>
 							</ul>
 						</section>
 					</div>
@@ -89,17 +90,17 @@
 			</section>
 			<section class="tsd-panel-group tsd-member-group ">
 				<h2>Functions</h2>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="index" class="tsd-anchor"></a>
 					<h3>index</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tournament_url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.indexmatchesresponse.html" class="tsd-signature-type">indexMatchesResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">index<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tournament_url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.indexmatchesresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">indexMatchesResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/adapter/matches.ts#L7">adapter/matches.ts:7</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/adapter/matches.ts#L7">adapter/matches.ts:7</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -116,21 +117,21 @@
 									<h5>tournament_url: <span class="tsd-signature-type">string</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.indexmatchesresponse.html" class="tsd-signature-type">indexMatchesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.indexmatchesresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">indexMatchesResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="reopen" class="tsd-anchor"></a>
 					<h3>reopen</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">reopen<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tournament_url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, match_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.reopenmatchresponse.html" class="tsd-signature-type">reopenMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">reopen<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tournament_url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, match_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.reopenmatchresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">reopenMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/adapter/matches.ts#L40">adapter/matches.ts:40</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/adapter/matches.ts#L40">adapter/matches.ts:40</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -150,21 +151,21 @@
 									<h5>match_id: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.reopenmatchresponse.html" class="tsd-signature-type">reopenMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.reopenmatchresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">reopenMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="show" class="tsd-anchor"></a>
 					<h3>show</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">show<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tournament_url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, match_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.showmatchresponse.html" class="tsd-signature-type">showMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">show<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tournament_url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, match_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.showmatchresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">showMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/adapter/matches.ts#L18">adapter/matches.ts:18</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/adapter/matches.ts#L18">adapter/matches.ts:18</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -184,21 +185,21 @@
 									<h5>match_id: <span class="tsd-signature-type">number</span></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.showmatchresponse.html" class="tsd-signature-type">showMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.showmatchresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">showMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
-				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-module">
+				<section class="tsd-panel tsd-member tsd-kind-function tsd-parent-kind-namespace">
 					<a name="update" class="tsd-anchor"></a>
 					<h3>update</h3>
-					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-module">
-						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tournament_url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, match_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, params<span class="tsd-signature-symbol">: </span><a href="../interfaces/matchinterfaces.updatematchesrequest.html" class="tsd-signature-type">updateMatchesRequest</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.updatematchresponse.html" class="tsd-signature-type">updateMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
+					<ul class="tsd-signatures tsd-kind-function tsd-parent-kind-namespace">
+						<li class="tsd-signature tsd-kind-icon">update<span class="tsd-signature-symbol">(</span>api_key<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, tournament_url<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">string</span>, match_id<span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">number</span>, params<span class="tsd-signature-symbol">: </span><a href="../interfaces/matchinterfaces.updatematchesrequest.html" class="tsd-signature-type" data-tsd-kind="Interface">updateMatchesRequest</a><span class="tsd-signature-symbol">)</span><span class="tsd-signature-symbol">: </span><span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.updatematchresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">updateMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></li>
 					</ul>
 					<ul class="tsd-descriptions">
 						<li class="tsd-description">
 							<aside class="tsd-sources">
 								<ul>
-									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/adapter/matches.ts#L29">adapter/matches.ts:29</a></li>
+									<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/adapter/matches.ts#L29">adapter/matches.ts:29</a></li>
 								</ul>
 							</aside>
 							<div class="tsd-comment tsd-typography">
@@ -218,10 +219,10 @@
 									<h5>match_id: <span class="tsd-signature-type">number</span></h5>
 								</li>
 								<li>
-									<h5>params: <a href="../interfaces/matchinterfaces.updatematchesrequest.html" class="tsd-signature-type">updateMatchesRequest</a></h5>
+									<h5>params: <a href="../interfaces/matchinterfaces.updatematchesrequest.html" class="tsd-signature-type" data-tsd-kind="Interface">updateMatchesRequest</a></h5>
 								</li>
 							</ul>
-							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.updatematchresponse.html" class="tsd-signature-type">updateMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
+							<h4 class="tsd-returns-title">Returns <span class="tsd-signature-type">Promise</span><span class="tsd-signature-symbol">&lt;</span><a href="../interfaces/matchinterfaces.updatematchresponse.html" class="tsd-signature-type" data-tsd-kind="Interface">updateMatchResponse</a><span class="tsd-signature-symbol">&gt;</span></h4>
 						</li>
 					</ul>
 				</section>
@@ -230,50 +231,47 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="baseinterfaces.html">Base<wbr>Interfaces</a>
-					</li>
-					<li class="current tsd-kind-module">
+					<li class="current tsd-kind-namespace">
 						<a href="matchadapter.html">Match<wbr>Adapter</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="matchattachmentadapter.html">Match<wbr>Attachment<wbr>Adapter</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="matchattachmentinterfaces.html">Match<wbr>Attachment<wbr>Interfaces</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="matchinterfaces.html">Match<wbr>Interfaces</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="participantadapter.html">Participant<wbr>Adapter</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="participantinterfaces.html">Participant<wbr>Interfaces</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="tournamentadapter.html">Tournament<wbr>Adapter</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="tournamentinterfaces.html">Tournament<wbr>Interfaces</a>
 					</li>
 				</ul>
 			</nav>
 			<nav class="tsd-navigation secondary menu-sticky">
 				<ul class="before-current">
-					<li class=" tsd-kind-function tsd-parent-kind-module">
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="matchadapter.html#index" class="tsd-kind-icon">index</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="matchadapter.html#reopen" class="tsd-kind-icon">reopen</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="matchadapter.html#show" class="tsd-kind-icon">show</a>
 					</li>
-					<li class=" tsd-kind-function tsd-parent-kind-module">
+					<li class=" tsd-kind-function tsd-parent-kind-namespace">
 						<a href="matchadapter.html#update" class="tsd-kind-icon">update</a>
 					</li>
 				</ul>
@@ -286,65 +284,24 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>

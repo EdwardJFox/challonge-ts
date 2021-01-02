@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.TournamentAdapter = exports.ParticipantAdapter = exports.MatchAdapter = exports.MatchAttachmentAdapter = void 0;
 var matchAttachments_1 = require("./matchAttachments");
-exports.MatchAttachmentAdapter = matchAttachments_1.MatchAttachmentAdapter;
+Object.defineProperty(exports, "MatchAttachmentAdapter", { enumerable: true, get: function () { return matchAttachments_1.MatchAttachmentAdapter; } });
 var matches_1 = require("./matches");
-exports.MatchAdapter = matches_1.MatchAdapter;
+Object.defineProperty(exports, "MatchAdapter", { enumerable: true, get: function () { return matches_1.MatchAdapter; } });
 var participants_1 = require("./participants");
-exports.ParticipantAdapter = participants_1.ParticipantAdapter;
+Object.defineProperty(exports, "ParticipantAdapter", { enumerable: true, get: function () { return participants_1.ParticipantAdapter; } });
 var tournaments_1 = require("./tournaments");
-exports.TournamentAdapter = tournaments_1.TournamentAdapter;
+Object.defineProperty(exports, "TournamentAdapter", { enumerable: true, get: function () { return tournaments_1.TournamentAdapter; } });

@@ -3,17 +3,18 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>bulkAddParticipantParameters | ChallongeTS</title>
-	<meta name="description" content="">
+	<title>bulkAddParticipantParameters | challonge-ts</title>
+	<meta name="description" content="Documentation for challonge-ts">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="../assets/css/main.css">
+	<script async src="../assets/js/search.js" id="search-script"></script>
 </head>
 <body>
 <header>
 	<div class="tsd-page-toolbar">
 		<div class="container">
 			<div class="table-wrap">
-				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.js" data-base="..">
+				<div class="table-cell" id="tsd-search" data-index="../assets/js/search.json" data-base="..">
 					<div class="field">
 						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
 						<input id="tsd-search-field" type="text" />
@@ -22,7 +23,7 @@
 						<li class="state loading">Preparing search index...</li>
 						<li class="state failure">The search index is not available</li>
 					</ul>
-					<a href="../index.html" class="title">ChallongeTS</a>
+					<a href="../index.html" class="title">challonge-ts</a>
 				</div>
 				<div class="table-cell" id="tsd-widgets">
 					<div id="tsd-filter">
@@ -38,8 +39,8 @@
 							</div>
 							<input type="checkbox" id="tsd-filter-inherited" checked />
 							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
-							<input type="checkbox" id="tsd-filter-only-exported" />
-							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+							<input type="checkbox" id="tsd-filter-externals" checked />
+							<label class="tsd-widget" for="tsd-filter-externals">Externals</label>
 						</div>
 					</div>
 					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
@@ -51,7 +52,7 @@
 		<div class="container">
 			<ul class="tsd-breadcrumb">
 				<li>
-					<a href="../globals.html">Globals</a>
+					<a href="../modules.html">challonge-ts</a>
 				</li>
 				<li>
 					<a href="../modules/participantinterfaces.html">ParticipantInterfaces</a>
@@ -106,7 +107,7 @@
 					<div class="tsd-signature tsd-kind-icon">invite_<wbr>name_<wbr>or_<wbr>email<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/interfaces/participant.interface.ts#L42">interfaces/participant.interface.ts:42</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/interfaces/participant.interface.ts#L42">interfaces/participant.interface.ts:42</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -124,7 +125,7 @@
 					<div class="tsd-signature tsd-kind-icon">misc<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/interfaces/participant.interface.ts#L49">interfaces/participant.interface.ts:49</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/interfaces/participant.interface.ts#L49">interfaces/participant.interface.ts:49</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -140,7 +141,7 @@
 					<div class="tsd-signature tsd-kind-icon">name<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">string</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/interfaces/participant.interface.ts#L37">interfaces/participant.interface.ts:37</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/interfaces/participant.interface.ts#L37">interfaces/participant.interface.ts:37</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -156,7 +157,7 @@
 					<div class="tsd-signature tsd-kind-icon">seed<span class="tsd-signature-symbol">:</span> <span class="tsd-signature-type">number</span></div>
 					<aside class="tsd-sources">
 						<ul>
-							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7288a3e/src/interfaces/participant.interface.ts#L46">interfaces/participant.interface.ts:46</a></li>
+							<li>Defined in <a href="https://github.com/EdwardJFox/challonge-ts/blob/7292861/src/interfaces/participant.interface.ts#L46">interfaces/participant.interface.ts:46</a></li>
 						</ul>
 					</aside>
 					<div class="tsd-comment tsd-typography">
@@ -172,34 +173,31 @@
 		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 			<nav class="tsd-navigation primary">
 				<ul>
-					<li class="globals  ">
-						<a href="../globals.html"><em>Globals</em></a>
+					<li class=" ">
+						<a href="../modules.html">Exports</a>
 					</li>
-					<li class=" tsd-kind-module">
-						<a href="../modules/baseinterfaces.html">Base<wbr>Interfaces</a>
-					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/matchadapter.html">Match<wbr>Adapter</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/matchattachmentadapter.html">Match<wbr>Attachment<wbr>Adapter</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/matchattachmentinterfaces.html">Match<wbr>Attachment<wbr>Interfaces</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/matchinterfaces.html">Match<wbr>Interfaces</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/participantadapter.html">Participant<wbr>Adapter</a>
 					</li>
-					<li class="current tsd-kind-module">
+					<li class="current tsd-kind-namespace">
 						<a href="../modules/participantinterfaces.html">Participant<wbr>Interfaces</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/tournamentadapter.html">Tournament<wbr>Adapter</a>
 					</li>
-					<li class=" tsd-kind-module">
+					<li class=" tsd-kind-namespace">
 						<a href="../modules/tournamentinterfaces.html">Tournament<wbr>Interfaces</a>
 					</li>
 				</ul>
@@ -208,7 +206,7 @@
 				<ul class="before-current">
 				</ul>
 				<ul class="current">
-					<li class="current tsd-kind-interface tsd-parent-kind-module">
+					<li class="current tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.bulkaddparticipantparameters.html" class="tsd-kind-icon">bulk<wbr>Add<wbr>Participant<wbr>Parameters</a>
 						<ul>
 							<li class=" tsd-kind-property tsd-parent-kind-interface">
@@ -227,52 +225,52 @@
 					</li>
 				</ul>
 				<ul class="after-current">
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.bulkaddparticipantsrequest.html" class="tsd-kind-icon">bulk<wbr>Add<wbr>Participants<wbr>Request</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.bulkaddparticipantsresposne.html" class="tsd-kind-icon">bulk<wbr>Add<wbr>Participants<wbr>Resposne</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.checkinparticipantresponse.html" class="tsd-kind-icon">check<wbr>InParticipant<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.clearparticipantsresponse.html" class="tsd-kind-icon">clear<wbr>Participants<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.createparticipantrequest.html" class="tsd-kind-icon">create<wbr>Participant<wbr>Request</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.createparticipantresponse.html" class="tsd-kind-icon">create<wbr>Participant<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.destroyparticipantresponse.html" class="tsd-kind-icon">destroy<wbr>Participant<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.indexparticipantsresponse.html" class="tsd-kind-icon">index<wbr>Participants<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.participantactions.html" class="tsd-kind-icon">participant<wbr>Actions</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.participantparameters.html" class="tsd-kind-icon">participant<wbr>Parameters</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.participantresponseobject.html" class="tsd-kind-icon">participant<wbr>Response<wbr>Object</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.randomizeparticipantsresponse.html" class="tsd-kind-icon">randomize<wbr>Participants<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.showparticipantresponse.html" class="tsd-kind-icon">show<wbr>Participant<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.undocheckinparticipantresponse.html" class="tsd-kind-icon">undo<wbr>Check<wbr>InParticipant<wbr>Response</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.updateparticipantrequest.html" class="tsd-kind-icon">update<wbr>Participant<wbr>Request</a>
 					</li>
-					<li class=" tsd-kind-interface tsd-parent-kind-module">
+					<li class=" tsd-kind-interface tsd-parent-kind-namespace">
 						<a href="participantinterfaces.updateparticipantresponse.html" class="tsd-kind-icon">update<wbr>Participant<wbr>Response</a>
 					</li>
 				</ul>
@@ -285,65 +283,27 @@
 		<h2>Legend</h2>
 		<div class="tsd-legend-group">
 			<ul class="tsd-legend">
-				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
-				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
-				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
-				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
-				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
-				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
-				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
-				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
-				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
-				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
-				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
-				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
 				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
-				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
 			</ul>
 			<ul class="tsd-legend">
 				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
 				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
-				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
 			</ul>
 			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
 				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
-				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
-			</ul>
-			<ul class="tsd-legend">
-				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
-				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
 			</ul>
 		</div>
 	</div>
 </footer>
 <div class="container tsd-generator">
-	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+	<p>Generated using <a href="https://typedoc.org/" target="_blank">TypeDoc</a></p>
 </div>
 <div class="overlay"></div>
 <script src="../assets/js/main.js"></script>
-<script>if (location.protocol == 'file:') document.write('<script src="../assets/js/search.js"><' + '/script>');</script>
 </body>
 </html>
